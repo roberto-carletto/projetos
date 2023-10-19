@@ -497,8 +497,7 @@ def controlador():
             "VL_OLIMPIA_SP_0446": 4, # Terça-feira
             "ALPHAVILLE_SP_1094": 4, # Terça-feira
             "SBERNARDO_SP_1175": 4, # Terça-feira
-            "CAMPINAS_SP_1507": 4, # Terça-feira
-            "BRASILIA_DF_0950": 3 # Sexta-feira
+            "CAMPINAS_SP_1507": 4 # Terça-feira
     }
 
     lab_vacina = {
@@ -508,8 +507,7 @@ def controlador():
             "ALPHAVILLE_SP_1094": 0, # Terça-feira
             "SBERNARDO_SP_1175": 0, # Terça-feira
             "CAMPINAS_SP_1507": 4, # Terça-feira
-            "TATUAPE_SP_1337": 4, # Quarta-feira
-            "BRASILIA": 3 # Sexta-feira
+            "TATUAPE_SP_1337": 4 # Quarta-feira
 
     }
 
@@ -522,8 +520,7 @@ def controlador():
             "ALPHAVILLE_SP_1094": 1, # Quinta-feira
             "SBERNARDO_SP_1175": 0, # Quinta-feira
             "CAMPINAS_SP_1507": 1, # Quinta-feira
-            "TATUAPE_SP_1337": 1            , # Sexta-feira
-            "BRASILIA": 3 # Sexta-feira
+            "TATUAPE_SP_1337": 1  # Sexta-feira
 
     }
 
@@ -553,7 +550,7 @@ def controlador():
     }
 
     insumos = {
-        "BRASILIA_DF_0950": 2 ,
+        "BRASILIA_DF_0950": 3,
         "RECIFE_PE_1760":4
     }
 
