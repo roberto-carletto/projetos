@@ -13,7 +13,7 @@ def realizar_login(page):
     username_input = page.locator('xpath=/html/body/div[2]/div[3]/div/main/form/input[1]')
     username_input.fill("mariana.maciel@beepsaude.com.br")
 
-    time.sleep(2)
+    time.sleep(5)
 
     password_input = page.locator('xpath=/html/body/div[2]/div[3]/div/main/form/input[2]')
     password_input.fill("Za7yu8ma@")
