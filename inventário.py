@@ -514,12 +514,12 @@ def controlador():
     vacina = {
             "SC_RJ_1256": 0, # Segunda-feira
             "BARRA_RJ_0608": 0, # Segunda-feira
-            "TATUAPE_SP_1337": 4, # Segunda-feira
-            "VL_OLIMPIA_SP_0446": 4, # Terça-feira
-            "ALPHAVILLE_SP_1094": 4, # Terça-feira
-            "SBERNARDO_SP_1175": 4, # Terça-feira
-            "CAMPINAS_SP_1507": 4, # Terça-feira
-            "BRASILIA_DF_0950": 7 # Sexta-feira
+            "TATUAPE_SP_1337": 6, # Segunda-feira
+            "VL_OLIMPIA_SP_0446": 6, # Terça-feira
+            "ALPHAVILLE_SP_1094": 6, # Terça-feira
+            "SBERNARDO_SP_1175": 6, # Terça-feira
+            "CAMPINAS_SP_1507": 6, # Terça-feira
+            "BRASILIA_DF_0950": 6 # Sexta-feira
     }
 
     lab_vacina = {
@@ -528,15 +528,15 @@ def controlador():
             "VL_OLIMPIA_SP_0446": 1, # Terça-feira
             "ALPHAVILLE_SP_1094": 1, # Terça-feira
             "SBERNARDO_SP_1175": 1, # Terça-feira
-            "CAMPINAS_SP_1507": 4, # Terça-feira
-            "TATUAPE_SP_1337": 4, # Quarta-feira
+            "CAMPINAS_SP_1507": 6, # Terça-feira
+            "TATUAPE_SP_1337": 6, # Quarta-feira
             "BRASILIA": 7 # Sexta-feira
 
     }
 
     lab = {
-            "RECIFE_PE_1760":4,
-            "CURITIBA_PR_0870":4,
+            "RECIFE_PE_1760":0,
+            "CURITIBA_PR_0870":0,
             "SC_RJ_1256": 0, # Quarta-feira
             "BARRA_RJ_0608": 0, # Quarta-feira
             "VL_OLIMPIA_SP_0446": 0, # Quinta-feira
@@ -556,13 +556,13 @@ def controlador():
             "SBERNARDO_SP_1175": 1, # Terça-feira
             "TATUAPE_SP_1337": 1, # Terça-feira
             "CAMPINAS_SP_1507": 1, # Terça-feira
-            "BRASILIA": 4 # Terça-feira
+            "BRASILIA": 0 # Terça-feira
     }
 
     # descartaveis["descartáveis"]
     descartaveis = {
-            "SC_RJ_1256": 3, # Sexta-feira
-            "BARRA_RJ_0608": 3, # Sexta-feira
+            "SC_RJ_1256": 4, # Sexta-feira
+            "BARRA_RJ_0608": 4, # Sexta-feira
             "VL_OLIMPIA_SP_0446": 3, # Sexta-feira
             "ALPHAVILLE_SP_1094": 3, # Sexta-feira
             "SBERNARDO_SP_1175": 3, # Sexta-feira

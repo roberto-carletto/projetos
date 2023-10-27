@@ -61,8 +61,9 @@ def processos_programados(page):
 
     for _ in range(7):
         page.keyboard.press("Tab")
-    time.sleep(3)
+    time.sleep(5)
 
+    
     page.keyboard.press("Enter")
 
 
@@ -92,6 +93,34 @@ def encontrar_e_digitar_hub(page, hub,tipo):
     input_element.fill(tipo)
     time.sleep(3)
 
+    for _ in range(7):
+        page.keyboard.press("Tab")
+    time.sleep(3)
+
+    for _ in range(1):
+        page.keyboard.press("up")
+    
+    time.sleep(3)
+
+    for _ in range(16):
+        page.keyboard.press("Tab")
+    time.sleep(3)
+
+    for _ in range(1):
+        page.keyboard.press("up")
+    
+    time.sleep(3)
+
+    for _ in range(7):
+        page.keyboard.press("Tab")
+    time.sleep(3)
+
+
+
+
+
+
+    
 
 
    
