@@ -6,7 +6,24 @@ import pandas
 import time
 import os
 
-
+url_teste = "https://fa-evcj-test-saasfaprod1.fa.ocs.oraclecloud.com"
+url_producao = "https://fa-evcj-saasfaprod1.fa.ocs.oraclecloud.com"
+print("Escolha uma opção:")
+print("1 - Executar em ambiente de teste")
+print("2 - Executar em ambiente de produção")
+x = input("=> ")
+if x == '1':
+    url = url_teste
+    print("O programa está sendo executado em ambiente de teste")
+elif x == '2':
+    print("O programa será executado em ambiente de produção")
+    y = input("Tem certeza?(s/n): ")
+    if y == 's':
+        url = url_producao
+        print("O programa está sendo executado em ambiente de produção")
+    else:
+        url = url_teste
+        print("O programa está sendo executado em ambiente de teste")
 
 def fazer_login(page):
     page.goto("https://login-evcj-test-saasfaprod1.fa.ocs.oraclecloud.com")
@@ -23,7 +40,7 @@ def fazer_login(page):
     time.sleep(3)
 
 def acessar_contagens_de_ciclos(page):
-    page.goto("https://fa-evcj-test-saasfaprod1.fa.ocs.oraclecloud.com/fscmUI/faces/FuseWelcome?_afrLoop=14629167889228257&fnd=%3B%3B%3B%3Bfalse%3B256%3B%3B%3B&_adf.ctrl-state=m8rxhn2th_736")
+    page.goto(url+"/fscmUI/faces/FuseWelcome?_afrLoop=14629167889228257&fnd=%3B%3B%3B%3Bfalse%3B256%3B%3B%3B&_adf.ctrl-state=m8rxhn2th_736")
     time.sleep(3)
 
     page.keyboard.press("Enter")
@@ -93,7 +110,7 @@ def acessar_a_açao(page):
 
 def pagina_inicial_execuçao_de_cadeia_suprimento(page):
     # Navegue para a URL da página de execução de cadeia de suprimentos
-    page.goto("https://fa-evcj-test-saasfaprod1.fa.ocs.oraclecloud.com/fscmUI/faces/FuseWelcome?_afrLoop=14629167889228257&fnd=%3B%3B%3B%3Bfalse%3B256%3B%3B%3B&_adf.ctrl-state=m8rxhn2th_736")
+    page.goto(url+"/fscmUI/faces/FuseWelcome?_afrLoop=14629167889228257&fnd=%3B%3B%3B%3Bfalse%3B256%3B%3B%3B&_adf.ctrl-state=m8rxhn2th_736")
     time.sleep(6)
 
 def pagina_ferramenta(page):
@@ -130,7 +147,7 @@ def atualizar_processos(page):
     time.sleep(20) #deixar 20
 
 def pagina_inicial_novamente(page):
-    page.goto("https://fa-evcj-test-saasfaprod1.fa.ocs.oraclecloud.com/fscmUI/faces/FuseWelcome?_afrLoop=14629167889228257&fnd=%3B%3B%3B%3Bfalse%3B256%3B%3B%3B&_adf.ctrl-state=m8rxhn2th_736")
+    page.goto(url+"/fscmUI/faces/FuseWelcome?_afrLoop=14629167889228257&fnd=%3B%3B%3B%3Bfalse%3B256%3B%3B%3B&_adf.ctrl-state=m8rxhn2th_736")
     time.sleep(10)
 
     pyautogui.press('ENTER')
@@ -262,7 +279,7 @@ def novamente_acessar_a_açao(page):
 
 def retornar_pagina_inicial_execuçao_de_cadeia_suprimento(page):
     # Navegue para a URL da página de execução de cadeia de suprimentos
-    page.goto("https://fa-evcj-test-saasfaprod1.fa.ocs.oraclecloud.com/fscmUI/faces/FuseWelcome?_afrLoop=14629167889228257&fnd=%3B%3B%3B%3Bfalse%3B256%3B%3B%3B&_adf.ctrl-state=m8rxhn2th_736")
+    page.goto(url+"/fscmUI/faces/FuseWelcome?_afrLoop=14629167889228257&fnd=%3B%3B%3B%3Bfalse%3B256%3B%3B%3B&_adf.ctrl-state=m8rxhn2th_736")
     time.sleep(6)
 
 def retornar_pagina_ferramenta(page):
