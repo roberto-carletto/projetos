@@ -98,8 +98,9 @@ def encontrar_e_digitar_hub(page, hub,tipo):
     time.sleep(3)
 
     for _ in range(1):
-        page.keyboard.press("up")
-    
+        page.keyboard.press("ArrowDown")
+
+
     time.sleep(3)
 
     for _ in range(16):
@@ -107,8 +108,9 @@ def encontrar_e_digitar_hub(page, hub,tipo):
     time.sleep(3)
 
     for _ in range(1):
-        page.keyboard.press("up")
-    
+        page.keyboard.press("ArrowUp")
+
+
     time.sleep(3)
 
     for _ in range(7):
@@ -120,19 +122,17 @@ def encontrar_e_digitar_hub(page, hub,tipo):
 
 
 
-    
 
 
-   
     # Feche o navegador
     pyautogui.hotkey('ctrl', 'w')
-    
+
     # Após concluir as ações específicas, você pode imprimir uma mensagem de conclusão
-    
+
     print(f"Contagem concluída para o hub: {hub}")
     print(f"Contagem concluída para o tipo: {tipo}")
 
-    
+
 
 
 
@@ -144,10 +144,9 @@ def encontrar_e_digitar_hub(page, hub,tipo):
 
 
 def controlador():
-    
         lab = [
-            'SC_RJ_1256',
             'BARRA_RJ_0608',
+            'SC_RJ_1256',
             'TATUAPE_SP_1337',
             'VL_OLIMPIA_SP_0446',
             'ALPHAVILLE_SP_1094',
@@ -157,8 +156,8 @@ def controlador():
         ]
 
         sv = [
-            'SC_RJ_1256',
             'BARRA_RJ_0608',
+            'SC_RJ_1256',
             'TATUAPE_SP_1337',
             'VL_OLIMPIA_SP_0446',
             'ALPHAVILLE_SP_1094',
