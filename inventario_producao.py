@@ -46,11 +46,11 @@ def acessar_contagens_de_ciclos(page):
     page.keyboard.press("Enter")
     time.sleep(3)
 
-    page.locator('xpath=/html/body/div[1]/form/div/div/div/div[2]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[2]/div[1]/div/div[2]/div[2]/div[3]/div').click()
+    page.locator('xpath=/html/body/div[1]/form/div/div/div/div[1]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[2]/div[1]/div/div[2]/div[2]/div[3]/div').click()
     time.sleep(5)
 
 def mostrar_tarefas(page):
-    page.locator('xpath=/html/body/div[1]/form/div[1]/div/div/div[2]/div/div/div/div[3]/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div/div[1]/div[6]/table/tbody/tr/td[1]/div/div[1]').click()
+    page.locator('xpath=/html/body/div[1]/form/div[1]/div/div/div[1]/div/div/div/div[3]/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div/div[1]/div[6]/table/tbody/tr/td[1]/div/div[1]').click()
     time.sleep(5)
 
 def acessar_gerenciar_contagens_ciclos(page):
@@ -113,25 +113,29 @@ def pagina_inicial_execuçao_de_cadeia_suprimento(page):
     page.goto(url+"/fscmUI/faces/FuseWelcome?_afrLoop=14629167889228257&fnd=%3B%3B%3B%3Bfalse%3B256%3B%3B%3B&_adf.ctrl-state=m8rxhn2th_736")
     time.sleep(6)
 
+
+
+
+# inicio do novo elemento
 def pagina_ferramenta(page):
     # Localize o elemento da página usando o seletor XPath fornecido
-    ferramenta_element = page.locator('xpath=/html/body/div[1]/form/div/div/div/div[2]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[1]/div[2]/div/div[12]')
-
+    # ferramenta_element = page.locator('xpath=/html/body/div[1]/form/div/div/div/div[2]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[1]/div[2]/div/div[12]')
+    ferramenta_element = page.locator('xpath=/html/body/div[1]/form/div/div/div/div[1]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[1]/div[2]/div/div[12]')
     # Clique no elemento
     ferramenta_element.click()
 
     time.sleep(5)
 
 def processos_programados(page):
-    programados_element =  page.locator('xpath=/html/body/div[1]/form/div/div/div/div[2]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[2]/div[23]/div/div[2]/div[2]/div[5]/div')
-
+    # programados_element =  page.locator('xpath=/html/body/div[1]/form/div/div/div/div[2]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[2]/div[23]/div/div[2]/div[2]/div[5]/div')
+    programados_element = page.locator ('xpath=/html/body/div[1]/form/div/div/div/div[1]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[2]/div[23]/div/div[2]/div[2]/div[5]/div')
     programados_element.click()
 
     time.sleep(5)
 
 def atualizar_processos(page):
-    atualizar_element = page.locator('xpath=/html/body/div[1]/form/div/div/div/div[2]/div/div/div/div[3]/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div/div[1]/div[1]/div/div/div[1]/div/div[1]/table/tbody/tr/td[1]/div/div/div/div/div[2]/div/div/div[1]/div/div[1]/div[1]/div/div/table/tbody/tr/td[2]/div/div[1]/div[1]/table/tbody/tr/td[10]/div')
-
+    # atualizar_element = page.locator('xpath=/html/body/div[1]/form/div/div/div/div[2]/div/div/div/div[3]/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div/div[1]/div[1]/div/div/div[1]/div/div[1]/table/tbody/tr/td[1]/div/div/div/div/div[2]/div/div/div[1]/div/div[1]/div[1]/div/div/table/tbody/tr/td[2]/div/div[1]/div[1]/table/tbody/tr/td[10]/div')
+    atualizar_element = page.locator('xpath=/html/body/div[1]/form/div/div/div/div[1]/div/div/div/div[3]/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div/div[1]/div[1]/div/div/div[1]/div/div[1]/table/tbody/tr/td[1]/div/div/div/div/div[2]/div/div/div[1]/div/div[1]/div[1]/div/div/table/tbody/tr/td[2]/div/div[1]/div[1]/table/tbody/tr/td[10]/div')
     atualizar_element.click()
     time.sleep(10)
 
@@ -153,7 +157,8 @@ def pagina_inicial_novamente(page):
     pyautogui.press('ENTER')
 
 def elemento_da_seta(page):
-    seta_element = page.locator('xpath=/html/body/div[1]/form/div/div/div/div[2]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[1]/div[2]/div/div[12]')
+    # seta_element = page.locator('xpath=/html/body/div[1]/form/div/div/div/div[2]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[1]/div[2]/div/div[12]')
+    seta_element = page.locator('xpath=/html/body/div[1]/form/div/div/div/div[1]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[1]/div[2]/div/div[12]')
     seta_element.click()
 
     time.sleep(10)
@@ -170,12 +175,14 @@ def localizar_elemento():
     time.sleep(3)
 
 def elemento_da_pagina(page):
-    elemnto_da_pagina_element = page.locator('xpath=/html/body/div[1]/form/div/div/div/div[2]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[1]/div[1]/div[1]')
+    # elemnto_da_pagina_element = page.locator('xpath=/html/body/div[1]/form/div/div/div/div[2]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[1]/div[1]/div[1]')
+    elemnto_da_pagina_element = page.locator('xpath=/html/body/div[1]/form/div/div/div/div[1]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[1]/div[1]/div[1]')
     elemnto_da_pagina_element.click()  # Adicione parênteses aqui
     time.sleep(3)
 
 def terceira_elemento(page):
-    terceira_element = page.locator('xpath=/html/body/div[1]/form/div/div/div/div[2]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[1]/div[2]/div/div[7]')
+    # terceira_element = page.locator('xpath=/html/body/div[1]/form/div/div/div/div[2]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[1]/div[2]/div/div[7]')
+    terceira_element = page.locator('xpath=/html/body/div[1]/form/div/div/div/div[1]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[1]/div[2]/div/div[7]')
     terceira_element.click()  # Adicione parênteses aqui
     time.sleep(3)
     pyautogui.press('ENTER')
@@ -191,14 +198,17 @@ def pressionar_tecla_seta_e_enter():
     time.sleep(1)
 
 def procurar_elemento(page):
-    procurar_element = page.locator('xpath=/html/body/div[1]/form/div/div/div/div[2]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[1]/div[1]/div[1]')
+    # procurar_element = page.locator('xpath=/html/body/div[1]/form/div/div/div/div[2]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[1]/div[1]/div[1]')
+    procurar_element = page.locator('xpath=/html/body/div[1]/form/div/div/div/div[1]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[1]/div[1]/div[1]')
+   
     procurar_element.click()
     time.sleep(3)
 
     pyautogui.press('ENTER')
 
 def procurar_quarto_elemento(page):
-    quarto_element = page.locator('xpath=/html/body/div[1]/form/div/div/div/div[2]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[1]/div[2]/div/div[4]')
+    # quarto_element = page.locator('xpath=/html/body/div[1]/form/div/div/div/div[2]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[1]/div[2]/div/div[4]')
+    quarto_element = page.locator('xpath=/html/body/div[1]/form/div/div/div/div[1]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[1]/div[2]/div/div[4]')
     quarto_element.click()
     time.sleep(3)
     pyautogui.press('ENTER')
@@ -207,7 +217,8 @@ def procurar_quarto_elemento(page):
 
 
 def colocar_seta_novamente(page):
-    seta_element = page.locator('xpath=/html/body/div[1]/form/div/div/div/div[2]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[1]/div[1]/div[1]')
+    # seta_element = page.locator('xpath=/html/body/div[1]/form/div/div/div/div[2]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[1]/div[1]/div[1]')
+    seta_element = page.locator('xpath=/html/body/div[1]/form/div/div/div/div[1]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[1]/div[1]/div[1]')
     seta_element.click
     time.sleep(3)
     pyautogui.press('ENTER')
@@ -221,7 +232,8 @@ def procurar_o_inicio_da_pagina():
     time.sleep(1)
 
 def procurar_quinto_elemento(page):
-    quinto_element = page.locator('xpath=/html/body/div[1]/form/div/div/div/div[2]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[1]/div[1]/div[1]')
+    # quinto_element = page.locator('xpath=/html/body/div[1]/form/div/div/div/div[2]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[1]/div[1]/div[1]')
+    quinto_element = page.locator('xpath=/html/body/div[1]/form/div/div/div/div[1]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[1]/div[1]/div[1]')
     quinto_element.click()
     time.sleep(3)
     pyautogui.press('ENTER')
@@ -229,7 +241,8 @@ def procurar_quinto_elemento(page):
     time.sleep(3)
 
 def segunda_vez_gerenciamento_de_estoque(page):
-    gerenciamento_element = page.locator('xpath=/html/body/div[1]/form/div/div/div/div[2]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[2]/div[1]/div/div[2]/div[2]/div[3]/div')
+    # gerenciamento_element = page.locator('xpath=/html/body/div[1]/form/div/div/div/div[2]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[2]/div[1]/div/div[2]/div[2]/div[3]/div')
+    gerenciamento_element = page.locator('xpath=/html/body/div[1]/form/div/div/div/div[1]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[2]/div[1]/div/div[2]/div[2]/div[3]/div')
     gerenciamento_element.click()
     time.sleep(3)
     pyautogui.press('ENTER')
@@ -240,6 +253,7 @@ def novamente_mostrar_tarefas(page):
 
 def novamente_acessar_gerenciar_contagens_ciclos(page):
     page.locator('xpath=/html/body/div[1]/form/div[2]/div[2]/div/table/tbody/tr/td/div/table/tbody/tr/td[2]/div/div[1]/div/div/span/table/tbody/tr/td[1]/table').click()
+    
     time.sleep(5)
     page.keyboard.press('Enter')  # Pressione apenas a tecla Enter
     time.sleep(5)
@@ -512,8 +526,8 @@ def controlador():
 
 
     vacina = {
-            "SC_RJ_1256": 0, # Segunda-feira
-            "BARRA_RJ_0608": 0, # Segunda-feira
+            "SC_RJ_1256": 7, # Segunda-feira
+            "BARRA_RJ_0608": 7, # Segunda-feira
             "TATUAPE_SP_1337": 6, # Segunda-feira
             "VL_OLIMPIA_SP_0446": 6, # Terça-feira
             "ALPHAVILLE_SP_1094": 6, # Terça-feira
@@ -535,13 +549,13 @@ def controlador():
     }
 
     lab = {
-            "RECIFE_PE_1760":0,
-            "CURITIBA_PR_0870":0,
-            "SC_RJ_1256": 0, # Quarta-feira
-            "BARRA_RJ_0608": 0, # Quarta-feira
-            "VL_OLIMPIA_SP_0446": 0, # Quinta-feira
+            "RECIFE_PE_1760":4,
+            "CURITIBA_PR_0870":4,
+            "SC_RJ_1256": 4, # Quarta-feira
+            "BARRA_RJ_0608": 4, # Quarta-feira
+            "VL_OLIMPIA_SP_0446": 7, # Quinta-feira
             "ALPHAVILLE_SP_1094": 1, # Quinta-feira
-            "SBERNARDO_SP_1175": 0, # Quinta-feira
+            "SBERNARDO_SP_1175": 7, # Quinta-feira
             "CAMPINAS_SP_1507": 1, # Quinta-feira
             "TATUAPE_SP_1337": 1            , # Sexta-feira
             "BRASILIA": 7 # Sexta-feira
@@ -549,6 +563,7 @@ def controlador():
     }
 
     duraveis = {
+            "MACAE_RJ_2228":7,
             "SC_RJ_1256": 1, # Terça-feira
             "BARRA_RJ_0608": 1, # Terça-feira
             "VL_OLIMPIA_SP_0446": 1, # Terça-feira
@@ -556,11 +571,12 @@ def controlador():
             "SBERNARDO_SP_1175": 1, # Terça-feira
             "TATUAPE_SP_1337": 1, # Terça-feira
             "CAMPINAS_SP_1507": 1, # Terça-feira
-            "BRASILIA": 0 # Terça-feira
+            "BRASILIA": 7 # Terça-feira
     }
 
     # descartaveis["descartáveis"]
     descartaveis = {
+            "MACAE_RJ_2228":0,
             "SC_RJ_1256": 4, # Sexta-feira
             "BARRA_RJ_0608": 4, # Sexta-feira
             "VL_OLIMPIA_SP_0446": 3, # Sexta-feira
@@ -695,7 +711,7 @@ def controlador():
     for hub in hubs_descartaveis:
         print("Iniciando contagem do hub ", end='')
         print(hub)
-        if  hub == "BRASILIA_DF_0950": 
+        if  hub == "MACAE_RJ_2228": 
             contagem_inventario(hub, 'descartaveis', elementos[3])
             continue    
         contagem_inventario(hub,  "descartaveis", elementos[0])
