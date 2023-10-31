@@ -46,28 +46,30 @@ def acessar_contagens_de_ciclos(page):
     page.keyboard.press("Enter")
     time.sleep(3)
 
-    page.locator('xpath=/html/body/div[1]/form/div/div/div/div[2]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[2]/div[1]/div/div[2]/div[2]/div[3]/div').click()
-    time.sleep(5)
 
 def mostrar_tarefas(page):
-    page.locator('xpath=/html/body/div[1]/form/div[1]/div/div/div[2]/div/div/div/div[3]/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div/div[1]/div[6]/table/tbody/tr/td[1]/div/div[1]').click()
+    # page.locator('xpath=/html/body/div[1]/form/div[1]/div/div/div[2]/div/div/div/div[3]/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div/div[1]/div[6]/table/tbody/tr/td[1]/div/div[1]').click()
+    page.locator('xpath=/html/body/div[1]/form/div[1]/div/div/div[1]/div/div/div/div[3]/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div/div[1]/div[6]/table/tbody/tr/td[1]/div/div[1]').click()
     time.sleep(5)
 
 def acessar_gerenciar_contagens_ciclos(page):
-    page.locator('xpath=/html/body/div[1]/form/div[2]/div[2]/div/table/tbody/tr/td/div/table/tbody/tr/td[2]/div/div[1]/div/div/span/table/tbody/tr/td[1]/table').click()
+    # page.locator('xpath=/html/body/div[1]/form/div[2]/div[2]/div/table/tbody/tr/td/div/table/tbody/tr/td[2]/div/div[1]/div/div/span/table/tbody/tr/td[1]/table').click()
+    page.locator('xpath=/html/body/div[1]/form/div[2]/div[2]/div/table/tbody/tr/td/div/table/tbody/tr/td[2]/div/div[1]/div/div/span/table/tbody/tr/td[1]/table/tbody/tr/td[2]').click()
     time.sleep(5)
     page.keyboard.press('ArrowDown')
     page.keyboard.press('Enter')
     time.sleep(5)
 
 def acessar_organizacao(page):
-    page.locator('xpath=/html/body/div[1]/form/div[2]/div[2]/div/table/tbody/tr/td/div/table/tbody/tr/td[2]/div/div[1]/div/div/span/div/div[1]/div/div/table/tbody/tr/td/table/tbody/tr[2]/td[2]/div/div[2]/div/ul/li[2]/a').click()
+    # page.locator('xpath=/html/body/div[1]/form/div[2]/div[2]/div/table/tbody/tr/td/div/table/tbody/tr/td[2]/div/div[1]/div/div/span/div/div[1]/div/div/table/tbody/tr/td/table/tbody/tr[2]/td[2]/div/div[2]/div/ul/li[2]/a').click()
+    page.locator('xpath=/html/body/div[1]/form/div[2]/div[2]/div[1]/div[1]/table/tbody/tr/td/div/div/table/tbody/tr[2]/td[2]/table/tbody/tr/td[2]/span/input').click()
     time.sleep(4)
 
 
 def digitar_hub_com_base_no_dia_da_semana(page, hub):
 
     print(f'Digitando o hub: {hub}')
+    # input_element = page.locator('xpath=/html/body/div[1]/form/div[2]/div[2]/div[1]/div[1]/table/tbody/tr/td/div/div/table/tbody/tr[2]/td[2]/table/tbody/tr/td[2]/span/input')
     input_element = page.locator('xpath=/html/body/div[1]/form/div[2]/div[2]/div[1]/div[1]/table/tbody/tr/td/div/div/table/tbody/tr[2]/td[2]/table/tbody/tr/td[2]/span/input')
     input_element.click()
     input_element.fill(hub)
@@ -91,8 +93,8 @@ def clicar_elemento_por_dia(elemento,page):
 
 def acessar_a_açao(page):
 
-    page.locator('xpath=/html/body/div[1]/form/div[1]/div/div/div[2]/div/div/div/div[3]/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div/div[1]/div[2]/div/div/div[1]/div/div[1]/table/tbody/tr/td[1]/div/div/div/div/div/div/div/div/div/div/div/div/div[2]/div/div/div/div/div/div/div/div[3]/div[2]/div/span/div[1]/div[1]/div/div/table/tbody/tr/td[1]/div/div[1]/div[1]/table/tbody/tr/td[1]/div/div/table/tbody/tr/td[3]/div').click()
-
+    # page.locator('xpath=/html/body/div[1]/form/div[1]/div/div/div[2]/div/div/div/div[3]/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div/div[1]/div[2]/div/div/div[1]/div/div[1]/table/tbody/tr/td[1]/div/div/div/div/div/div/div/div/div/div/div/div/div[2]/div/div/div/div/div/div/div/div[3]/div[2]/div/span/div[1]/div[1]/div/div/table/tbody/tr/td[1]/div/div[1]/div[1]/table/tbody/tr/td[1]/div/div/table/tbody/tr/td[3]/div').click()
+    page.locator('xpath=/html/body/div[1]/form/div[1]/div/div/div[1]/div/div/div/div[3]/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div/div[1]/div[2]/div/div/div[1]/div/div[1]/table/tbody/tr/td[1]/div/div/div/div/div/div/div/div/div/div/div/div/div[2]/div/div/div/div/div/div/div/div[3]/div[2]/div/span/div[1]/div[1]/div/div/table/tbody/tr/td[1]/div/div[1]/div[1]/table/tbody/tr/td[1]/div/div/table/tbody/tr/td[3]/div').click()
     time.sleep(5)
 
     for _ in range(5):
@@ -512,8 +514,8 @@ def controlador():
 
 
     vacina = {
-            "SC_RJ_1256": 0, # Segunda-feira
-            "BARRA_RJ_0608": 0, # Segunda-feira
+            "SC_RJ_1256": 4, # Segunda-feira
+            "BARRA_RJ_0608": 4, # Segunda-feira
             "TATUAPE_SP_1337": 6, # Segunda-feira
             "VL_OLIMPIA_SP_0446": 6, # Terça-feira
             "ALPHAVILLE_SP_1094": 6, # Terça-feira
@@ -536,12 +538,12 @@ def controlador():
 
     lab = {
             "RECIFE_PE_1760":0,
-            "CURITIBA_PR_0870":0,
-            "SC_RJ_1256": 0, # Quarta-feira
-            "BARRA_RJ_0608": 0, # Quarta-feira
-            "VL_OLIMPIA_SP_0446": 0, # Quinta-feira
+            "CURITIBA_PR_0870":4,
+            "SC_RJ_1256": 4, # Quarta-feira
+            "BARRA_RJ_0608": 4, # Quarta-feira
+            "VL_OLIMPIA_SP_0446": 4, # Quinta-feira
             "ALPHAVILLE_SP_1094": 1, # Quinta-feira
-            "SBERNARDO_SP_1175": 0, # Quinta-feira
+            "SBERNARDO_SP_1175": 4, # Quinta-feira
             "CAMPINAS_SP_1507": 1, # Quinta-feira
             "TATUAPE_SP_1337": 1            , # Sexta-feira
             "BRASILIA": 7 # Sexta-feira
@@ -556,7 +558,7 @@ def controlador():
             "SBERNARDO_SP_1175": 1, # Terça-feira
             "TATUAPE_SP_1337": 1, # Terça-feira
             "CAMPINAS_SP_1507": 1, # Terça-feira
-            "BRASILIA": 0 # Terça-feira
+            "BRASILIA": 4 # Terça-feira
     }
 
     # descartaveis["descartáveis"]
@@ -723,5 +725,5 @@ controlador()
 #  Almox. Lab         'xpath=/html/body/div[1]/form/div[1]/div/div/div[2]/div/div/div/div[3]/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div/div[1]/div[2]/div/div/div[1]/div/div[1]/table/tbody/tr/td[1]/div/div/div/div/div/div/div/div/div/div/div/div/div[2]/div/div/div/div/div/div/div/div[3]/div[2]/div/span/div[1]/div[2]/div/div[2]/table/tbody/tr[2]/td[2]/div',
 # Almox lab/vac       'xpath=/html/body/div[1]/form/div[1]/div/div/div[2]/div/div/div/div[3]/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div/div[1]/div[2]/div/div/div[1]/div/div[1]/table/tbody/tr/td[1]/div/div/div/div/div/div/div/div/div/div/div/div/div[2]/div/div/div/div/div/div/div/div[3]/div[2]/div/span/div[1]/div[2]/div/div[2]/table/tbody/tr[3]/td[2]/div',      
 # Almox vac           'xpath=/html/body/div[1]/form/div[1]/div/div/div[2]/div/div/div/div[3]/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div/div[1]/div[2]/div/div/div[1]/div/div[1]/table/tbody/tr/td[1]/div/div/div/div/div/div/div/div/div/div/div/div/div[2]/div/div/div/div/div/div/div/div[3]/div[2]/div/span/div[1]/div[2]/div/div[2]/table/tbody/tr[4]/td[2]/div', 
-# # Almox DURAVEIS           'xpath=/html/body/div[1]/form/div[1]/div/div/div[2]/div/div/div/div[3]/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div/div[1]/div[2]/div/div/div[1]/div/div[1]/table/tbody/tr/td[1]/div/div/div/div/div/div/div/div/div/div/div/div/div[2]/div/div/div/div/div/div/div/div[3]/div[2]/div/span/div[1]/div[2]/div/div[2]/table/tbody/tr[6]/td[2]/div',
+# # Almox DURAVEIS    'xpath=/html/body/div[1]/form/div[1]/div/div/div[2]/div/div/div/div[3]/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div/div[1]/div[2]/div/div/div[1]/div/div[1]/table/tbody/tr/td[1]/div/div/div/div/div/div/div/div/div/div/div/div/div[2]/div/div/div/div/div/div/div/div[3]/div[2]/div/span/div[1]/div[2]/div/div[2]/table/tbody/tr[6]/td[2]/div',
 # Insumos             'xpath=/html/body/div[1]/form/div[1]/div/div/div[2]/div/div/div/div[3]/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div/div[1]/div[2]/div/div/div[1]/div/div[1]/table/tbody/tr/td[1]/div/div/div/div/div/div/div/div/div/div/div/div/div[2]/div/div/div/div/div/div/div/div[3]/div[2]/div/span/div[1]/div[2]/div/div[2]/table/tbody/tr[3]/td[2]/div',

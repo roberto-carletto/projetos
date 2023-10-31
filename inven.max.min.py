@@ -63,7 +63,6 @@ def processos_programados(page):
         page.keyboard.press("Tab")
     time.sleep(5)
 
-    
     page.keyboard.press("Enter")
 
 
@@ -117,12 +116,8 @@ def encontrar_e_digitar_hub(page, hub,tipo):
         page.keyboard.press("Tab")
     time.sleep(3)
 
-
-
-
-
-
-
+    page.keyboard.press("Enter")
+    time.sleep(10)
 
     # Feche o navegador
     pyautogui.hotkey('ctrl', 'w')
@@ -131,16 +126,6 @@ def encontrar_e_digitar_hub(page, hub,tipo):
 
     print(f"Contagem concluída para o hub: {hub}")
     print(f"Contagem concluída para o tipo: {tipo}")
-
-
-
-
-
-
-
-
-
-
 
 
 def controlador():
