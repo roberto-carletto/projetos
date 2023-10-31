@@ -6,27 +6,11 @@ import pandas
 import time
 import os
 
-url_teste = "https://fa-evcj-test-saasfaprod1.fa.ocs.oraclecloud.com"
-url_producao = "https://fa-evcj-saasfaprod1.fa.ocs.oraclecloud.com"
-print("Escolha uma opção:")
-print("1 - Executar em ambiente de teste")
-print("2 - Executar em ambiente de produção")
-x = input("=> ")
-if x == '1':
-    url = url_teste
-    print("O programa está sendo executado em ambiente de teste")
-elif x == '2':
-    print("O programa será executado em ambiente de produção")
-    y = input("Tem certeza?(s/n): ")
-    if y == 's':
-        url = url_producao
-        print("O programa está sendo executado em ambiente de produção")
-    else:
-        url = url_teste
-        print("O programa está sendo executado em ambiente de teste")
+url = "https://fa-evcj-saasfaprod1.fa.ocs.oraclecloud.com"
+
 
 def fazer_login(page):
-    page.goto("https://login-evcj-test-saasfaprod1.fa.ocs.oraclecloud.com")
+    page.goto("https://login-evcj-saasfaprod1.fa.ocs.oraclecloud.com")
     time.sleep(3)
 
     username_input = page.locator('xpath=/html/body/div[2]/div[3]/div/main/form/input[1]')
