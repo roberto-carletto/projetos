@@ -73,7 +73,7 @@ def encontrar_e_digitar_hub(page, hub, tipo):
     print(f"Iniciando contagem do hub: {hub}")
     # Execute qualquer lógica que você desejar para este hub
 
-    input_element = page.locator('xpath=/html/body/div[2]/form/div[2]/div[2]/div[1]/div[1]/table/tbody/tr/td/div/div/table/tbody/tr[2]/td[2]/div/div[1]/div[2]/div[2]/div/div/div/div/span/div/table/tbody/tr/td/table/tbody/tr[2]/td[2]/span/input')
+    input_element = page.locator('xpath=/html/body/div[1]/form/div[2]/div[2]/div[1]/div[1]/table/tbody/tr/td/div/div/table/tbody/tr[2]/td[2]/div/div[1]/div[2]/div[2]/div/div/div/div/span/div/table/tbody/tr/td/table/tbody/tr[2]/td[2]/span/input')
     input_element.fill(hub)
     time.sleep(3)
 
