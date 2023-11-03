@@ -15,7 +15,7 @@ def realizar_login(page):
     username_input = page.locator('xpath=/html/body/div[2]/div[3]/div/main/form/input[1]')
     username_input.fill("mariana.maciel@beepsaude.com.br")
 
-    time.sleep(5)
+    time.sleep(1)
 
     password_input = page.locator('xpath=/html/body/div[2]/div[3]/div/main/form/input[2]')
     password_input.fill("Za7yu8ma@")
@@ -34,28 +34,28 @@ def pagina_ferramenta(page):
     # Clique no elemento
     ferramenta_element.click()
 
-    time.sleep(5)
+    time.sleep(3)
 
 def processos_programados(page):
     programados_element =  page.locator('xpath=/html/body/div[1]/form/div/div/div/div[2]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[2]/div[23]/div/div[2]/div[2]/div[5]/div')
 
     programados_element.click()
 
-    time.sleep(5)
+    time.sleep(3)
     #programar novo processo
     page.locator('xpath=/html/body/div[1]/form/div[1]/div/div/div[2]/div/div/div/div[3]/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div/div[1]/div[1]/div/div/div[1]/div/div[1]/table/tbody/tr/td[1]/div/div/div/div/div[2]/div/div/div[1]/div/div[1]/div[1]/div/div/table/tbody/tr/td[2]/div/div[1]/div[1]/table/tbody/tr/td[1]/div').click()
-    time.sleep(5)
+    time.sleep(3)
 
     input_element = page.locator('xpath=/html/body/div[1]/form/div[2]/div[2]/div[1]/div[1]/table/tbody/tr/td/div/div/table/tbody/tr[2]/td[2]/div/table/tbody/tr/td/table/tbody/tr[4]/td[2]/span/input')
 
     # Preencha o campo de entrada com o texto desejado
     input_element.fill("Imprimir Relatório de Planejamento Mín-Máx")
 
-    time.sleep(10)
+    time.sleep(5)
 
     for _ in range(4):
         page.keyboard.press("Tab")
-        time.sleep(3)
+        time.sleep(1)
 
     # # Pressione 'Enter' para enviar o formulário
     page.keyboard.press('Enter')
@@ -63,7 +63,7 @@ def processos_programados(page):
 
     for _ in range(7):
         page.keyboard.press("Tab")
-    time.sleep(5)
+    time.sleep(2)
 
     page.keyboard.press("Enter")
 
@@ -75,17 +75,17 @@ def encontrar_e_digitar_hub(page, hub, tipo):
 
     input_element = page.locator('xpath=/html/body/div[2]/form/div[2]/div[2]/div[1]/div[1]/table/tbody/tr/td/div/div/table/tbody/tr[2]/td[2]/div/div[1]/div[2]/div[2]/div/div/div/div/span/div/table/tbody/tr/td/table/tbody/tr[2]/td[2]/span/input')
     input_element.fill(hub)
-    time.sleep(3)
+    time.sleep(1)
 
     page.keyboard.press("Tab")
 
     for _ in range(3):
         page.keyboard.press("ArrowDown")
-    time.sleep(3)
+    time.sleep(1)
 
     for _ in range(5):
         page.keyboard.press("Tab")
-    time.sleep(3)
+    time.sleep(1)
 
     print(f"Iniciando contagem do tipo: {tipo}")
     # Execute qualquer lógica que você desejar para este hub
