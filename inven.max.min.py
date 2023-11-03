@@ -133,10 +133,10 @@ def atualizar(page):
     page.keyboard.press("Enter")
     time.sleep(1)
     page.keyboard.press("Tab")
-    page.keyboard.press("Enter")
-    time.sleep(25)
-    page.keyboard.press("Enter")
-    time.sleep(25)
+    time.sleep(0.5)
+    for _ in range(5):
+        page.keyboard.press("Enter")
+        time.sleep(5)
 
 
 def processos_programados_segundo(page):
@@ -156,9 +156,9 @@ def processos_programados_segundo(page):
     # Preencha o campo de entrada com o texto desejado
     input_element.fill("Processar Interface de Orquestração da Cadeia de Suprimentos")
 
-    time.sleep(10)
+    time.sleep(5)
 
-    for _ in range(4):
+    for _ in range(1):
         page.keyboard.press("Tab")
         time.sleep(5)
 
@@ -318,6 +318,7 @@ def controlador():
                 numero_processo(page)
                 atualizar(page)
                 processos_programados_segundo(page)
+                encontrar_segundo(page)
                 processos_programados_terceito(page)
                 encontrar_e_digitar_hub_terceiro(page, hub)
 
