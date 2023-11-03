@@ -52,16 +52,13 @@ def processos_programados(page):
     input_element.fill("Imprimir Relatório de Planejamento Mín-Máx")
 
     time.sleep(2)
-#     time.sleep(5)
+
 
     for _ in range(4):
         page.keyboard.press("Tab")
         time.sleep(0.3)
-#     for _ in range(4):
-#         page.keyboard.press("Tab")
-#         time.sleep(1)
 
-    # # Pressione 'Enter' para enviar o formulário
+    # Pressione 'Enter' para enviar o formulário
     page.keyboard.press('Enter')
     time.sleep(1)
 
@@ -125,13 +122,14 @@ def encontrar_e_digitar_hub(page, hub, tipo):
     print(f"Contagem concluída para o tipo: {tipo}")
 
 def numero_processo(page):
+    elemento_handle = page.evaluate_handle(
+        '() => document.querySelector("#pt1\\:_FOr1\\:1\\:_FONSr2\\:0\\:_FOTsr1\\:0\\:pt1\\:r1\\:0\\:r1\\:requestBtns\\:confirmationPopup\\:pt_ol1")'
+    )
+    elemento_texto = elemento_handle.evaluate('(element) => element.textContent')
+    print("Texto capturado:", elemento_texto)
 
-    print('teste')
-    script = """
-    document.querySelector("#pt1\\:_FOr1\\:0\\:_FONSr2\\:0\\:_FOTsr1\\:0\\:pt1\\:r1\\:0\\:r1\\:requestBtns\\:confirmationPopup\\:pt_ol1 > label").textContent;
-    """
-    texto = page.evaluate(script)
-    print(texto)
+
+
 
 def atualizar(page):
 
@@ -302,10 +300,10 @@ def controlador():
                 encontrar_e_digitar_hub(page, hub,"LAB")  # Realize ações para o hub
                 numero_processo(page)
                 #atualizar(page)
-                processos_programados_segundo(page)
+                #processos_programados_segundo(page)
 
-                processos_programados_terceito(page)
-                encontrar_e_digitar_hub_terceiro(page, hub)
+                #processos_programados_terceito(page)
+                #encontrar_e_digitar_hub_terceiro(page, hub)
 
             print("Processo finalizado!")
 
