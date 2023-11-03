@@ -122,17 +122,14 @@ def encontrar_e_digitar_hub(page, hub, tipo):
     print(f"Contagem concluída para o tipo: {tipo}")
 
 def numero_processo(page):
-    elemento_handle = page.evaluate_handle(
-        '() => document.querySelector("#pt1\\:_FOr1\\:1\\:_FONSr2\\:0\\:_FOTsr1\\:0\\:pt1\\:r1\\:0\\:r1\\:requestBtns\\:confirmationPopup\\:pt_ol1")'
-    )
-    elemento_texto = elemento_handle.evaluate('(element) => element.textContent')
-    print("Texto capturado:", elemento_texto)
-
-
-
+    texto = page.query_selector("xpath=/html/body/div[1]/form/div[2]/div[2]/div[3]/div[1]/table/tbody/tr/td/div/div/table/tbody/tr[2]/td[2]/div/div[2]/span/label").inner_text()
+    num = texto[11:18]
+    num_proc = 'MINMAX' + num
+    print(num_proc)
 
 def atualizar(page):
 
+    page.keyboard.press("Tab")
     page.keyboard.press("Tab")
     page.keyboard.press("Enter")
     time.sleep(10)
@@ -169,7 +166,8 @@ def processos_programados_segundo(page):
     page.keyboard.press('Enter')
     time.sleep(5)
 
-def encontrar_segundo(page):
+
+def encontrar_segundo(page, num_proc):
     for _ in range(6):
         page.keyboard.press("Tab")
     time.sleep(3)
@@ -180,6 +178,24 @@ def encontrar_segundo(page):
     for _ in range(2):
         page.keyboard.press("Tab")
     time.sleep(3)
+
+    input_element = page.locator('xpath=/html/body/div[2]/form/div[2]/div[2]/div[1]/div[1]/table/tbody/tr/td/div/div/table/tbody/tr[2]/td[2]/div/div[1]/div[2]/div[2]/div/div/div/div/span/div/div[1]/table/tbody/tr/td/table/tbody/tr[4]/td[2]/input')
+    input_element.fill(num_proc)
+    time.sleep(3)
+
+    page.keyboard.press("Tab")
+
+    input_element = page.locator('xpath=/html/body/div[2]/form/div[2]/div[2]/div[1]/div[1]/table/tbody/tr/td/div/div/table/tbody/tr[2]/td[2]/div/div[1]/div[2]/div[2]/div/div/div/div/span/div/div[1]/table/tbody/tr/td/table/tbody/tr[5]/td[2]/input')
+    input_element.fill(num_proc)
+    time.sleep(3)
+
+    for _ in range():
+        page.keyboard.press("Tab")
+    time.sleep(3)
+
+    age.keyboard.press('Enter')
+    time.sleep(5)
+
 
 
 def processos_programados_terceito(page):
@@ -299,11 +315,10 @@ def controlador():
                 processos_programados(page)
                 encontrar_e_digitar_hub(page, hub,"LAB")  # Realize ações para o hub
                 numero_processo(page)
-                #atualizar(page)
-                #processos_programados_segundo(page)
-
-                #processos_programados_terceito(page)
-                #encontrar_e_digitar_hub_terceiro(page, hub)
+                atualizar(page)
+                processos_programados_segundo(page)
+                processos_programados_terceito(page)
+                encontrar_e_digitar_hub_terceiro(page, hub)
 
             print("Processo finalizado!")
 
