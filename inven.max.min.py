@@ -102,24 +102,25 @@ def encontrar_e_digitar_hub(page, hub, tipo):
         page.keyboard.press("ArrowDown")
 
 
-    time.sleep(3)
+    time.sleep(1)
 
     for _ in range(16):
         page.keyboard.press("Tab")
-    time.sleep(3)
+    time.sleep(1)
 
     for _ in range(1):
         page.keyboard.press("ArrowUp")
 
 
-    time.sleep(3)
+    time.sleep(1)
 
     for _ in range(7):
         page.keyboard.press("Tab")
-    time.sleep(3)
+    time.sleep(1)
 
     page.keyboard.press("Enter")
-    time.sleep(10)
+    time.sleep(5)
+    page.keyboard.press("Enter")
     # Após concluir as ações específicas, você pode imprimir uma mensagem de conclusão
 
     print(f"Contagem concluída para o hub: {hub}")
