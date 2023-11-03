@@ -126,12 +126,10 @@ def encontrar_e_digitar_hub(page, hub, tipo):
 
 def numero_processo(page):
 
-    print('teste')
-    script = """
-    document.querySelector("#pt1\\:_FOr1\\:0\\:_FONSr2\\:0\\:_FOTsr1\\:0\\:pt1\\:r1\\:0\\:r1\\:requestBtns\\:confirmationPopup\\:pt_ol1 > label").textContent;
-    """
-    texto = page.evaluate(script)
-    print(texto)
+    texto = page.query_selector("xpath=/html/body/div[1]/form/div[2]/div[2]/div[3]/div[1]/table/tbody/tr/td/div/div/table/tbody/tr[2]/td[2]/div/div[2]/span/label").inner_text()
+    num = texto[11:18]
+    num_proc = 'MINMAX' + num
+    print(num_proc)
 
 def atualizar(page):
 
