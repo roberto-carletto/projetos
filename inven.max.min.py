@@ -36,95 +36,95 @@ def pagina_ferramenta(page):
 
     time.sleep(3)
 
-def processos_programados(page):
-    programados_element =  page.locator('xpath=/html/body/div[1]/form/div/div/div/div[2]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[2]/div[23]/div/div[2]/div[2]/div[5]/div')
+# def processos_programados(page):
+#     programados_element =  page.locator('xpath=/html/body/div[1]/form/div/div/div/div[2]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[2]/div[23]/div/div[2]/div[2]/div[5]/div')
 
-    programados_element.click()
+#     programados_element.click()
 
-    time.sleep(3)
-    #programar novo processo
-    page.locator('xpath=/html/body/div[1]/form/div[1]/div/div/div[2]/div/div/div/div[3]/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div/div[1]/div[1]/div/div/div[1]/div/div[1]/table/tbody/tr/td[1]/div/div/div/div/div[2]/div/div/div[1]/div/div[1]/div[1]/div/div/table/tbody/tr/td[2]/div/div[1]/div[1]/table/tbody/tr/td[1]/div').click()
-    time.sleep(3)
+#     time.sleep(3)
+#     #programar novo processo
+#     page.locator('xpath=/html/body/div[1]/form/div[1]/div/div/div[2]/div/div/div/div[3]/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div/div[1]/div[1]/div/div/div[1]/div/div[1]/table/tbody/tr/td[1]/div/div/div/div/div[2]/div/div/div[1]/div/div[1]/div[1]/div/div/table/tbody/tr/td[2]/div/div[1]/div[1]/table/tbody/tr/td[1]/div').click()
+#     time.sleep(3)
 
-    input_element = page.locator('xpath=/html/body/div[1]/form/div[2]/div[2]/div[1]/div[1]/table/tbody/tr/td/div/div/table/tbody/tr[2]/td[2]/div/table/tbody/tr/td/table/tbody/tr[4]/td[2]/span/input')
+#     input_element = page.locator('xpath=/html/body/div[1]/form/div[2]/div[2]/div[1]/div[1]/table/tbody/tr/td/div/div/table/tbody/tr[2]/td[2]/div/table/tbody/tr/td/table/tbody/tr[4]/td[2]/span/input')
 
-    # Preencha o campo de entrada com o texto desejado
-    input_element.fill("Imprimir Relatório de Planejamento Mín-Máx")
+#     # Preencha o campo de entrada com o texto desejado
+#     input_element.fill("Imprimir Relatório de Planejamento Mín-Máx")
 
-    time.sleep(5)
+#     time.sleep(5)
 
-    for _ in range(4):
-        page.keyboard.press("Tab")
-        time.sleep(1)
+#     for _ in range(4):
+#         page.keyboard.press("Tab")
+#         time.sleep(1)
 
-    # # Pressione 'Enter' para enviar o formulário
-    page.keyboard.press('Enter')
-    time.sleep(5)
+#     # # Pressione 'Enter' para enviar o formulário
+#     page.keyboard.press('Enter')
+#     time.sleep(5)
 
-    for _ in range(7):
-        page.keyboard.press("Tab")
-    time.sleep(2)
+#     for _ in range(7):
+#         page.keyboard.press("Tab")
+#     time.sleep(2)
 
-    page.keyboard.press("Enter")
-
-
-def encontrar_e_digitar_hub(page, hub, tipo):
-    # Realize ações específicas para o hub atual aqui
-    print(f"Iniciando contagem do hub: {hub}")
-    # Execute qualquer lógica que você desejar para este hub
-
-    input_element = page.locator('xpath=/html/body/div[1]/form/div[2]/div[2]/div[1]/div[1]/table/tbody/tr/td/div/div/table/tbody/tr[2]/td[2]/div/div[1]/div[2]/div[2]/div/div/div/div/span/div/table/tbody/tr/td/table/tbody/tr[2]/td[2]/span/input')
-    input_element.fill(hub)
-    time.sleep(1)
-
-    page.keyboard.press("Tab")
-
-    for _ in range(3):
-        page.keyboard.press("ArrowDown")
-    time.sleep(1)
-
-    for _ in range(5):
-        page.keyboard.press("Tab")
-    time.sleep(1)
-
-    print(f"Iniciando contagem do tipo: {tipo}")
-    # Execute qualquer lógica que você desejar para este hub
-
-    input_element = page.locator('xpath=/html/body/div[1]/form/div[2]/div[2]/div[1]/div[1]/table/tbody/tr/td/div/div/table/tbody/tr[2]/td[2]/div/div[1]/div[2]/div[2]/div/div/div/div/span/div/table/tbody/tr/td/table/tbody/tr[8]/td[2]/span/input')
-    input_element.fill(tipo)
-    time.sleep(3)
-
-    for _ in range(7):
-        page.keyboard.press("Tab")
-    time.sleep(3)
-
-    for _ in range(1):
-        page.keyboard.press("ArrowDown")
+#     page.keyboard.press("Enter")
 
 
-    time.sleep(1)
+# def encontrar_e_digitar_hub(page, hub, tipo):
+#     # Realize ações específicas para o hub atual aqui
+#     print(f"Iniciando contagem do hub: {hub}")
+#     # Execute qualquer lógica que você desejar para este hub
 
-    for _ in range(16):
-        page.keyboard.press("Tab")
-    time.sleep(1)
+#     input_element = page.locator('xpath=/html/body/div[1]/form/div[2]/div[2]/div[1]/div[1]/table/tbody/tr/td/div/div/table/tbody/tr[2]/td[2]/div/div[1]/div[2]/div[2]/div/div/div/div/span/div/table/tbody/tr/td/table/tbody/tr[2]/td[2]/span/input')
+#     input_element.fill(hub)
+#     time.sleep(1)
 
-    for _ in range(1):
-        page.keyboard.press("ArrowUp")
+#     page.keyboard.press("Tab")
+
+#     for _ in range(3):
+#         page.keyboard.press("ArrowDown")
+#     time.sleep(1)
+
+#     for _ in range(5):
+#         page.keyboard.press("Tab")
+#     time.sleep(1)
+
+#     print(f"Iniciando contagem do tipo: {tipo}")
+#     # Execute qualquer lógica que você desejar para este hub
+
+#     input_element = page.locator('xpath=/html/body/div[1]/form/div[2]/div[2]/div[1]/div[1]/table/tbody/tr/td/div/div/table/tbody/tr[2]/td[2]/div/div[1]/div[2]/div[2]/div/div/div/div/span/div/table/tbody/tr/td/table/tbody/tr[8]/td[2]/span/input')
+#     input_element.fill(tipo)
+#     time.sleep(3)
+
+#     for _ in range(7):
+#         page.keyboard.press("Tab")
+#     time.sleep(3)
+
+#     for _ in range(1):
+#         page.keyboard.press("ArrowDown")
 
 
-    time.sleep(1)
+#     time.sleep(1)
 
-    for _ in range(7):
-        page.keyboard.press("Tab")
-    time.sleep(1)
+#     for _ in range(16):
+#         page.keyboard.press("Tab")
+#     time.sleep(1)
 
-    page.keyboard.press("Enter")
-    time.sleep(5)
-    page.keyboard.press("Enter")
-    # Após concluir as ações específicas, você pode imprimir uma mensagem de conclusão
+#     for _ in range(1):
+#         page.keyboard.press("ArrowUp")
 
-    print(f"Contagem concluída para o hub: {hub}")
-    print(f"Contagem concluída para o tipo: {tipo}")
+
+#     time.sleep(1)
+
+#     for _ in range(7):
+#         page.keyboard.press("Tab")
+#     time.sleep(1)
+
+#     page.keyboard.press("Enter")
+#     time.sleep(5)
+#     page.keyboard.press("Enter")
+#     # Após concluir as ações específicas, você pode imprimir uma mensagem de conclusão
+
+#     print(f"Contagem concluída para o hub: {hub}")
+#     print(f"Contagem concluída para o tipo: {tipo}")
 
 def processos_programados_terceito(page):
     programados_element =  page.locator('xpath=/html/body/div[1]/form/div/div/div/div[2]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[2]/div[23]/div/div[2]/div[2]/div[5]/div')
@@ -139,15 +139,20 @@ def processos_programados_terceito(page):
     input_element = page.locator('xpath=/html/body/div[1]/form/div[2]/div[2]/div[1]/div[1]/table/tbody/tr/td/div/div/table/tbody/tr[2]/td[2]/div/table/tbody/tr/td/table/tbody/tr[4]/td[2]/span/input')
 
     # Preencha o campo de entrada com o texto desejado
-    input_element.fill("Imprimir Relatório de Slip de Separações de Solicitação de Movimento")
+    input_element.fill("Imprimir Relatório de Slip de Separação de Solicitação de Movimento")
 
     time.sleep(10)
 
     for _ in range(4):
         page.keyboard.press("Tab")
-        time.sleep(3)
+        time.sleep(5)
 
-def encontrar_e_digitar_hub_terceiro(page, hub, tipo):
+    time.sleep(5)
+    # # Pressione 'Enter' para enviar o formulário
+    page.keyboard.press('Enter')
+    time.sleep(5)
+
+def encontrar_e_digitar_hub_terceiro(page, hub):
     # Realize ações específicas para o hub atual aqui
     print(f"Iniciando contagem do hub: {hub}")
     # Execute qualquer lógica que você desejar para este hub
@@ -270,9 +275,10 @@ def controlador():
                 realizar_login(page)
                 acessar_contagens_ciclos(page)
                 pagina_ferramenta(page)
-                processos_programados(page)
-                encontrar_e_digitar_hub(page, hub,"LAB")  # Realize ações para o hub
+                # processos_programados(page)
+                # encontrar_e_digitar_hub(page, hub,"LAB")  # Realize ações para o hub
                 processos_programados_terceito(page)
+                encontrar_e_digitar_hub_terceiro(page, hub)
 
             print("Processo finalizado!")
 
@@ -284,9 +290,10 @@ def controlador():
                 realizar_login(page)
                 acessar_contagens_ciclos(page)
                 pagina_ferramenta(page)
-                processos_programados(page)
-                encontrar_e_digitar_hub(page, hub,"SV")  # Realize ações para o hub
+                # processos_programados(page)
+                # encontrar_e_digitar_hub(page, hub,"SV")  # Realize ações para o hub
                 processos_programados_terceito(page)
+                encontrar_e_digitar_hub_terceiro(page, hub)
 
             print("Processo finalizado!")
 
