@@ -130,13 +130,12 @@ def numero_processo(page):
 def atualizar(page):
 
     page.keyboard.press("Tab")
-    page.keyboard.press("Tab")
     page.keyboard.press("Enter")
-    time.sleep(10)
+    time.sleep(25)
     page.keyboard.press("Enter")
-    time.sleep(10)
+    time.sleep(25)
     page.keyboard.press("Enter")
-    time.sleep(10)
+    time.sleep(25)
     page.keyboard.press("Enter")
 
 
@@ -193,7 +192,7 @@ def encontrar_segundo(page, num_proc):
         page.keyboard.press("Tab")
     time.sleep(3)
 
-    age.keyboard.press('Enter')
+    page.keyboard.press('Enter')
     time.sleep(5)
 
 
