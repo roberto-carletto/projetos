@@ -119,12 +119,19 @@ def encontrar_e_digitar_hub(page, hub, tipo):
 
     page.keyboard.press("Enter")
     time.sleep(2)
-    page.keyboard.press("Enter")
-    time.sleep(2)
     # Após concluir as ações específicas, você pode imprimir uma mensagem de conclusão
 
     print(f"Contagem concluída para o hub: {hub}")
     print(f"Contagem concluída para o tipo: {tipo}")
+
+def numero_processo(page):
+
+    print('teste')
+    script = """
+    document.querySelector("#pt1\\:_FOr1\\:0\\:_FONSr2\\:0\\:_FOTsr1\\:0\\:pt1\\:r1\\:0\\:r1\\:requestBtns\\:confirmationPopup\\:pt_ol1 > label").textContent;
+    """
+    texto = page.evaluate(script)
+    print(texto)
 
 def atualizar(page):
 
@@ -293,7 +300,8 @@ def controlador():
                 pagina_ferramenta(page)
                 processos_programados(page)
                 encontrar_e_digitar_hub(page, hub,"LAB")  # Realize ações para o hub
-                atualizar(page)
+                numero_processo(page)
+                #atualizar(page)
                 processos_programados_segundo(page)
 
                 processos_programados_terceito(page)
