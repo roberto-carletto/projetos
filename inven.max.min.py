@@ -125,6 +125,7 @@ def numero_processo(page):
     texto = page.query_selector("xpath=/html/body/div[1]/form/div[2]/div[2]/div[3]/div[1]/table/tbody/tr/td/div/div/table/tbody/tr[2]/td[2]/div/div[2]/span/label").inner_text()
     num = texto[11:18]
     num_proc = 'MINMAX' + num
+    print(num_proc)
     pyperclip.copy(num_proc)
 
 def atualizar(page):
@@ -180,12 +181,12 @@ def encontrar_segundo(page):
         page.keyboard.press("Tab")
     time.sleep(3)
 
-    pyautogui.hotkey("ctrl", "v")
+    page.keyboard.press("Ctrl+V")
     time.sleep(3)
 
     page.keyboard.press("Tab")
 
-    pyautogui.hotkey("ctrl", "v")
+    page.keyboard.press("Ctrl+V")
     time.sleep(3)
 
     for _ in range(7):
