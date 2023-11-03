@@ -288,8 +288,8 @@ def controlador():
                 realizar_login(page)
                 acessar_contagens_ciclos(page)
                 pagina_ferramenta(page)
-                # processos_programados(page)
-                # encontrar_e_digitar_hub(page, hub,"LAB")  # Realize ações para o hub
+                processos_programados(page)
+                encontrar_e_digitar_hub(page, hub,"LAB")  # Realize ações para o hub
                 processos_programados_terceito(page)
                 encontrar_e_digitar_hub_terceiro(page, hub)
 
@@ -303,8 +303,8 @@ def controlador():
                 realizar_login(page)
                 acessar_contagens_ciclos(page)
                 pagina_ferramenta(page)
-                # processos_programados(page)
-                # encontrar_e_digitar_hub(page, hub,"SV")  # Realize ações para o hub
+                processos_programados(page)
+                encontrar_e_digitar_hub(page, hub,"SV")  # Realize ações para o hub
                 processos_programados_terceito(page)
                 encontrar_e_digitar_hub_terceiro(page, hub)
 
