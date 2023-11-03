@@ -182,14 +182,14 @@ def encontrar_segundo(page, num_proc):
 
     for letra in num_proc:
         page.keyboard.press(letra)
-        time.sleep(0.2)
+        time.sleep(0.05)
     time.sleep(1)
 
     page.keyboard.press("Tab")
 
     for letra in num_proc:
         page.keyboard.press(letra)
-        time.sleep(0.2)
+        time.sleep(0.05)
     time.sleep(1)
 
     for _ in range(7):
@@ -204,6 +204,7 @@ def encontrar_segundo(page, num_proc):
 
 
 def processos_programados_terceito(page):
+
     programados_element =  page.locator('xpath=/html/body/div[1]/form/div/div/div/div[2]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[2]/div[23]/div/div[2]/div[2]/div[5]/div')
 
     programados_element.click()
