@@ -52,16 +52,13 @@ def processos_programados(page):
     input_element.fill("Imprimir Relatório de Planejamento Mín-Máx")
 
     time.sleep(2)
-#     time.sleep(5)
+
 
     for _ in range(4):
         page.keyboard.press("Tab")
         time.sleep(0.3)
-#     for _ in range(4):
-#         page.keyboard.press("Tab")
-#         time.sleep(1)
 
-    # # Pressione 'Enter' para enviar o formulário
+    # Pressione 'Enter' para enviar o formulário
     page.keyboard.press('Enter')
     time.sleep(1)
 
@@ -125,7 +122,6 @@ def encontrar_e_digitar_hub(page, hub, tipo):
     print(f"Contagem concluída para o tipo: {tipo}")
 
 def numero_processo(page):
-
     texto = page.query_selector("xpath=/html/body/div[1]/form/div[2]/div[2]/div[3]/div[1]/table/tbody/tr/td/div/div/table/tbody/tr[2]/td[2]/div/div[2]/span/label").inner_text()
     num = texto[11:18]
     num_proc = 'MINMAX' + num
@@ -133,6 +129,7 @@ def numero_processo(page):
 
 def atualizar(page):
 
+    page.keyboard.press("Tab")
     page.keyboard.press("Tab")
     page.keyboard.press("Enter")
     time.sleep(10)
@@ -169,7 +166,8 @@ def processos_programados_segundo(page):
     page.keyboard.press('Enter')
     time.sleep(5)
 
-def encontrar_segundo(page):
+
+def encontrar_segundo(page, num_proc):
     for _ in range(6):
         page.keyboard.press("Tab")
     time.sleep(3)
@@ -180,6 +178,24 @@ def encontrar_segundo(page):
     for _ in range(2):
         page.keyboard.press("Tab")
     time.sleep(3)
+
+    input_element = page.locator('xpath=/html/body/div[2]/form/div[2]/div[2]/div[1]/div[1]/table/tbody/tr/td/div/div/table/tbody/tr[2]/td[2]/div/div[1]/div[2]/div[2]/div/div/div/div/span/div/div[1]/table/tbody/tr/td/table/tbody/tr[4]/td[2]/input')
+    input_element.fill(num_proc)
+    time.sleep(3)
+
+    page.keyboard.press("Tab")
+
+    input_element = page.locator('xpath=/html/body/div[2]/form/div[2]/div[2]/div[1]/div[1]/table/tbody/tr/td/div/div/table/tbody/tr[2]/td[2]/div/div[1]/div[2]/div[2]/div/div/div/div/span/div/div[1]/table/tbody/tr/td/table/tbody/tr[5]/td[2]/input')
+    input_element.fill(num_proc)
+    time.sleep(3)
+
+    for _ in range():
+        page.keyboard.press("Tab")
+    time.sleep(3)
+
+    age.keyboard.press('Enter')
+    time.sleep(5)
+
 
 
 def processos_programados_terceito(page):
@@ -299,9 +315,8 @@ def controlador():
                 processos_programados(page)
                 encontrar_e_digitar_hub(page, hub,"LAB")  # Realize ações para o hub
                 numero_processo(page)
-                #atualizar(page)
+                atualizar(page)
                 processos_programados_segundo(page)
-
                 processos_programados_terceito(page)
                 encontrar_e_digitar_hub_terceiro(page, hub)
 
