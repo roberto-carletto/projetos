@@ -41,10 +41,10 @@ def processos_programados(page):
 
     programados_element.click()
 
-#     time.sleep(2)
+    time.sleep(2)
 #     #programar novo processo
-#     page.locator('xpath=/html/body/div[1]/form/div[1]/div/div/div[2]/div/div/div/div[3]/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div/div[1]/div[1]/div/div/div[1]/div/div[1]/table/tbody/tr/td[1]/div/div/div/div/div[2]/div/div/div[1]/div/div[1]/div[1]/div/div/table/tbody/tr/td[2]/div/div[1]/div[1]/table/tbody/tr/td[1]/div').click()
-#     time.sleep(2)
+    page.locator('xpath=/html/body/div[1]/form/div[1]/div/div/div[2]/div/div/div/div[3]/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div/div[1]/div[1]/div/div/div[1]/div/div[1]/table/tbody/tr/td[1]/div/div/div/div/div[2]/div/div/div[1]/div/div[1]/div[1]/div/div/table/tbody/tr/td[2]/div/div[1]/div[1]/table/tbody/tr/td[1]/div').click()
+    time.sleep(2)
 
     input_element = page.locator('xpath=/html/body/div[1]/form/div[2]/div[2]/div[1]/div[1]/table/tbody/tr/td/div/div/table/tbody/tr[2]/td[2]/div/table/tbody/tr/td/table/tbody/tr[4]/td[2]/span/input')
 
@@ -136,7 +136,45 @@ def atualizar(page):
     page.keyboard.press("Enter")
     time.sleep(10)
     page.keyboard.press("Enter")
-    
+
+
+def processos_programados_segundo(page):
+    programados_element =  page.locator('xpath=/html/body/div[1]/form/div/div/div/div[2]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[2]/div[23]/div/div[2]/div[2]/div[5]/div')
+
+    programados_element.click()
+
+    time.sleep(5)
+    #programar novo processo
+    page.locator('xpath=/html/body/div[1]/form/div[1]/div/div/div[2]/div/div/div/div[3]/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div/div[1]/div[1]/div/div/div[1]/div/div[1]/table/tbody/tr/td[1]/div/div/div/div/div[2]/div/div/div[1]/div/div[1]/div[1]/div/div/table/tbody/tr/td[2]/div/div[1]/div[1]/table/tbody/tr/td[1]/div').click()
+    time.sleep(5)
+
+    input_element = page.locator('xpath=/html/body/div[1]/form/div[2]/div[2]/div[1]/div[1]/table/tbody/tr/td/div/div/table/tbody/tr[2]/td[2]/div/table/tbody/tr/td/table/tbody/tr[4]/td[2]/span/input')
+
+    # Preencha o campo de entrada com o texto desejado
+    input_element.fill("Processar Interface de Orquestração da Cadeia de Suprimentos")
+
+    time.sleep(10)
+
+    for _ in range(4):
+        page.keyboard.press("Tab")
+        time.sleep(5)
+
+    time.sleep(5)
+    # # Pressione 'Enter' para enviar o formulário
+    page.keyboard.press('Enter')
+    time.sleep(5)
+
+def encontrar_segundo(page):
+    for _ in range(6):
+        page.keyboard.press("Tab")
+    time.sleep(3)
+
+    for _ in range(4):
+        page.keyboard.press("ArrowDown")
+
+    for _ in range(2):
+        page.keyboard.press("Tab")
+    time.sleep(3)
 
 
 def processos_programados_terceito(page):
@@ -220,7 +258,6 @@ def encontrar_e_digitar_hub_terceiro(page, hub):
 
 
 
-
 def controlador():
         lab = [
             'BARRA_RJ_0608',
@@ -256,6 +293,9 @@ def controlador():
                 pagina_ferramenta(page)
                 processos_programados(page)
                 encontrar_e_digitar_hub(page, hub,"LAB")  # Realize ações para o hub
+                atualizar(page)
+                processos_programados_segundo(page)
+
                 processos_programados_terceito(page)
                 encontrar_e_digitar_hub_terceiro(page, hub)
 
@@ -271,6 +311,9 @@ def controlador():
                 pagina_ferramenta(page)
                 processos_programados(page)
                 encontrar_e_digitar_hub(page, hub,"SV")  # Realize ações para o hub
+                atualizar(page)
+                processos_programados_segundo(page)
+
                 processos_programados_terceito(page)
                 encontrar_e_digitar_hub_terceiro(page, hub)
 
