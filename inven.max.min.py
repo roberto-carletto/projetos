@@ -125,7 +125,7 @@ def numero_processo(page):
     texto = page.query_selector("xpath=/html/body/div[1]/form/div[2]/div[2]/div[3]/div[1]/table/tbody/tr/td/div/div/table/tbody/tr[2]/td[2]/div/div[2]/span/label").inner_text()
     num = texto[11:18]
     num_proc = 'MINMAX' + num
-    return num_proc
+    pyperclip.copy(num_proc)
 
 def atualizar(page):
 
@@ -168,7 +168,7 @@ def processos_programados_segundo(page):
     time.sleep(5)
 
 
-def encontrar_segundo(page, num_proc):
+def encontrar_segundo(page):
     for _ in range(6):
         page.keyboard.press("Tab")
     time.sleep(3)
@@ -180,17 +180,15 @@ def encontrar_segundo(page, num_proc):
         page.keyboard.press("Tab")
     time.sleep(3)
 
-    input_element = page.locator('xpath=/html/body/div[2]/form/div[2]/div[2]/div[1]/div[1]/table/tbody/tr/td/div/div/table/tbody/tr[2]/td[2]/div/div[1]/div[2]/div[2]/div/div/div/div/span/div/div[1]/table/tbody/tr/td/table/tbody/tr[4]/td[2]/input')
-    input_element.fill(num_proc)
+    pyautogui.hotkey("ctrl", "v")
     time.sleep(3)
 
     page.keyboard.press("Tab")
 
-    input_element = page.locator('xpath=/html/body/div[2]/form/div[2]/div[2]/div[1]/div[1]/table/tbody/tr/td/div/div/table/tbody/tr[2]/td[2]/div/div[1]/div[2]/div[2]/div/div/div/div/span/div/div[1]/table/tbody/tr/td/table/tbody/tr[5]/td[2]/input')
-    input_element.fill(num_proc)
+    pyautogui.hotkey("ctrl", "v")
     time.sleep(3)
 
-    for _ in range():
+    for _ in range(7):
         page.keyboard.press("Tab")
     time.sleep(3)
 
@@ -315,10 +313,10 @@ def controlador():
                 pagina_ferramenta(page)
                 processos_programados(page)
                 encontrar_e_digitar_hub(page, hub,"LAB")  # Realize ações para o hub
-                num_proc = numero_processo(page)
+                numero_processo(page)
                 atualizar(page)
                 processos_programados_segundo(page)
-                encontrar_segundo(page, num_proc)
+                encontrar_segundo(page)
                 processos_programados_terceito(page)
                 encontrar_e_digitar_hub_terceiro(page, hub)
 
