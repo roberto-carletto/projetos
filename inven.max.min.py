@@ -125,7 +125,7 @@ def numero_processo(page):
     texto = page.query_selector("xpath=/html/body/div[1]/form/div[2]/div[2]/div[3]/div[1]/table/tbody/tr/td/div/div/table/tbody/tr[2]/td[2]/div/div[2]/span/label").inner_text()
     num = texto[11:18]
     num_proc = 'MINMAX' + num
-    print(num_proc)
+    return num_proc
 
 def atualizar(page):
 
@@ -315,10 +315,10 @@ def controlador():
                 pagina_ferramenta(page)
                 processos_programados(page)
                 encontrar_e_digitar_hub(page, hub,"LAB")  # Realize ações para o hub
-                numero_processo(page)
+                num_proc = numero_processo(page)
                 atualizar(page)
                 processos_programados_segundo(page)
-                encontrar_segundo(page)
+                encontrar_segundo(page, num_proc)
                 processos_programados_terceito(page)
                 encontrar_e_digitar_hub_terceiro(page, hub)
 
