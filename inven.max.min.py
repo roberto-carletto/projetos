@@ -125,8 +125,7 @@ def numero_processo(page):
     texto = page.query_selector("xpath=/html/body/div[1]/form/div[2]/div[2]/div[3]/div[1]/table/tbody/tr/td/div/div/table/tbody/tr[2]/td[2]/div/div[2]/span/label").inner_text()
     num = texto[11:18]
     num_proc = 'MINMAX' + num
-    print(num_proc)
-    pyperclip.copy(num_proc)
+    return num_proc
 
 def atualizar(page):
 
@@ -169,7 +168,7 @@ def processos_programados_segundo(page):
     time.sleep(5)
 
 
-def encontrar_segundo(page):
+def encontrar_segundo(page, num_proc):
     for _ in range(6):
         page.keyboard.press("Tab")
     time.sleep(3)
@@ -181,28 +180,30 @@ def encontrar_segundo(page):
         page.keyboard.press("Tab")
     time.sleep(3)
 
-    pyautogui.hotkey("ctrl", "v")
-    time.sleep(3)
+    for letra in num_proc:
+        page.keyboard.press(letra)
+        time.sleep(0.2)
+    time.sleep(1)
 
     page.keyboard.press("Tab")
 
-    pyautogui.hotkey("ctrl", "v")
-    time.sleep(3)
+    for letra in num_proc:
+        page.keyboard.press(letra)
+        time.sleep(0.2)
+    time.sleep(1)
 
     for _ in range(7):
         page.keyboard.press("Tab")
-    time.sleep(0.1)
+    time.sleep(1)
 
     page.keyboard.press('Enter')
-    time.sleep(5)
+    time.sleep(3)
+    page.keyboard.press('Enter')
+    time.sleep(3)
 
 
 
 def processos_programados_terceito(page):
-    programados_element =  page.locator('xpath=/html/body/div[1]/form/div/div/div/div[2]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[2]/div[23]/div/div[2]/div[2]/div[5]/div')
-
-    programados_element.click()
-
     time.sleep(5)
     #programar novo processo
     page.locator('xpath=/html/body/div[1]/form/div[1]/div/div/div[2]/div/div/div/div[3]/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div/div[1]/div[1]/div/div/div[1]/div/div[1]/table/tbody/tr/td[1]/div/div/div/div/div[2]/div/div/div[1]/div/div[1]/div[1]/div/div/table/tbody/tr/td[2]/div/div[1]/div[1]/table/tbody/tr/td[1]/div').click()
@@ -213,9 +214,9 @@ def processos_programados_terceito(page):
     # Preencha o campo de entrada com o texto desejado
     input_element.fill("Imprimir Relatório de Slip de Separação de Solicitação de Movimento")
 
-    time.sleep(10)
+    time.sleep(5)
 
-    for _ in range(4):
+    for _ in range(1):
         page.keyboard.press("Tab")
         time.sleep(5)
 
@@ -314,10 +315,10 @@ def controlador():
                 pagina_ferramenta(page)
                 processos_programados(page)
                 encontrar_e_digitar_hub(page, hub,"LAB")  # Realize ações para o hub
-                numero_processo(page)
+                num_proc = numero_processo(page)
                 atualizar(page)
                 processos_programados_segundo(page)
-                encontrar_segundo(page)
+                encontrar_segundo(page, num_proc)
                 processos_programados_terceito(page)
                 encontrar_e_digitar_hub_terceiro(page, hub)
 
