@@ -129,22 +129,24 @@ def numero_processo(page):
 
 def atualizar(page):
 
+    time.sleep(2)
+    page.keyboard.press("Enter")
+    time.sleep(1)
     page.keyboard.press("Tab")
     page.keyboard.press("Enter")
     time.sleep(25)
     page.keyboard.press("Enter")
     time.sleep(25)
-    page.keyboard.press("Enter")
-    time.sleep(25)
-    page.keyboard.press("Enter")
 
 
 def processos_programados_segundo(page):
-    programados_element =  page.locator('xpath=/html/body/div[1]/form/div/div/div/div[2]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[2]/div[23]/div/div[2]/div[2]/div[5]/div')
+    for _ in range(20):
+        page.keyboard.press("Tab")
+        time.sleep(0.5)
 
-    programados_element.click()
+    page.keyboard.press("Enter")
 
-    time.sleep(5)
+    time.sleep(2)
     #programar novo processo
     page.locator('xpath=/html/body/div[1]/form/div[1]/div/div/div[2]/div/div/div/div[3]/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div/div[1]/div[1]/div/div/div[1]/div/div[1]/table/tbody/tr/td[1]/div/div/div/div/div[2]/div/div/div[1]/div/div[1]/div[1]/div/div/table/tbody/tr/td[2]/div/div[1]/div[1]/table/tbody/tr/td[1]/div').click()
     time.sleep(5)
