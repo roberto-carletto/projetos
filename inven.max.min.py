@@ -143,7 +143,7 @@ def atualizar(page):
 def processos_programados_segundo(page):
     for _ in range(20):
         page.keyboard.press("Tab")
-        time.sleep(0.5)
+        time.sleep(0.1)
 
     page.keyboard.press("Enter")
 
@@ -181,17 +181,17 @@ def encontrar_segundo(page):
         page.keyboard.press("Tab")
     time.sleep(3)
 
-    page.keyboard.press("Ctrl+V")
+    pyautogui.hotkey("ctrl", "v")
     time.sleep(3)
 
     page.keyboard.press("Tab")
 
-    page.keyboard.press("Ctrl+V")
+    pyautogui.hotkey("ctrl", "v")
     time.sleep(3)
 
     for _ in range(7):
         page.keyboard.press("Tab")
-    time.sleep(3)
+    time.sleep(0.1)
 
     page.keyboard.press('Enter')
     time.sleep(5)
