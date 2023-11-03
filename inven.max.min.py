@@ -220,40 +220,6 @@ def encontrar_e_digitar_hub_terceiro(page, hub):
 
 
 
-def descompactar_arquivo(page):
-
-    # Abre a página de downloads
-    pyautogui.hotkey('ctrl', 'j')
-    for _ in range(5):
-        page.keyboard.press("Tab")
-
-    # Copia o diretório do arquivo
-    pyautogui.hotkey('ctrl', 'shift', 'c')
-    diretorio = clipboard.paste()
-
-    # Feche o explorador de arquivos
-    pyautogui.hotkey('ctrl', 'w')
-    # Feche a aba de downloads
-    pyautogui.hotkey('ctrl', 'w')
-
-    with ZipFile(diretorio, 'r') as zip:
-        file = zip.extract('Min-MaxPlanningReport.html')
-
-    return file
-
-def converter_html_tabela(file):
-
-    data = pandas.read_html(file)
-    tabela = pandas.DataFrame(data)
-    print(tabela)
-
-
-
-
-
-
-
-
 
 def controlador():
         lab = [
