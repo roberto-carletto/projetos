@@ -134,8 +134,9 @@ def atualizar(page):
     time.sleep(1)
     page.keyboard.press("Tab")
     time.sleep(0.5)
-    page.keyboard.press("Enter")
-    time.sleep(25)
+    for _ in range(5)
+        page.keyboard.press("Enter")
+        time.sleep(5)
 
 
 def processos_programados_segundo(page):
