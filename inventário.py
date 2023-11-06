@@ -46,11 +46,15 @@ def acessar_contagens_de_ciclos(page):
     page.keyboard.press("Enter")
     time.sleep(3)
 
-    page.locator('xpath=/html/body/div[1]/form/div/div/div/div[2]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[2]/div[1]/div/div[2]/div[2]/div[3]/div').click()
+    #page.locator('xpath=/html/body/div[1]/form/div/div/div/div[2]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[2]/div[1]/div/div[2]/div[2]/div[3]/div').click()
+    page.locator('xpath=/html/body/div[1]/form/div/div/div/div[1]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[2]/div[1]/div/div[2]/div[2]/div[3]/div').click()
+
     time.sleep(5)
+    
 
 def mostrar_tarefas(page):
     page.locator('xpath=/html/body/div[1]/form/div[1]/div/div/div[2]/div/div/div/div[3]/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div/div[1]/div[6]/table/tbody/tr/td[1]/div/div[1]').click()
+    
     time.sleep(5)
 
 def acessar_gerenciar_contagens_ciclos(page):
@@ -512,11 +516,11 @@ def controlador():
 
 
     vacina = {
-            "SC_RJ_1256": 0, # Segunda-feira
-            "BARRA_RJ_0608": 0, # Segunda-feira
+            "SC_RJ_1256": 4, # Segunda-feira
+            "BARRA_RJ_0608": 4, # Segunda-feira
             "TATUAPE_SP_1337": 6, # Segunda-feira
             "VL_OLIMPIA_SP_0446": 6, # Terça-feira
-            "ALPHAVILLE_SP_1094": 6, # Terça-feira
+            "ALPHAVILLE_SP_10924": 6, # Terça-feira
             "SBERNARDO_SP_1175": 6, # Terça-feira
             "CAMPINAS_SP_1507": 6, # Terça-feira
             "BRASILIA_DF_0950": 6 # Sexta-feira
@@ -536,12 +540,12 @@ def controlador():
 
     lab = {
             "RECIFE_PE_1760":0,
-            "CURITIBA_PR_0870":0,
-            "SC_RJ_1256": 0, # Quarta-feira
-            "BARRA_RJ_0608": 0, # Quarta-feira
-            "VL_OLIMPIA_SP_0446": 0, # Quinta-feira
+            "CURITIBA_PR_0870":4,
+            "SC_RJ_1256": 4, # Quarta-feira
+            "BARRA_RJ_0608": 5, # Quarta-feira
+            "VL_OLIMPIA_SP_0446": 4, # Quinta-feira
             "ALPHAVILLE_SP_1094": 1, # Quinta-feira
-            "SBERNARDO_SP_1175": 0, # Quinta-feira
+            "SBERNARDO_SP_1175": 4, # Quinta-feira
             "CAMPINAS_SP_1507": 1, # Quinta-feira
             "TATUAPE_SP_1337": 1            , # Sexta-feira
             "BRASILIA": 7 # Sexta-feira
@@ -556,7 +560,7 @@ def controlador():
             "SBERNARDO_SP_1175": 1, # Terça-feira
             "TATUAPE_SP_1337": 1, # Terça-feira
             "CAMPINAS_SP_1507": 1, # Terça-feira
-            "BRASILIA": 0 # Terça-feira
+            "BRASILIA": 4 # Terça-feira
     }
 
     # descartaveis["descartáveis"]

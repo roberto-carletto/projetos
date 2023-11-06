@@ -26,7 +26,7 @@ elif x == '2':
         print("O programa está sendo executado em ambiente de teste")
 
 def fazer_login(page):
-    page.goto("https://login-evcj-saasfaprod1.fa.ocs.oraclecloud.com")
+    page.goto("https://login-evcj-test-saasfaprod1.fa.ocs.oraclecloud.com")
     time.sleep(3)
 
     username_input = page.locator('xpath=/html/body/div[2]/div[3]/div/main/form/input[1]')
@@ -46,11 +46,11 @@ def acessar_contagens_de_ciclos(page):
     page.keyboard.press("Enter")
     time.sleep(3)
 
-    page.locator('xpath=/html/body/div[1]/form/div/div/div/div[1]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[2]/div[1]/div/div[2]/div[2]/div[3]/div').click()
+    page.locator('xpath=/html/body/div[1]/form/div/div/div/div[2]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[2]/div[1]/div/div[2]/div[2]/div[3]/div').click()
     time.sleep(5)
 
 def mostrar_tarefas(page):
-    page.locator('xpath=/html/body/div[1]/form/div[1]/div/div/div[1]/div/div/div/div[3]/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div/div[1]/div[6]/table/tbody/tr/td[1]/div/div[1]').click()
+    page.locator('xpath=/html/body/div[1]/form/div[1]/div/div/div[2]/div/div/div/div[3]/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div/div[1]/div[6]/table/tbody/tr/td[1]/div/div[1]').click()
     time.sleep(5)
 
 def acessar_gerenciar_contagens_ciclos(page):
@@ -91,7 +91,7 @@ def clicar_elemento_por_dia(elemento,page):
 
 def acessar_a_açao(page):
 
-    page.locator('xpath=/html/body/div[1]/form/div[1]/div/div/div[1]/div/div/div/div[3]/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div/div[1]/div[2]/div/div/div[1]/div/div[1]/table/tbody/tr/td[1]/div/div/div/div/div/div/div/div/div/div/div/div/div[2]/div/div/div/div/div/div/div/div[3]/div[2]/div/span/div[1]/div[1]/div/div/table/tbody/tr/td[1]/div/div[1]/div[1]/table/tbody/tr/td[1]/div/div/table/tbody/tr/td[3]/div').click()
+    page.locator('xpath=/html/body/div[1]/form/div[1]/div/div/div[2]/div/div/div/div[3]/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div/div[1]/div[2]/div/div/div[1]/div/div[1]/table/tbody/tr/td[1]/div/div/div/div/div/div/div/div/div/div/div/div/div[2]/div/div/div/div/div/div/div/div[3]/div[2]/div/span/div[1]/div[1]/div/div/table/tbody/tr/td[1]/div/div[1]/div[1]/table/tbody/tr/td[1]/div/div/table/tbody/tr/td[3]/div').click()
 
     time.sleep(5)
 
@@ -113,29 +113,25 @@ def pagina_inicial_execuçao_de_cadeia_suprimento(page):
     page.goto(url+"/fscmUI/faces/FuseWelcome?_afrLoop=14629167889228257&fnd=%3B%3B%3B%3Bfalse%3B256%3B%3B%3B&_adf.ctrl-state=m8rxhn2th_736")
     time.sleep(6)
 
-
-
-
-# inicio do novo elemento
 def pagina_ferramenta(page):
     # Localize o elemento da página usando o seletor XPath fornecido
-    # ferramenta_element = page.locator('xpath=/html/body/div[1]/form/div/div/div/div[2]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[1]/div[2]/div/div[12]')
-    ferramenta_element = page.locator('xpath=/html/body/div[1]/form/div/div/div/div[1]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[1]/div[2]/div/div[12]')
+    ferramenta_element = page.locator('xpath=/html/body/div[1]/form/div/div/div/div[2]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[1]/div[2]/div/div[12]')
+
     # Clique no elemento
     ferramenta_element.click()
 
     time.sleep(5)
 
 def processos_programados(page):
-    # programados_element =  page.locator('xpath=/html/body/div[1]/form/div/div/div/div[2]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[2]/div[23]/div/div[2]/div[2]/div[5]/div')
-    programados_element = page.locator ('xpath=/html/body/div[1]/form/div/div/div/div[1]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[2]/div[23]/div/div[2]/div[2]/div[5]/div')
+    programados_element =  page.locator('xpath=/html/body/div[1]/form/div/div/div/div[2]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[2]/div[23]/div/div[2]/div[2]/div[5]/div')
+
     programados_element.click()
 
     time.sleep(5)
 
 def atualizar_processos(page):
-    # atualizar_element = page.locator('xpath=/html/body/div[1]/form/div/div/div/div[2]/div/div/div/div[3]/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div/div[1]/div[1]/div/div/div[1]/div/div[1]/table/tbody/tr/td[1]/div/div/div/div/div[2]/div/div/div[1]/div/div[1]/div[1]/div/div/table/tbody/tr/td[2]/div/div[1]/div[1]/table/tbody/tr/td[10]/div')
-    atualizar_element = page.locator('xpath=/html/body/div[1]/form/div/div/div/div[1]/div/div/div/div[3]/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div/div[1]/div[1]/div/div/div[1]/div/div[1]/table/tbody/tr/td[1]/div/div/div/div/div[2]/div/div/div[1]/div/div[1]/div[1]/div/div/table/tbody/tr/td[2]/div/div[1]/div[1]/table/tbody/tr/td[10]/div')
+    atualizar_element = page.locator('xpath=/html/body/div[1]/form/div/div/div/div[2]/div/div/div/div[3]/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div/div[1]/div[1]/div/div/div[1]/div/div[1]/table/tbody/tr/td[1]/div/div/div/div/div[2]/div/div/div[1]/div/div[1]/div[1]/div/div/table/tbody/tr/td[2]/div/div[1]/div[1]/table/tbody/tr/td[10]/div')
+
     atualizar_element.click()
     time.sleep(10)
 
@@ -157,8 +153,7 @@ def pagina_inicial_novamente(page):
     pyautogui.press('ENTER')
 
 def elemento_da_seta(page):
-    # seta_element = page.locator('xpath=/html/body/div[1]/form/div/div/div/div[2]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[1]/div[2]/div/div[12]')
-    seta_element = page.locator('xpath=/html/body/div[1]/form/div/div/div/div[1]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[1]/div[2]/div/div[12]')
+    seta_element = page.locator('xpath=/html/body/div[1]/form/div/div/div/div[2]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[1]/div[2]/div/div[12]')
     seta_element.click()
 
     time.sleep(10)
@@ -175,14 +170,12 @@ def localizar_elemento():
     time.sleep(3)
 
 def elemento_da_pagina(page):
-    # elemnto_da_pagina_element = page.locator('xpath=/html/body/div[1]/form/div/div/div/div[2]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[1]/div[1]/div[1]')
-    elemnto_da_pagina_element = page.locator('xpath=/html/body/div[1]/form/div/div/div/div[1]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[1]/div[1]/div[1]')
+    elemnto_da_pagina_element = page.locator('xpath=/html/body/div[1]/form/div/div/div/div[2]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[1]/div[1]/div[1]')
     elemnto_da_pagina_element.click()  # Adicione parênteses aqui
     time.sleep(3)
 
 def terceira_elemento(page):
-    # terceira_element = page.locator('xpath=/html/body/div[1]/form/div/div/div/div[2]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[1]/div[2]/div/div[7]')
-    terceira_element = page.locator('xpath=/html/body/div[1]/form/div/div/div/div[1]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[1]/div[2]/div/div[7]')
+    terceira_element = page.locator('xpath=/html/body/div[1]/form/div/div/div/div[2]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[1]/div[2]/div/div[7]')
     terceira_element.click()  # Adicione parênteses aqui
     time.sleep(3)
     pyautogui.press('ENTER')
@@ -198,17 +191,14 @@ def pressionar_tecla_seta_e_enter():
     time.sleep(1)
 
 def procurar_elemento(page):
-    # procurar_element = page.locator('xpath=/html/body/div[1]/form/div/div/div/div[2]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[1]/div[1]/div[1]')
-    procurar_element = page.locator('xpath=/html/body/div[1]/form/div/div/div/div[1]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[1]/div[1]/div[1]')
-   
+    procurar_element = page.locator('xpath=/html/body/div[1]/form/div/div/div/div[2]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[1]/div[1]/div[1]')
     procurar_element.click()
     time.sleep(3)
 
     pyautogui.press('ENTER')
 
 def procurar_quarto_elemento(page):
-    # quarto_element = page.locator('xpath=/html/body/div[1]/form/div/div/div/div[2]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[1]/div[2]/div/div[4]')
-    quarto_element = page.locator('xpath=/html/body/div[1]/form/div/div/div/div[1]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[1]/div[2]/div/div[4]')
+    quarto_element = page.locator('xpath=/html/body/div[1]/form/div/div/div/div[2]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[1]/div[2]/div/div[4]')
     quarto_element.click()
     time.sleep(3)
     pyautogui.press('ENTER')
@@ -217,8 +207,7 @@ def procurar_quarto_elemento(page):
 
 
 def colocar_seta_novamente(page):
-    # seta_element = page.locator('xpath=/html/body/div[1]/form/div/div/div/div[2]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[1]/div[1]/div[1]')
-    seta_element = page.locator('xpath=/html/body/div[1]/form/div/div/div/div[1]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[1]/div[1]/div[1]')
+    seta_element = page.locator('xpath=/html/body/div[1]/form/div/div/div/div[2]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[1]/div[1]/div[1]')
     seta_element.click
     time.sleep(3)
     pyautogui.press('ENTER')
@@ -232,8 +221,7 @@ def procurar_o_inicio_da_pagina():
     time.sleep(1)
 
 def procurar_quinto_elemento(page):
-    # quinto_element = page.locator('xpath=/html/body/div[1]/form/div/div/div/div[2]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[1]/div[1]/div[1]')
-    quinto_element = page.locator('xpath=/html/body/div[1]/form/div/div/div/div[1]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[1]/div[1]/div[1]')
+    quinto_element = page.locator('xpath=/html/body/div[1]/form/div/div/div/div[2]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[1]/div[1]/div[1]')
     quinto_element.click()
     time.sleep(3)
     pyautogui.press('ENTER')
@@ -241,19 +229,17 @@ def procurar_quinto_elemento(page):
     time.sleep(3)
 
 def segunda_vez_gerenciamento_de_estoque(page):
-    # gerenciamento_element = page.locator('xpath=/html/body/div[1]/form/div/div/div/div[2]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[2]/div[1]/div/div[2]/div[2]/div[3]/div')
-    gerenciamento_element = page.locator('xpath=/html/body/div[1]/form/div/div/div/div[1]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[2]/div[1]/div/div[2]/div[2]/div[3]/div')
+    gerenciamento_element = page.locator('xpath=/html/body/div[1]/form/div/div/div/div[2]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[2]/div[1]/div/div[2]/div[2]/div[3]/div')
     gerenciamento_element.click()
     time.sleep(3)
     pyautogui.press('ENTER')
 
 def novamente_mostrar_tarefas(page):
-    page.locator('xpath=/html/body/div[1]/form/div[1]/div/div/div[1]/div/div/div/div[3]/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div/div[1]/div[6]/table/tbody/tr/td[1]/div/div[1]').click()
+    page.locator('xpath=/html/body/div[1]/form/div[1]/div/div/div[2]/div/div/div/div[3]/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div/div[1]/div[6]/table/tbody/tr/td[1]/div/div[1]').click()
     time.sleep(5)
 
 def novamente_acessar_gerenciar_contagens_ciclos(page):
     page.locator('xpath=/html/body/div[1]/form/div[2]/div[2]/div/table/tbody/tr/td/div/table/tbody/tr/td[2]/div/div[1]/div/div/span/table/tbody/tr/td[1]/table').click()
-    
     time.sleep(5)
     page.keyboard.press('Enter')  # Pressione apenas a tecla Enter
     time.sleep(5)
@@ -273,7 +259,7 @@ def novamente_clicar_elemento_por_dia(elemento,page):
 
 def novamente_acessar_a_açao(page):
 
-    page.locator('xpath=/html/body/div[1]/form/div[1]/div/div/div[1]/div/div/div/div[3]/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div/div[1]/div[2]/div/div/div[1]/div/div[1]/table/tbody/tr/td[1]/div/div/div/div/div/div/div/div/div/div/div/div/div[2]/div/div/div/div/div/div/div/div[3]/div[2]/div/span/div[1]/div[1]/div/div/table/tbody/tr/td[1]/div/div[1]/div[1]/table/tbody/tr/td[1]/div/div/table/tbody/tr/td[3]/div').click()
+    page.locator('xpath=/html/body/div[1]/form/div[1]/div/div/div[2]/div/div/div/div[3]/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div/div[1]/div[2]/div/div/div[1]/div/div[1]/table/tbody/tr/td[1]/div/div/div/div/div/div/div/div/div/div/div/div/div[2]/div/div/div/div/div/div/div/div[3]/div[2]/div/span/div[1]/div[1]/div/div/table/tbody/tr/td[1]/div/div[1]/div[1]/table/tbody/tr/td[1]/div/div/table/tbody/tr/td[3]/div').click()
 
     time.sleep(5)
 
@@ -298,7 +284,7 @@ def retornar_pagina_inicial_execuçao_de_cadeia_suprimento(page):
 
 def retornar_pagina_ferramenta(page):
     # Localize o elemento da página usando o seletor XPath fornecido
-    retornar_ferramenta_element = page.locator('xpath=/html/body/div[1]/form/div/div/div/div[1]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[1]/div[2]/div/div[12]')
+    retornar_ferramenta_element = page.locator('xpath=/html/body/div[1]/form/div/div/div/div[2]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[1]/div[2]/div/div[12]')
 
     # Clique no elemento
     retornar_ferramenta_element.click()
@@ -306,14 +292,14 @@ def retornar_pagina_ferramenta(page):
     time.sleep(5)
 
 def retornar_processos_programados(page):
-    retornar_programados_element =  page.locator('xpath=/html/body/div[1]/form/div/div/div/div[1]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[2]/div[23]/div/div[2]/div[2]/div[5]/div')
+    retornar_programados_element =  page.locator('xpath=/html/body/div[1]/form/div/div/div/div[2]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[2]/div[23]/div/div[2]/div[2]/div[5]/div')
 
     retornar_programados_element.click()
 
     time.sleep(5)
 
 def retornar_atualizar_processos(page):
-    retornar_atualizar_element = page.locator('xpath=/html/body/div[1]/form/div/div/div/div[1]/div/div/div/div[3]/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div/div[1]/div[1]/div/div/div[1]/div/div[1]/table/tbody/tr/td[1]/div/div/div/div/div[2]/div/div/div[1]/div/div[1]/div[1]/div/div/table/tbody/tr/td[2]/div/div[1]/div[1]/table/tbody/tr/td[10]/div')
+    retornar_atualizar_element = page.locator('xpath=/html/body/div[1]/form/div/div/div/div[2]/div/div/div/div[3]/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div/div[1]/div[1]/div/div/div[1]/div/div[1]/table/tbody/tr/td[1]/div/div/div/div/div[2]/div/div/div[1]/div/div[1]/div[1]/div/div/table/tbody/tr/td[2]/div/div[1]/div[1]/table/tbody/tr/td[10]/div')
 
     retornar_atualizar_element.click()
     time.sleep(10)
@@ -387,23 +373,27 @@ def combinar_e_digitar_informacoes(registro_contagem_ciclica, hub):
 
     if registro_contagem_ciclica == "descartaveis":
         registro_contagem_ciclica = "DESCARTÁVEIS"
+ 
 
     if registro_contagem_ciclica == "duraveis":
-        registro_contagem_ciclica = "DURÁVEIS"
+        registro_contagem_ciclica = "Duráveis"
 
     if registro_contagem_ciclica == "lab_vacina":
         registro_contagem_ciclica = "LAB/VAC"
 
-    if registro_contagem_ciclica == "sv_descartaveis":
+    elif registro_contagem_ciclica == "sv_descartaveis":
         registro_contagem_ciclica = "SV - DESCARTÁVEIS"
+
+    elif registro_contagem_ciclica == "sv_duraveis":
+        registro_contagem_ciclica = "SV - DURÁVEIS"
+
+
 
     if hub == "SBERNARDO_SP_1175":
         hub_semana = "S.BERNARDO"
 
     elif hub == "BRASILIA_DF_0950":
         hub_semana = "BRASÍLIA"
-
-    
 
     elif hub == "VL_OLIMPIA_SP_0446":
         hub_semana = "VL OLÍMPIA"
@@ -414,19 +404,18 @@ def combinar_e_digitar_informacoes(registro_contagem_ciclica, hub):
     else:
         hub_semana = hub[:-8]
 
-    if registro_contagem_ciclica == "DESCARTÁVEIS" or registro_contagem_ciclica == "Duráveis":
+    if registro_contagem_ciclica == "DESCARTÁVEIS" or registro_contagem_ciclica == "DURÁVEIS":
         info = f'LAB - {registro_contagem_ciclica} {hub_semana}'
 
-    elif registro_contagem_ciclica == "SV - DESCARTÁVEIS":
-        info = f'{registro_contagem_ciclica} {hub_semana}'
 
-    elif registro_contagem_ciclica == "insumos" or registro_contagem_ciclica == "SV - DESCARTÁVEIS":
-        info =  f'{registro_contagem_ciclica} - {hub_semana}'
+    elif registro_contagem_ciclica == "SV - DESCARTÁVEIS" or registro_contagem_ciclica == "SV - DURÁVEIS":
+        info =f'{registro_contagem_ciclica} {hub_semana}'
+
+    elif registro_contagem_ciclica == "insumos":
+        info = f'{registro_contagem_ciclica} - {hub_semana}'
 
     else:
         info = f'ALMOX - {registro_contagem_ciclica} - {hub_semana}'
-
-    
 
 
     print(f'Digitando o hub:')
@@ -533,8 +522,8 @@ def controlador():
 
 
     vacina = {
-            "SC_RJ_1256": 7, # Segunda-feira
-            "BARRA_RJ_0608": 7, # Segunda-feira
+            "SC_RJ_1256": 4, # Segunda-feira
+            # "BARRA_RJ_0608": 4, # Segunda-feira
             "TATUAPE_SP_1337": 6, # Segunda-feira
             "VL_OLIMPIA_SP_0446": 6, # Terça-feira
             "ALPHAVILLE_SP_1094": 6, # Terça-feira
@@ -544,11 +533,11 @@ def controlador():
     }
 
     lab_vacina = {
-            "SC_RJ_1256": 3, # Terça-feira
-            "BARRA_RJ_0608": 3, # Terça-feira
-            "VL_OLIMPIA_SP_0446": 7, # Terça-feira
-            "ALPHAVILLE_SP_1094": 7, # Terça-feira
-            "SBERNARDO_SP_1175": 7, # Terça-feira
+            "SC_RJ_1256": 1, # Terça-feira
+            "BARRA_RJ_0608": 1, # Terça-feira
+            "VL_OLIMPIA_SP_0446": 1, # Terça-feira
+            "ALPHAVILLE_SP_1094": 1, # Terça-feira
+            "SBERNARDO_SP_1175": 1, # Terça-feira
             "CAMPINAS_SP_1507": 6, # Terça-feira
             "TATUAPE_SP_1337": 6, # Quarta-feira
             "BRASILIA": 7 # Sexta-feira
@@ -558,50 +547,51 @@ def controlador():
     lab = {
             "RECIFE_PE_1760":4,
             "CURITIBA_PR_0870":4,
-            "SC_RJ_1256": 1, # Quarta-feira
-            "BARRA_RJ_0608": 1, # Quarta-feira
-            "VL_OLIMPIA_SP_0446": 1, # Quinta-feira
-            "ALPHAVILLE_SP_1094": 7, # Quinta-feira
-            "SBERNARDO_SP_1175": 1, # Quinta-feira
-            "CAMPINAS_SP_1507": 7, # Quinta-feira
-            "TATUAPE_SP_1337": 7, # Sexta-feira
+            "SC_RJ_1256": 4, # Quarta-feira
+            "BARRA_RJ_0608": 4, # Quarta-feira
+            "VL_OLIMPIA_SP_0446": 4, # Quinta-feira
+            "ALPHAVILLE_SP_1094": 1, # Quinta-feira
+            "SBERNARDO_SP_1175": 4, # Quinta-feira
+            "CAMPINAS_SP_1507": 1, # Quinta-feira
+            "TATUAPE_SP_1337": 1            , # Sexta-feira
             "BRASILIA": 7 # Sexta-feira
 
     }
 
     duraveis = {
-            "SC_RJ_1256": 7, # Terça-feira
-            "BARRA_RJ_0608": 7, # Terça-feira
-            "VL_OLIMPIA_SP_0446": 7, # Terça-feira
-            "ALPHAVILLE_SP_1094": 7, # Terça-feira
-            "SBERNARDO_SP_1175": 7, # Terça-feira
-            "TATUAPE_SP_1337": 7, # Terça-feira
-            "CAMPINAS_SP_1507": 7, # Terça-feira
-            "BRASILIA": 7 # Terça-feira
+            "SC_RJ_1256": 1, # Terça-feira
+            "BARRA_RJ_0608": 1, # Terça-feira
+            "VL_OLIMPIA_SP_0446": 1, # Terça-feira
+            "ALPHAVILLE_SP_1094": 1, # Terça-feira
+            "SBERNARDO_SP_1175": 1, # Terça-feira
+            "TATUAPE_SP_1337": 1, # Terça-feira
+            "CAMPINAS_SP_1507": 1, # Terça-feira
+            "BRASILIA": 5 # Terça-feira
     }
 
     # descartaveis["descartáveis"]
     descartaveis = {
-            "MACAE_RJ_2228":7,
-            "SC_RJ_1256": 7, # Sexta-feira
-            "BARRA_RJ_0608": 7, # Sexta-feira
-            "VL_OLIMPIA_SP_0446": 7, # Sexta-feira
-            "ALPHAVILLE_SP_1094": 7, # Sexta-feira
-            "SBERNARDO_SP_1175": 7, # Sexta-feira
-            "TATUAPE_SP_1337": 7,# Sexta-feira
-            "CAMPINAS_SP_1507": 1, # Sexta-feira
-            "BRASILIA_DF_0950": 1 # Sexta-feira
+            "SC_RJ_1256": 4, # Sexta-feira
+            "BARRA_RJ_0608": 4, # Sexta-feira
+            "VL_OLIMPIA_SP_0446": 3, # Sexta-feira
+            "ALPHAVILLE_SP_1094": 3, # Sexta-feira
+            "SBERNARDO_SP_1175": 3, # Sexta-feira
+            "TATUAPE_SP_1337": 3, # Sexta-feira
+            "CAMPINAS_SP_1507": 3, # Sexta-feira
+            "BRASILIA_DF_0950": 3 # Sexta-feira
     }
+
     sv_descartaveis = {
-            # "SC_RJ_1256": 7, # Sexta-feira
-            # "BARRA_RJ_0608": 2, # Sexta-feira
-            # "VL_OLIMPIA_SP_0446": 2, # Sexta-feira
-            # "ALPHAVILLE_SP_1094": 2, # Sexta-feira
-            # "SBERNARDO_SP_1175": 2, # Sexta-feira
+            "SC_RJ_1256": 2, # Sexta-feira
+            "BARRA_RJ_0608": 2, # Sexta-feira
+            "VL_OLIMPIA_SP_0446": 2, # Sexta-feira
+            "ALPHAVILLE_SP_1094": 2, # Sexta-feira
+            "SBERNARDO_SP_1175": 7, # Sexta-feira
             "TATUAPE_SP_1337": 2, # Sexta-feira
             "CAMPINAS_SP_1507": 2, # Sexta-feira
             "BRASILIA_DF_0950": 2 # Sexta-feira
     }
+
     sv_duraveis = {
             # "SC_RJ_1256": 0, # Sexta-feira
             # "BARRA_RJ_0608": 0, # Sexta-feira
@@ -612,23 +602,21 @@ def controlador():
             "CAMPINAS_SP_1507": 0, # Sexta-feira
             "BRASILIA_DF_0950": 0 # Sexta-feira
     }
-
     insumos = {
-        "BRASILIA_DF_0950": 7,
+        "BRASILIA_DF_0950": 7 ,
         
     }
     
 
-    elementos = ['xpath=/html/body/div[1]/form/div[1]/div/div/div[1]/div/div/div/div[3]/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div/div[1]/div[2]/div/div/div[1]/div/div[1]/table/tbody/tr/td[1]/div/div/div/div/div/div/div/div/div/div/div/div/div[2]/div/div/div/div/div/div/div/div[3]/div[2]/div/span/div[1]/div[2]/div/div[2]/table/tbody/tr[5]/td[2]/div',
-                'xpath=/html/body/div[1]/form/div[1]/div/div/div[1]/div/div/div/div[3]/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div/div[1]/div[2]/div/div/div[1]/div/div[1]/table/tbody/tr/td[1]/div/div/div/div/div/div/div/div/div/div/div/div/div[2]/div/div/div/div/div/div/div/div[3]/div[2]/div/span/div[1]/div[2]/div/div[2]/table/tbody/tr[2]/td[2]/div',
-                'xpath=/html/body/div[1]/form/div[1]/div/div/div[1]/div/div/div/div[3]/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div/div[1]/div[2]/div/div/div[1]/div/div[1]/table/tbody/tr/td[1]/div/div/div/div/div/div/div/div/div/div/div/div/div[2]/div/div/div/div/div/div/div/div[3]/div[2]/div/span/div[1]/div[2]/div/div[2]/table/tbody/tr[3]/td[2]/div',
-                'xpath=/html/body/div[1]/form/div[1]/div/div/div[1]/div/div/div/div[3]/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div/div[1]/div[2]/div/div/div[1]/div/div[1]/table/tbody/tr/td[1]/div/div/div/div/div/div/div/div/div/div/div/div/div[2]/div/div/div/div/div/div/div/div[3]/div[2]/div/span/div[1]/div[2]/div/div[2]/table/tbody/tr[4]/td[2]/div',
-                'xpath=/html/body/div[1]/form/div[1]/div/div/div[1]/div/div/div/div[3]/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div/div[1]/div[2]/div/div/div[1]/div/div[1]/table/tbody/tr/td[1]/div/div/div/div/div/div/div/div/div/div/div/div/div[2]/div/div/div/div/div/div/div/div[3]/div[2]/div/span/div[1]/div[2]/div/div[2]/table/tbody/tr[6]/td[2]/div',
-                'xpath=/html/body/div[1]/form/div[1]/div/div/div[1]/div/div/div/div[3]/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div/div[1]/div[2]/div/div/div[1]/div/div[1]/table/tbody/tr/td[1]/div/div/div/div/div/div/div/div/div/div/div/div/div[2]/div/div/div/div/div/div/div/div[3]/div[2]/div/span/div[1]/div[2]/div/div[2]/table/tbody/tr[3]/td[2]/div',
-                'xpath=/html/body/div[1]/form/div[1]/div/div/div[1]/div/div/div/div[3]/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div/div[1]/div[2]/div/div/div[1]/div/div[1]/table/tbody/tr/td[1]/div/div/div/div/div/div/div/div/div/div/div/div/div[2]/div/div/div/div/div/div/div/div[3]/div[2]/div/span/div[1]/div[2]/div/div[2]/table/tbody/tr[7]/td[2]/div',
+    elementos = ['xpath=/html/body/div[1]/form/div[1]/div/div/div[2]/div/div/div/div[3]/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div/div[1]/div[2]/div/div/div[1]/div/div[1]/table/tbody/tr/td[1]/div/div/div/div/div/div/div/div/div/div/div/div/div[2]/div/div/div/div/div/div/div/div[3]/div[2]/div/span/div[1]/div[2]/div/div[2]/table/tbody/tr[5]/td[2]/div',
+                'xpath=/html/body/div[1]/form/div[1]/div/div/div[2]/div/div/div/div[3]/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div/div[1]/div[2]/div/div/div[1]/div/div[1]/table/tbody/tr/td[1]/div/div/div/div/div/div/div/div/div/div/div/div/div[2]/div/div/div/div/div/div/div/div[3]/div[2]/div/span/div[1]/div[2]/div/div[2]/table/tbody/tr[2]/td[2]/div',
+                'xpath=/html/body/div[1]/form/div[1]/div/div/div[2]/div/div/div/div[3]/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div/div[1]/div[2]/div/div/div[1]/div/div[1]/table/tbody/tr/td[1]/div/div/div/div/div/div/div/div/div/div/div/div/div[2]/div/div/div/div/div/div/div/div[3]/div[2]/div/span/div[1]/div[2]/div/div[2]/table/tbody/tr[3]/td[2]/div',
+                'xpath=/html/body/div[1]/form/div[1]/div/div/div[2]/div/div/div/div[3]/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div/div[1]/div[2]/div/div/div[1]/div/div[1]/table/tbody/tr/td[1]/div/div/div/div/div/div/div/div/div/div/div/div/div[2]/div/div/div/div/div/div/div/div[3]/div[2]/div/span/div[1]/div[2]/div/div[2]/table/tbody/tr[4]/td[2]/div',
+                'xpath=/html/body/div[1]/form/div[1]/div/div/div[2]/div/div/div/div[3]/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div/div[1]/div[2]/div/div/div[1]/div/div[1]/table/tbody/tr/td[1]/div/div/div/div/div/div/div/div/div/div/div/div/div[2]/div/div/div/div/div/div/div/div[3]/div[2]/div/span/div[1]/div[2]/div/div[2]/table/tbody/tr[6]/td[2]/div',
+                'xpath=/html/body/div[1]/form/div[1]/div/div/div[2]/div/div/div/div[3]/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div/div[1]/div[2]/div/div/div[1]/div/div[1]/table/tbody/tr/td[1]/div/div/div/div/div/div/div/div/div/div/div/div/div[2]/div/div/div/div/div/div/div/div[3]/div[2]/div/span/div[1]/div[2]/div/div[2]/table/tbody/tr[3]/td[2]/div',
+                'xpath=/html/body/div[1]/form/div[1]/div/div/div[2]/div/div/div/div[3]/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div/div[1]/div[2]/div/div/div[1]/div/div[1]/table/tbody/tr/td[1]/div/div/div/div/div/div/div/div/div/div/div/div/div[2]/div/div/div/div/div/div/div/div[3]/div[2]/div/span/div[1]/div[2]/div/div[2]/table/tbody/tr[7]/td[2]/div',
                 'xpath=/html/body/div[1]/form/div[1]/div/div/div[2]/div/div/div/div[3]/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div/div[1]/div[2]/div/div/div[1]/div/div[1]/table/tbody/tr/td[1]/div/div/div/div/div/div/div/div/div/div/div/div/div[2]/div/div/div/div/div/div/div/div[3]/div[2]/div/span/div[1]/div[2]/div/div[2]/table/tbody/tr[8]/td[2]/div',
-                'xpath=/html/body/div[1]/form/div[1]/div/div/div[2]/div/div/div/div[3]/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div/div[1]/div[2]/div/div/div[1]/div/div[1]/table/tbody/tr/td[1]/div/div/div/div/div/div/div/div/div/div/div/div/div[2]/div/div/div/div/div/div/div/div[3]/div[2]/div/span/div[1]/div[2]/div/div[2]/table/tbody/tr[9]/td[2]/div',
-                'xpath=/html/body/div[1]/form/div[1]/div/div/div[2]/div/div/div/div[3]/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div/div[1]/div[2]/div/div/div[1]/div/div[1]/table/tbody/tr/td[1]/div/div/div/div/div/div/div/div/div/div/div/div/div[2]/div/div/div/div/div/div/div/div[3]/div[2]/div/span/div[1]/div[2]/div/div[2]/table/tbody/tr[11]/td[2]/div'
+                'xpath=/html/body/div[1]/form/div[1]/div/div/div[2]/div/div/div/div[3]/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div/div[1]/div[2]/div/div/div[1]/div/div[1]/table/tbody/tr/td[1]/div/div/div/div/div/div/div/div/div/div/div/div/div[2]/div/div/div/div/div/div/div/div[3]/div[2]/div/span/div[1]/div[2]/div/div[2]/table/tbody/tr[9]/td[2]/div'
                 ]
 
     hubs_vacina = []
@@ -639,15 +627,11 @@ def controlador():
     hubs_insumos = []
     hubs_sv_descartaveis = []
     hubs_sv_duraveis = []
-    
 
     dia_da_semana = datetime.now().date().weekday()
     dia_mes = datetime.now().date().day
 
 
-    
-
-     # Inicia a contagem para SV
 
     print("Iniciando a contagem para sv descartáveis")
 
@@ -670,7 +654,45 @@ def controlador():
     print("Processo finalizado!")
     print("------------------------------------------------")
 
+    print("Iniciando a contagem para sv duráveis")
 
+    for hub, dias_semana in sv_duraveis.items():
+        if dia_da_semana == dias_semana:
+            hubs_sv_duraveis.append(hub)
+
+    for hub in hubs_sv_duraveis:
+        print("Iniciando contagem do hub ", end='')
+        print(hub)
+        if  hub == "BRASILIA_DF_0950": 
+            contagem_inventario(hub, 'sv_duraveis', elementos[6])
+        elif hub == "SBERNARDO_SP_1175":
+            contagem_inventario(hub, 'sv_duraveis', elementos[6])
+            continue 
+        contagem_inventario(hub, "sv_duraveis", elementos[7])
+
+    print("Processo finalizado!")
+    print("------------------------------------------------")
+
+    print("Iniciando a contagem para sv duraveis")
+
+    
+
+    for hub, dias_semana in sv_descartaveis.items():
+        if dia_da_semana == dias_semana:
+            hubs_sv_descartaveis.append(hub)
+
+    for hub in hubs_sv_descartaveis:
+        print("Iniciando contagem do hub ", end='')
+        print(hub)
+        if  hub == "BRASILIA_DF_0950": 
+            contagem_inventario(hub, 'sv_descartaveis', elementos[4])
+        elif hub == "SBERNARDO_SP_1175":
+            contagem_inventario(hub, 'sv_descartaveis', elementos[7])
+            continue 
+        contagem_inventario(hub, "sv_descartaveis", elementos[6])
+
+    print("Processo finalizado!")
+    print("------------------------------------------------")
 
 
 
@@ -736,6 +758,9 @@ def controlador():
     for hub in hubs_duraveis:
         print("Iniciando contagem do hub ", end='')
         print(hub)
+        if  hub == "BRASILIA_DF_0950": 
+            contagem_inventario(hub, 'duraveis', elementos[2])
+            continue 
         contagem_inventario(hub, "duraveis", elementos[4])
 
 
@@ -798,5 +823,5 @@ controlador()
 #  Almox. Lab         'xpath=/html/body/div[1]/form/div[1]/div/div/div[2]/div/div/div/div[3]/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div/div[1]/div[2]/div/div/div[1]/div/div[1]/table/tbody/tr/td[1]/div/div/div/div/div/div/div/div/div/div/div/div/div[2]/div/div/div/div/div/div/div/div[3]/div[2]/div/span/div[1]/div[2]/div/div[2]/table/tbody/tr[2]/td[2]/div',
 # Almox lab/vac       'xpath=/html/body/div[1]/form/div[1]/div/div/div[2]/div/div/div/div[3]/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div/div[1]/div[2]/div/div/div[1]/div/div[1]/table/tbody/tr/td[1]/div/div/div/div/div/div/div/div/div/div/div/div/div[2]/div/div/div/div/div/div/div/div[3]/div[2]/div/span/div[1]/div[2]/div/div[2]/table/tbody/tr[3]/td[2]/div',      
 # Almox vac           'xpath=/html/body/div[1]/form/div[1]/div/div/div[2]/div/div/div/div[3]/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div/div[1]/div[2]/div/div/div[1]/div/div[1]/table/tbody/tr/td[1]/div/div/div/div/div/div/div/div/div/div/div/div/div[2]/div/div/div/div/div/div/div/div[3]/div[2]/div/span/div[1]/div[2]/div/div[2]/table/tbody/tr[4]/td[2]/div', 
-# # Almox DURAVEIS    'xpath=/html/body/div[1]/form/div[1]/div/div/div[2]/div/div/div/div[3]/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div/div[1]/div[2]/div/div/div[1]/div/div[1]/table/tbody/tr/td[1]/div/div/div/div/div/div/div/div/div/div/div/div/div[2]/div/div/div/div/div/div/div/div[3]/div[2]/div/span/div[1]/div[2]/div/div[2]/table/tbody/tr[6]/td[2]/div',
+# # Almox DURAVEIS           'xpath=/html/body/div[1]/form/div[1]/div/div/div[2]/div/div/div/div[3]/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div/div[1]/div[2]/div/div/div[1]/div/div[1]/table/tbody/tr/td[1]/div/div/div/div/div/div/div/div/div/div/div/div/div[2]/div/div/div/div/div/div/div/div[3]/div[2]/div/span/div[1]/div[2]/div/div[2]/table/tbody/tr[6]/td[2]/div',
 # Insumos             'xpath=/html/body/div[1]/form/div[1]/div/div/div[2]/div/div/div/div[3]/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div/div[1]/div[2]/div/div/div[1]/div/div[1]/table/tbody/tr/td[1]/div/div/div/div/div/div/div/div/div/div/div/div/div[2]/div/div/div/div/div/div/div/div[3]/div[2]/div/span/div[1]/div[2]/div/div[2]/table/tbody/tr[3]/td[2]/div',
