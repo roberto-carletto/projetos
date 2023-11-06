@@ -55,11 +55,11 @@ def processos_programados(page):
 
     for _ in range(4):
         page.keyboard.press("Tab")
-        time.sleep(0.3)
+        time.sleep(0.5)
 
     # Pressione 'Enter' para enviar o formulário
     page.keyboard.press('Enter')
-    time.sleep(1)
+    time.sleep(1.5)
 
     for _ in range(7):
         page.keyboard.press("Tab")
@@ -188,7 +188,7 @@ def encontrar_segundo(page, num_proc):
 
     for letra in num_proc:
         page.keyboard.press(letra)
-        time.sleep(0.05)
+        time.sleep(0.01)
     time.sleep(1)
 
     for _ in range(7):
@@ -202,7 +202,7 @@ def encontrar_segundo(page, num_proc):
 
 
 
-def processos_programados_terceito(page):
+def processos_programados_terceiro(page):
     time.sleep(5)
     #programar novo processo
     page.locator('xpath=/html/body/div[1]/form/div[1]/div/div/div[2]/div/div/div/div[3]/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div/div[1]/div[1]/div/div/div[1]/div/div[1]/table/tbody/tr/td[1]/div/div/div/div/div[2]/div/div/div[1]/div/div[1]/div[1]/div/div/table/tbody/tr/td[2]/div/div[1]/div[1]/table/tbody/tr/td[1]/div').click()
@@ -235,46 +235,77 @@ def encontrar_e_digitar_hub_terceiro(page, hub):
 
     # # Pressione 'Enter' para enviar o formulário
     page.keyboard.press('Enter')
-    time.sleep(5)
+    time.sleep(3)
 
     for _ in range(10):
         page.keyboard.press("Tab")
+        time.sleep(0.02)
     time.sleep(5)
 
     page.keyboard.press("ArrowDown")
+    time.sleep(1)
 
     for _ in range(4):
         page.keyboard.press("Tab")
-    time.sleep(5)
+        time.sleep(0.02)
+    time.sleep(1)
 
     page.keyboard.press('Enter')
-    time.sleep(5)
+    time.sleep(1)
 
-    for _ in range(1):
-        page.keyboard.press("Tab")
-    time.sleep(5)
+    page.keyboard.press("Tab")
+    time.sleep(1)
 
     page.keyboard.press("ArrowDown")
+    time.sleep(1)
 
     for _ in range(4):
         page.keyboard.press("Tab")
-    time.sleep(5)
+        time.sleep(0.02)
+    time.sleep(1)
 
     page.keyboard.press('Enter')
-    time.sleep(5)
+    time.sleep(1)
 
     for _ in range(7):
         page.keyboard.press("Tab")
-    time.sleep(5)
+        time.sleep(0.02)
+    time.sleep(1)
 
     for _ in range(2):
         page.keyboard.press("ArrowDown")
 
     for _ in range(8):
         page.keyboard.press("Tab")
+        time.sleep(0.02)
     time.sleep(3)
 
+    page.keyboard.press('Enter')
+    time.sleep(3)
+    page.keyboard.press('Enter')
+    time.sleep(5)
 
+def atualizar2(page):
+
+    time.sleep(2)
+    page.keyboard.press("Tab")
+    time.sleep(0.5)
+    for _ in range(5):
+        page.keyboard.press("Enter")
+        time.sleep(5)
+
+def encontrar_arquivo_download(page):
+
+    element = page.locator("xpath=/html/body/div[1]/form/div[1]/div/div/div[2]/div/div/div/div[3]/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div/div[1]/div[1]/div/div/div[1]/div/div[1]/table/tbody/tr/td[1]/div/div/div/div/div[2]/div/div/div[1]/div/div[1]/div[2]/div/div[2]/table/tbody/tr[1]/td[2]/div/table/tbody")
+    element.click()
+    page.keyboard.press("Enter")
+    time.sleep(5)
+    for _ in range(9):
+        page.keyboard.press("Tab")
+        time.sleep(0.2)
+    time.sleep(1)
+    page.keyboard.press("Enter")
+    time.sleep(10)
 
 
 def controlador():
@@ -316,8 +347,10 @@ def controlador():
                 atualizar(page)
                 processos_programados_segundo(page)
                 encontrar_segundo(page, num_proc)
-                processos_programados_terceito(page)
+                processos_programados_terceiro(page)
                 encontrar_e_digitar_hub_terceiro(page, hub)
+                atualizar2(page)
+                encontrar_arquivo_download(page)
 
             print("Processo finalizado!")
 
@@ -334,7 +367,7 @@ def controlador():
                 atualizar(page)
                 processos_programados_segundo(page)
 
-                processos_programados_terceito(page)
+                processos_programados_terceiro(page)
                 encontrar_e_digitar_hub_terceiro(page, hub)
 
             print("Processo finalizado!")
