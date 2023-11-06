@@ -6,24 +6,8 @@ import pandas
 import time
 import os
 
-url_teste = "https://fa-evcj-test-saasfaprod1.fa.ocs.oraclecloud.com"
-url_producao = "https://fa-evcj-saasfaprod1.fa.ocs.oraclecloud.com"
-print("Escolha uma opção:")
-print("1 - Executar em ambiente de teste")
-print("2 - Executar em ambiente de produção")
-x = input("=> ")
-if x == '1':
-    url = url_teste
-    print("O programa está sendo executado em ambiente de teste")
-elif x == '2':
-    print("O programa será executado em ambiente de produção")
-    y = input("Tem certeza?(s/n): ")
-    if y == 's':
-        url = url_producao
-        print("O programa está sendo executado em ambiente de produção")
-    else:
-        url = url_teste
-        print("O programa está sendo executado em ambiente de teste")
+url = "https://fa-evcj-saasfaprod1.fa.ocs.oraclecloud.com"
+
 
 def fazer_login(page):
     page.goto("https://login-evcj-saasfaprod1.fa.ocs.oraclecloud.com")
@@ -46,7 +30,7 @@ def acessar_contagens_de_ciclos(page):
     page.keyboard.press("Enter")
     time.sleep(3)
 
-    page.locator('xpath=/html/body/div[1]/form/div/div/div/div[1]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[2]/div[1]/div/div[2]/div[2]/div[3]/div').click()
+    page.locator('xpath=/html/body/div[1]/form/div/div/div/div[2]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[2]/div[1]/div/div[2]/div[2]/div[3]/div').click()
     time.sleep(5)
 
 def mostrar_tarefas(page):
@@ -54,20 +38,23 @@ def mostrar_tarefas(page):
     time.sleep(5)
 
 def acessar_gerenciar_contagens_ciclos(page):
-    page.locator('xpath=/html/body/div[1]/form/div[2]/div[2]/div/table/tbody/tr/td/div/table/tbody/tr/td[2]/div/div[1]/div/div/span/table/tbody/tr/td[1]/table').click()
+    # page.locator('xpath=/html/body/div[1]/form/div[2]/div[2]/div/table/tbody/tr/td/div/table/tbody/tr/td[2]/div/div[1]/div/div/span/table/tbody/tr/td[1]/table').click()
+    page.locator('xpath=/html/body/div[1]/form/div[2]/div[2]/div/table/tbody/tr/td/div/table/tbody/tr/td[2]/div/div[1]/div/div/span/table/tbody/tr/td[1]/table/tbody/tr/td[2]').click()
     time.sleep(5)
     page.keyboard.press('ArrowDown')
     page.keyboard.press('Enter')
     time.sleep(5)
 
 def acessar_organizacao(page):
-    page.locator('xpath=/html/body/div[1]/form/div[2]/div[2]/div/table/tbody/tr/td/div/table/tbody/tr/td[2]/div/div[1]/div/div/span/div/div[1]/div/div/table/tbody/tr/td/table/tbody/tr[2]/td[2]/div/div[2]/div/ul/li[2]/a').click()
+    # page.locator('xpath=/html/body/div[1]/form/div[2]/div[2]/div/table/tbody/tr/td/div/table/tbody/tr/td[2]/div/div[1]/div/div/span/div/div[1]/div/div/table/tbody/tr/td/table/tbody/tr[2]/td[2]/div/div[2]/div/ul/li[2]/a').click()
+    page.locator('xpath=/html/body/div[1]/form/div[2]/div[2]/div[1]/div[1]/table/tbody/tr/td/div/div/table/tbody/tr[2]/td[2]/table/tbody/tr/td[2]/span/input').click()
     time.sleep(4)
 
 
 def digitar_hub_com_base_no_dia_da_semana(page, hub):
 
     print(f'Digitando o hub: {hub}')
+    # input_element = page.locator('xpath=/html/body/div[1]/form/div[2]/div[2]/div[1]/div[1]/table/tbody/tr/td/div/div/table/tbody/tr[2]/td[2]/table/tbody/tr/td[2]/span/input')
     input_element = page.locator('xpath=/html/body/div[1]/form/div[2]/div[2]/div[1]/div[1]/table/tbody/tr/td/div/div/table/tbody/tr[2]/td[2]/table/tbody/tr/td[2]/span/input')
     input_element.click()
     input_element.fill(hub)
@@ -91,8 +78,8 @@ def clicar_elemento_por_dia(elemento,page):
 
 def acessar_a_açao(page):
 
+    # page.locator('xpath=/html/body/div[1]/form/div[1]/div/div/div[1]/div/div/div/div[3]/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div/div[1]/div[2]/div/div/div[1]/div/div[1]/table/tbody/tr/td[1]/div/div/div/div/div/div/div/div/div/div/div/div/div[2]/div/div/div/div/div/div/div/div[3]/div[2]/div/span/div[1]/div[1]/div/div/table/tbody/tr/td[1]/div/div[1]/div[1]/table/tbody/tr/td[1]/div/div/table/tbody/tr/td[3]/div').click()
     page.locator('xpath=/html/body/div[1]/form/div[1]/div/div/div[1]/div/div/div/div[3]/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div/div[1]/div[2]/div/div/div[1]/div/div[1]/table/tbody/tr/td[1]/div/div/div/div/div/div/div/div/div/div/div/div/div[2]/div/div/div/div/div/div/div/div[3]/div[2]/div/span/div[1]/div[1]/div/div/table/tbody/tr/td[1]/div/div[1]/div[1]/table/tbody/tr/td[1]/div/div/table/tbody/tr/td[3]/div').click()
-
     time.sleep(5)
 
     for _ in range(5):
@@ -533,8 +520,8 @@ def controlador():
 
 
     vacina = {
-            "SC_RJ_1256": 7, # Segunda-feira
-            "BARRA_RJ_0608": 7, # Segunda-feira
+            "SC_RJ_1256": 4, # Segunda-feira
+            "BARRA_RJ_0608": 4, # Segunda-feira
             "TATUAPE_SP_1337": 6, # Segunda-feira
             "VL_OLIMPIA_SP_0446": 6, # Terça-feira
             "ALPHAVILLE_SP_1094": 6, # Terça-feira
@@ -556,28 +543,28 @@ def controlador():
     }
 
     lab = {
-            "RECIFE_PE_1760":4,
+            "RECIFE_PE_1760":0,
             "CURITIBA_PR_0870":4,
-            "SC_RJ_1256": 1, # Quarta-feira
-            "BARRA_RJ_0608": 1, # Quarta-feira
-            "VL_OLIMPIA_SP_0446": 1, # Quinta-feira
-            "ALPHAVILLE_SP_1094": 7, # Quinta-feira
-            "SBERNARDO_SP_1175": 1, # Quinta-feira
-            "CAMPINAS_SP_1507": 7, # Quinta-feira
-            "TATUAPE_SP_1337": 7, # Sexta-feira
+            "SC_RJ_1256": 4, # Quarta-feira
+            "BARRA_RJ_0608": 4, # Quarta-feira
+            "VL_OLIMPIA_SP_0446": 4, # Quinta-feira
+            "ALPHAVILLE_SP_1094": 1, # Quinta-feira
+            "SBERNARDO_SP_1175": 4, # Quinta-feira
+            "CAMPINAS_SP_1507": 1, # Quinta-feira
+            "TATUAPE_SP_1337": 1            , # Sexta-feira
             "BRASILIA": 7 # Sexta-feira
 
     }
 
     duraveis = {
-            "SC_RJ_1256": 7, # Terça-feira
-            "BARRA_RJ_0608": 7, # Terça-feira
-            "VL_OLIMPIA_SP_0446": 7, # Terça-feira
-            "ALPHAVILLE_SP_1094": 7, # Terça-feira
-            "SBERNARDO_SP_1175": 7, # Terça-feira
-            "TATUAPE_SP_1337": 7, # Terça-feira
-            "CAMPINAS_SP_1507": 7, # Terça-feira
-            "BRASILIA": 7 # Terça-feira
+            "SC_RJ_1256": 1, # Terça-feira
+            "BARRA_RJ_0608": 1, # Terça-feira
+            "VL_OLIMPIA_SP_0446": 1, # Terça-feira
+            "ALPHAVILLE_SP_1094": 1, # Terça-feira
+            "SBERNARDO_SP_1175": 1, # Terça-feira
+            "TATUAPE_SP_1337": 1, # Terça-feira
+            "CAMPINAS_SP_1507": 1, # Terça-feira
+            "BRASILIA": 4 # Terça-feira
     }
 
     # descartaveis["descartáveis"]
