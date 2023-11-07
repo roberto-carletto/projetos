@@ -311,7 +311,7 @@ def encontrar_arquivo_download(page):
 
     download = download_info.value
     print(download)
-    download.save_as(r'C:\Users\Beep Saude\Downloads')
+    download.save_as('C:\\Users\\Beep Saude\\Downloads\\' + download.suggested_filename)
     time.sleep(100)
 
 
