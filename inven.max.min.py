@@ -1,5 +1,6 @@
 import pyautogui
 import pyperclip
+import clipboard
 from playwright.sync_api import sync_playwright
 from datetime import datetime
 import pandas
@@ -40,30 +41,30 @@ def processos_programados(page):
 
     programados_element.click()
 
-    time.sleep(2)
+    time.sleep(5)
 #     #programar novo processo
     page.locator('xpath=/html/body/div[1]/form/div[1]/div/div/div[2]/div/div/div/div[3]/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div/div[1]/div[1]/div/div/div[1]/div/div[1]/table/tbody/tr/td[1]/div/div/div/div/div[2]/div/div/div[1]/div/div[1]/div[1]/div/div/table/tbody/tr/td[2]/div/div[1]/div[1]/table/tbody/tr/td[1]/div').click()
-    time.sleep(2)
+    time.sleep(5)
 
     input_element = page.locator('xpath=/html/body/div[1]/form/div[2]/div[2]/div[1]/div[1]/table/tbody/tr/td/div/div/table/tbody/tr[2]/td[2]/div/table/tbody/tr/td/table/tbody/tr[4]/td[2]/span/input')
 
     # Preencha o campo de entrada com o texto desejado
     input_element.fill("Imprimir Relatório de Planejamento Mín-Máx")
 
-    time.sleep(2)
+    time.sleep(5)
 
 
     for _ in range(4):
         page.keyboard.press("Tab")
-        time.sleep(0.5)
+        time.sleep(2)
 
     # Pressione 'Enter' para enviar o formulário
     page.keyboard.press('Enter')
-    time.sleep(1.5)
+    time.sleep(2)
 
     for _ in range(7):
         page.keyboard.press("Tab")
-    time.sleep(0.3)
+    time.sleep(2)
 
     page.keyboard.press("Enter")
 
@@ -75,13 +76,13 @@ def encontrar_e_digitar_hub(page, hub, tipo):
 
     input_element = page.locator('xpath=/html/body/div[1]/form/div[2]/div[2]/div[1]/div[1]/table/tbody/tr/td/div/div/table/tbody/tr[2]/td[2]/div/div[1]/div[2]/div[2]/div/div/div/div/span/div/table/tbody/tr/td/table/tbody/tr[2]/td[2]/span/input')
     input_element.fill(hub)
-    time.sleep(0.5)
+    time.sleep(2)
 
     page.keyboard.press("Tab")
 
     for _ in range(3):
         page.keyboard.press("ArrowDown")
-    time.sleep(0.5)
+    time.sleep(2)
 
     for _ in range(5):
         page.keyboard.press("Tab")
@@ -95,19 +96,19 @@ def encontrar_e_digitar_hub(page, hub, tipo):
     for _ in range(7):
         page.keyboard.press("Tab")
 
-    for _ in range(1):
+    for _ in range(2):
         page.keyboard.press("ArrowDown")
-    time.sleep(0.5)
+    time.sleep(2)
 
 
 
     for _ in range(16):
         page.keyboard.press("Tab")
-    time.sleep(1)
+    time.sleep(2)
 
-    for _ in range(1):
+    for _ in range(2):
         page.keyboard.press("ArrowUp")
-    time.sleep(0.5)
+    time.sleep(2)
 
 
     for _ in range(7):
@@ -132,7 +133,7 @@ def atualizar(page):
     page.keyboard.press("Enter")
     time.sleep(1)
     page.keyboard.press("Tab")
-    time.sleep(0.5)
+    time.sleep(2)
     for _ in range(5):
         page.keyboard.press("Enter")
         time.sleep(5)
@@ -188,7 +189,7 @@ def encontrar_segundo(page, num_proc):
 
     for letra in num_proc:
         page.keyboard.press(letra)
-        time.sleep(0.01)
+        time.sleep(0.05)
     time.sleep(1)
 
     for _ in range(7):
@@ -199,10 +200,11 @@ def encontrar_segundo(page, num_proc):
     time.sleep(3)
     page.keyboard.press('Enter')
     time.sleep(3)
+    print ("terminor a segunda parte")
+    page.keyboard.press("Tab")
 
 
-
-def processos_programados_terceiro(page):
+def processos_programados_terceito(page):
     time.sleep(5)
     #programar novo processo
     page.locator('xpath=/html/body/div[1]/form/div[1]/div/div/div[2]/div/div/div/div[3]/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div/div[1]/div[1]/div/div/div[1]/div/div[1]/table/tbody/tr/td[1]/div/div/div/div/div[2]/div/div/div[1]/div/div[1]/div[1]/div/div/table/tbody/tr/td[2]/div/div[1]/div[1]/table/tbody/tr/td[1]/div').click()
@@ -235,77 +237,50 @@ def encontrar_e_digitar_hub_terceiro(page, hub):
 
     # # Pressione 'Enter' para enviar o formulário
     page.keyboard.press('Enter')
-    time.sleep(3)
+    time.sleep(5)
 
     for _ in range(10):
         page.keyboard.press("Tab")
-        time.sleep(0.02)
+        time.sleep(0.2)
     time.sleep(5)
 
     page.keyboard.press("ArrowDown")
-    time.sleep(1)
 
     for _ in range(4):
         page.keyboard.press("Tab")
-        time.sleep(0.02)
-    time.sleep(1)
+        time.sleep(0.2)
+    time.sleep(5)
 
     page.keyboard.press('Enter')
-    time.sleep(1)
+    time.sleep(5)
 
-    page.keyboard.press("Tab")
-    time.sleep(1)
+    for _ in range(1):
+        page.keyboard.press("Tab")
+    time.sleep(5)
 
     page.keyboard.press("ArrowDown")
-    time.sleep(1)
 
     for _ in range(4):
         page.keyboard.press("Tab")
-        time.sleep(0.02)
-    time.sleep(1)
+    time.sleep(5)
 
     page.keyboard.press('Enter')
-    time.sleep(1)
+    time.sleep(5)
 
     for _ in range(7):
         page.keyboard.press("Tab")
-        time.sleep(0.02)
-    time.sleep(1)
+    time.sleep(5)
 
     for _ in range(2):
         page.keyboard.press("ArrowDown")
 
     for _ in range(8):
         page.keyboard.press("Tab")
-        time.sleep(0.02)
     time.sleep(3)
 
     page.keyboard.press('Enter')
-    time.sleep(3)
-    page.keyboard.press('Enter')
-    time.sleep(5)
 
-def atualizar2(page):
 
-    time.sleep(2)
-    page.keyboard.press("Tab")
-    time.sleep(0.5)
-    for _ in range(5):
-        page.keyboard.press("Enter")
-        time.sleep(5)
-
-def encontrar_arquivo_download(page):
-
-    element = page.locator("xpath=/html/body/div[1]/form/div[1]/div/div/div[2]/div/div/div/div[3]/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div/div[1]/div[1]/div/div/div[1]/div/div[1]/table/tbody/tr/td[1]/div/div/div/div/div[2]/div/div/div[1]/div/div[1]/div[2]/div/div[2]/table/tbody/tr[1]/td[2]/div/table/tbody")
-    element.click()
-    page.keyboard.press("Enter")
-    time.sleep(5)
-    for _ in range(9):
-        page.keyboard.press("Tab")
-        time.sleep(0.2)
-    time.sleep(1)
-    page.keyboard.press("Enter")
-    time.sleep(10)
 
 
 def controlador():
@@ -347,10 +322,9 @@ def controlador():
                 atualizar(page)
                 processos_programados_segundo(page)
                 encontrar_segundo(page, num_proc)
-                processos_programados_terceiro(page)
+                atualizar(page)
+                processos_programados_terceito(page)
                 encontrar_e_digitar_hub_terceiro(page, hub)
-                atualizar2(page)
-                encontrar_arquivo_download(page)
 
             print("Processo finalizado!")
 
@@ -367,7 +341,7 @@ def controlador():
                 atualizar(page)
                 processos_programados_segundo(page)
 
-                processos_programados_terceiro(page)
+                processos_programados_terceito(page)
                 encontrar_e_digitar_hub_terceiro(page, hub)
 
             print("Processo finalizado!")
