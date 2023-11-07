@@ -279,8 +279,31 @@ def encontrar_e_digitar_hub_terceiro(page, hub):
     time.sleep(3)
 
     page.keyboard.press('Enter')
+    time.sleep(3)
+    page.keyboard.press('Enter')
+    time.sleep(5)
 
+def atualizar2(page):
 
+    time.sleep(2)
+    page.keyboard.press("Tab")
+    time.sleep(0.5)
+    for _ in range(5):
+        page.keyboard.press("Enter")
+        time.sleep(5)
+
+def encontrar_arquivo_download(page):
+
+    element = page.locator("xpath=/html/body/div[1]/form/div[1]/div/div/div[2]/div/div/div/div[3]/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div/div[1]/div[1]/div/div/div[1]/div/div[1]/table/tbody/tr/td[1]/div/div/div/div/div[2]/div/div/div[1]/div/div[1]/div[2]/div/div[2]/table/tbody/tr[1]/td[2]/div/table/tbody")
+    element.click()
+    page.keyboard.press("Enter")
+    time.sleep(5)
+    for _ in range(9):
+        page.keyboard.press("Tab")
+        time.sleep(0.2)
+    time.sleep(1)
+    page.keyboard.press("Enter")
+    time.sleep(100)
 
 
 def controlador():

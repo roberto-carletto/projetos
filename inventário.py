@@ -363,6 +363,7 @@ def encontrar_e_digitar_hub(hub):
 
 
 
+
     time.sleep(3)
     pyautogui.press('Tab')
     time.sleep(3)
