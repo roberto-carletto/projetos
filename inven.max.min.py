@@ -305,7 +305,7 @@ def encontrar_arquivo_download(page):
         time.sleep(0.2)
     time.sleep(1)
     page.keyboard.press("Enter")
-    time.sleep(10)
+    time.sleep(100)
 
 
 def controlador():
