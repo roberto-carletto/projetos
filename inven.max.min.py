@@ -345,9 +345,11 @@ def controlador():
                 atualizar(page)
                 processos_programados_segundo(page)
                 encontrar_segundo(page, num_proc)
-                atualizar(page)
+                atualizar2(page)
                 processos_programados_terceito(page)
                 encontrar_e_digitar_hub_terceiro(page, hub)
+                atualizar2(page)
+                encontrar_arquivo_download(page)
 
             print("Processo finalizado!")
 
