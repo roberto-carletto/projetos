@@ -201,7 +201,6 @@ def encontrar_segundo(page, num_proc):
     page.keyboard.press('Enter')
     time.sleep(3)
     print ("terminor a segunda parte")
-    page.keyboard.press("Tab")
 
 
 def processos_programados_terceito(page):
@@ -237,45 +236,49 @@ def encontrar_e_digitar_hub_terceiro(page, hub):
 
     # # Pressione 'Enter' para enviar o formulário
     page.keyboard.press('Enter')
-    time.sleep(5)
+    time.sleep(3)
 
     for _ in range(10):
         page.keyboard.press("Tab")
-        time.sleep(0.2)
+        time.sleep(0.02)
     time.sleep(5)
 
     page.keyboard.press("ArrowDown")
+    time.sleep(1)
 
     for _ in range(4):
         page.keyboard.press("Tab")
-        time.sleep(0.2)
-    time.sleep(5)
+        time.sleep(0.02)
+    time.sleep(1)
 
     page.keyboard.press('Enter')
-    time.sleep(5)
+    time.sleep(1)
 
-    for _ in range(1):
-        page.keyboard.press("Tab")
-    time.sleep(5)
+    page.keyboard.press("Tab")
+    time.sleep(1)
 
     page.keyboard.press("ArrowDown")
+    time.sleep(1)
 
     for _ in range(4):
         page.keyboard.press("Tab")
-    time.sleep(5)
+        time.sleep(0.02)
+    time.sleep(1)
 
     page.keyboard.press('Enter')
-    time.sleep(5)
+    time.sleep(1)
 
     for _ in range(7):
         page.keyboard.press("Tab")
-    time.sleep(5)
+        time.sleep(0.02)
+    time.sleep(1)
 
     for _ in range(2):
         page.keyboard.press("ArrowDown")
 
     for _ in range(8):
         page.keyboard.press("Tab")
+        time.sleep(0.02)
     time.sleep(3)
 
     page.keyboard.press('Enter')
@@ -294,15 +297,21 @@ def atualizar2(page):
 
 def encontrar_arquivo_download(page):
 
-    element = page.locator("xpath=/html/body/div[1]/form/div[1]/div/div/div[2]/div/div/div/div[3]/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div/div[1]/div[1]/div/div/div[1]/div/div[1]/table/tbody/tr/td[1]/div/div/div/div/div[2]/div/div/div[1]/div/div[1]/div[2]/div/div[2]/table/tbody/tr[1]/td[2]/div/table/tbody")
-    element.click()
-    page.keyboard.press("Enter")
-    time.sleep(5)
-    for _ in range(9):
-        page.keyboard.press("Tab")
-        time.sleep(0.2)
-    time.sleep(1)
-    page.keyboard.press("Enter")
+    with page.expect_download() as download_info:
+
+        element = page.locator("xpath=/html/body/div[1]/form/div[1]/div/div/div[2]/div/div/div/div[3]/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div/div[1]/div[1]/div/div/div[1]/div/div[1]/table/tbody/tr/td[1]/div/div/div/div/div[2]/div/div/div[1]/div/div[1]/div[2]/div/div[2]/table/tbody/tr[1]/td[2]/div/table/tbody")
+        element.click()
+        page.keyboard.press("Enter")
+        time.sleep(5)
+        for _ in range(9):
+            page.keyboard.press("Tab")
+            time.sleep(0.2)
+        time.sleep(1)
+        page.keyboard.press("Enter")
+
+    download = download_info.value
+    print(download)
+    download.save_as(r'C:\Users\Beep Saude\Downloads')
     time.sleep(100)
 
 
