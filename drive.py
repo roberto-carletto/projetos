@@ -11,24 +11,9 @@ from googleapiclient.http import MediaFileUpload
 from google.oauth2 import service_account
 
 # If modifying these scopes, delete the file token.json.
-SCOPES = ['https://www.googleapis.com/auth/drive.metadata.readonly']
-CURR_DIR = os.path.dirname(os.path.realpath(__file__))
 
 class google_drive():
     def __init__(self):
-        SCOPES = ['https://www.googleapis.com/auth/drive.metadata.readonly']
-        creds = None
-        if os.path.exists('token.json'):
-            creds = Credentials.from_authorized_user_file('token.json', SCOPES)
-        if not creds or not creds.valid:
-            if creds and creds.expired and creds.refresh_token:
-                creds.refresh(Request())
-            else:
-                flow = InstalledAppFlow.from_client_secrets_file(
-                    r"C:\Users\Beep Saude\Documents\projetos\client-secret.json", SCOPES)
-                creds = flow.run_local_server(port=0)
-            with open('token.json', 'w') as token:
-                token.write(creds.to_json())
         self.scope = ['https://www.googleapis.com/auth/drive']
         self.service_account_json_key = r"C:\Users\Beep Saude\Documents\projetos\credentials.json"
         self.credentials = service_account.Credentials.from_service_account_file(
@@ -70,18 +55,17 @@ class google_drive():
         file_metadata = {'name': nome, 'parents': [pasta_id]}
         uploaded_file = self.service.files().create(body=file_metadata, media_body=media, fields='id').execute()
         return print(f'File uploaded com sucesso no ID: {uploaded_file.get("id")}')
-    
+
 
     def teste(self):
 
         filtro = f"'{'13HYmQmcqx2Met81tnv-xJIIj2yJRGMcn'}' in parents and mimeType='application/vnd.google-apps.folder'"
 
         try:
-            resultado = self.service.files().list(q=filtro).execute()
+            resultado = self.service.files().list(q=filtro, includeItemsFromAllDrives=True, supportsAllDrives=True).execute()
             print(resultado)
             pastas = resultado.get('files', [])
             pasta_certa = [pasta for pasta in pastas if pasta['name'] == 'pasta teste']
-            print('achou')
 
         except:
             print('erro')
@@ -89,9 +73,9 @@ class google_drive():
         file_path = r'C:\Users\Beep Saude\Documents\projetos\requirements.txt'
         media = MediaFileUpload(file_path)
         file_metadata = {'name': 'teste', 'parents': '13HYmQmcqx2Met81tnv-xJIIj2yJRGMcn'}
-        uploaded_file = self.service.files().create(body=file_metadata, media_body=media, fields='id').execute()
+        uploaded_file = self.service.files().create(body=file_metadata, media_body=media, supportsAllDrives=True, ignoreDefaultVisibility=True).execute()
         resultado = self.service.files().list(q=filtro).execute()
-        pastas = resultado.get('files', [])
+        pastas = resultado
         print(pastas)
         return print(uploaded_file)
 
