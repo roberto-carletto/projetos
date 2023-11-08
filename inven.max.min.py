@@ -7,6 +7,7 @@ import pandas
 import time
 import os
 from zipfile import ZipFile
+from drive import google_drive
 
 def realizar_login(page):
     page.goto("https://login-evcj-test-saasfaprod1.fa.ocs.oraclecloud.com")
@@ -310,9 +311,27 @@ def encontrar_arquivo_download(page):
         page.keyboard.press("Enter")
 
     download = download_info.value
-    print(download)
-    download.save_as('C:\\Users\\Beep Saude\\Downloads\\' + download.suggested_filename)
-    time.sleep(100)
+    path = 'C:\\Users\\Beep Saude\\Downloads\\' + download.suggested_filename
+    download.save_as(path)
+    time.sleep(5)
+    return path
+
+def get_data():
+
+    data = datetime.now()
+    d = data.strftime("%d")
+    m = data.strftime("%m")
+    a = data.strftime("%Y")
+    data = d+'-'+m+'-'+a
+    return data
+
+def upload_drive(nome, path, tipo):
+
+    data = get_data()
+    name = nome + '_' + data
+    type = tipo
+    google_drive().salvar_arquivo(name, path, type)
+
 
 
 def controlador():
@@ -358,7 +377,9 @@ def controlador():
                 processos_programados_terceito(page)
                 encontrar_e_digitar_hub_terceiro(page, hub)
                 atualizar2(page)
-                encontrar_arquivo_download(page)
+                path = encontrar_arquivo_download(page)
+                nome_hub = hub[:-8]
+                upload_drive('lab', path, nome_hub)
 
             print("Processo finalizado!")
 

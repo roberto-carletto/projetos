@@ -12,38 +12,25 @@ from google.oauth2 import service_account
 
 # If modifying these scopes, delete the file token.json.
 SCOPES = ['https://www.googleapis.com/auth/drive.metadata.readonly']
-
-
-def main():
-    """Shows basic usage of the Drive v3 API.
-    Prints the names and ids of the first 10 files the user has access to.
-    """
-    creds = None
-    # The file token.json stores the user's access and refresh tokens, and is
-    # created automatically when the authorization flow completes for the first
-    # time.
-    if os.path.exists('token.json'):
-        creds = Credentials.from_authorized_user_file('token.json', SCOPES)
-    # If there are no (valid) credentials available, let the user log in.
-    if not creds or not creds.valid:
-        if creds and creds.expired and creds.refresh_token:
-            creds.refresh(Request())
-        else:
-            flow = InstalledAppFlow.from_client_secrets_file(
-                'credentials.json', SCOPES)
-            creds = flow.run_local_server(port=0)
-        # Save the credentials for the next run
-        with open('token.json', 'w') as token:
-            token.write(creds.to_json())
-
-
-if __name__ == '__main__':
-    main()
+CURR_DIR = os.path.dirname(os.path.realpath(__file__))
 
 class google_drive():
     def __init__(self):
+        SCOPES = ['https://www.googleapis.com/auth/drive.metadata.readonly']
+        creds = None
+        if os.path.exists('token.json'):
+            creds = Credentials.from_authorized_user_file('token.json', SCOPES)
+        if not creds or not creds.valid:
+            if creds and creds.expired and creds.refresh_token:
+                creds.refresh(Request())
+            else:
+                flow = InstalledAppFlow.from_client_secrets_file(
+                    r"C:\Users\Beep Saude\Documents\projetos\credentials.json", SCOPES)
+                creds = flow.run_local_server(port=0)
+            with open('token.json', 'w') as token:
+                token.write(creds.to_json())
         self.scope = ['https://www.googleapis.com/auth/drive']
-        self.service_account_json_key = 'credentials.json'
+        self.service_account_json_key = r"C:\Users\Beep Saude\Documents\projetos\credentials.json"
         self.credentials = service_account.Credentials.from_service_account_file(
                                     filename=self.service_account_json_key, 
                                     scopes=self.scope)
@@ -52,22 +39,23 @@ class google_drive():
     def id_pasta(self, nome):
 
         filtro = f"'{nome}' in parents and mimeType='application/vnd.google-apps.folder'"
-        resultado = self.service.files().list(q=filtro).execute()
-        pastas = resultado.get('files', [])
 
-        pasta_certa = [pasta for pasta in pastas if pasta['name'] == nome]
+        try:
+            resultado = self.service.files().list(q=filtro).execute()
+            pastas = resultado.get('files', [])
 
-        if pasta_certa:
-            # Já existe uma pasta com a data de hoje, use-a
-            return pasta_certa[0]['id']
+            pasta_certa = [pasta for pasta in pastas if pasta['name'] == nome]
 
+            if pasta_certa:
+                return pasta_certa[0]['id']
 
-        dados = {
+        except:
+            dados = {
                 'name': nome,
                 'mimeType': 'application/vnd.google-apps.folder',
             }
-        pasta_final = self.service.files().create(body=dados, fields='id').execute()
-        return pasta_final.get('id')
+            pasta_final = self.service.files().create(body=dados, fields='id').execute()
+            return pasta_final.get('id')
 
     def salvar_arquivo(self, nome, arquivo, tipo):
 
