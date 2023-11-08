@@ -25,14 +25,14 @@ class google_drive():
                 creds.refresh(Request())
             else:
                 flow = InstalledAppFlow.from_client_secrets_file(
-                    r"C:\Users\Beep Saude\Documents\projetos\credentials.json", SCOPES)
+                    r"C:\Users\Beep Saude\Documents\projetos\client-secret.json", SCOPES)
                 creds = flow.run_local_server(port=0)
             with open('token.json', 'w') as token:
                 token.write(creds.to_json())
         self.scope = ['https://www.googleapis.com/auth/drive']
         self.service_account_json_key = r"C:\Users\Beep Saude\Documents\projetos\credentials.json"
         self.credentials = service_account.Credentials.from_service_account_file(
-                                    filename=self.service_account_json_key, 
+                                    filename=self.service_account_json_key,
                                     scopes=self.scope)
         self.service = build('drive', 'v3', credentials=self.credentials)
 
@@ -45,6 +45,8 @@ class google_drive():
             pastas = resultado.get('files', [])
 
             pasta_certa = [pasta for pasta in pastas if pasta['name'] == nome]
+            print(resultado)
+            print(pastas)
 
             if pasta_certa:
                 return pasta_certa[0]['id']
@@ -55,6 +57,7 @@ class google_drive():
                 'mimeType': 'application/vnd.google-apps.folder',
             }
             pasta_final = self.service.files().create(body=dados, fields='id').execute()
+            print(pasta_final)
             return pasta_final.get('id')
 
     def salvar_arquivo(self, nome, arquivo, tipo):
@@ -67,4 +70,30 @@ class google_drive():
         file_metadata = {'name': nome, 'parents': [pasta_id]}
         uploaded_file = self.service.files().create(body=file_metadata, media_body=media, fields='id').execute()
         return print(f'File uploaded com sucesso no ID: {uploaded_file.get("id")}')
+    
+
+    def teste(self):
+
+        filtro = f"'{'13HYmQmcqx2Met81tnv-xJIIj2yJRGMcn'}' in parents and mimeType='application/vnd.google-apps.folder'"
+
+        try:
+            resultado = self.service.files().list(q=filtro).execute()
+            print(resultado)
+            pastas = resultado.get('files', [])
+            pasta_certa = [pasta for pasta in pastas if pasta['name'] == 'pasta teste']
+            print('achou')
+
+        except:
+            print('erro')
+
+        file_path = r'C:\Users\Beep Saude\Documents\projetos\requirements.txt'
+        media = MediaFileUpload(file_path)
+        file_metadata = {'name': 'teste', 'parents': '13HYmQmcqx2Met81tnv-xJIIj2yJRGMcn'}
+        uploaded_file = self.service.files().create(body=file_metadata, media_body=media, fields='id').execute()
+        resultado = self.service.files().list(q=filtro).execute()
+        pastas = resultado.get('files', [])
+        print(pastas)
+        return print(uploaded_file)
+
+google_drive().teste()
 
