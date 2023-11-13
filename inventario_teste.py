@@ -21,7 +21,7 @@ def confirmar():
         closing = tk.Tk()
         closing.title('Confirmação')
         closing.geometry('300x200')
-        t = tk.Label(closing, bg='white', text='Nenhum Hub selecionado.\nDeseja prosseguir?', font= ('Aerial', 15))
+        t = tk.Label(closing, text='Nenhum Hub selecionado.\nDeseja prosseguir?', font= ('Aerial', 15))
         t.pack()
         s = tk.Button(closing, text ="Confirmar", command=lambda:[window.destroy(), closing.destroy()])
         s.place(x=70,y=120)
@@ -33,7 +33,7 @@ def confirmar():
 
 
 
-l = tk.Label(window, bg='white',text='Escolha os hubs a serem utilizados:',font= ('Aerial', 15))
+l = tk.Label(window, text='Escolha os hubs a serem utilizados:', font= ('Aerial', 15))
 l.pack(pady=25)
 
 var1 = tk.IntVar()
