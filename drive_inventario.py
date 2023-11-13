@@ -15,7 +15,7 @@ from google.oauth2 import service_account
 class google_drive():
     def __init__(self):
         self.scope = ['https://www.googleapis.com/auth/drive']
-        self.service_account_json_key = r"C:\Users\Beep Saude\Documents\projetos\credentials.json"
+        self.service_account_json_key = r"C:\Users\Beep Saude\projetos\credentials.json"
         self.credentials = service_account.Credentials.from_service_account_file(
                                     filename=self.service_account_json_key,
                                     scopes=self.scope)
@@ -30,11 +30,11 @@ class google_drive():
             pasta_id = "1NZ95WW1ht2BQxOKn8PC6KXIyd5w_7Q3A"
         elif tipo =="TATUAPÉ":
             pasta_id = "1s3y8lA99TZ3EU0x6ZbK_Qr18bWzM32SG"
-        elif tipo =="VL OLÍMPIA":
+        elif tipo =="OLÍMPIA":
             pasta_id = "1ip05OGxp0cmcSMYpQ92CGE6df_bloQPM"
         elif tipo =="ALPHAVILLE":
             pasta_id = "1tbCtw-CQx-omuN2PlKPC7y-AHm5Fi9Fs"
-        elif tipo =="S BERNARDO":
+        elif tipo =="BERNARDO":
             pasta_id = "1otOJwTXw30iHO_0F9qmcV_7y7jsIKpQq"
         elif tipo =="CAMPINAS":
             pasta_id = "1zBeS_ZBJ4X5jQ3XkgwTSpqQL_xMfB_xl"
