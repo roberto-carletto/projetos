@@ -4,6 +4,7 @@ import pandas as pd
 import urllib.parse
 from datetime import datetime
 import pytz
+from drive_inventario import google_drive
 
 user_banco = 'mariana_maciel'
 senha_banco = '2qSM21thGDbof2H'
@@ -19,6 +20,14 @@ headers = {
 def create_auth():
     auth = ('rafael.fernandes@beepsaude.com.br', 'Beep7792')
     return auth
+
+def upload_drive(path, nome):
+
+    name = nome
+    path = path
+    list = cycle_count_name.split()
+    type = list[-1]
+    google_drive().salvar_arquivo(name, path, type)
 
 def create_engine():
     import sqlalchemy
@@ -94,3 +103,7 @@ for index, row in df_inv.iterrows():
         )
 
         df.to_excel(f'./Listagens de Inventário/{organization_name.replace("/", "-")} - {cycle_count_name.replace("/", "-")}.xlsx', index=False)
+
+        path = f'./Listagens de Inventário/{organization_name.replace("/", "-")} - {cycle_count_name.replace("/", "-")}.xlsx'
+        nome = cycle_count_name.replace("/", "-")
+        upload_drive(path, nome)
