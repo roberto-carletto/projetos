@@ -21,63 +21,31 @@ class google_drive():
                                     scopes=self.scope)
         self.service = build('drive', 'v3', credentials=self.credentials)
 
-    def id_pasta(self, nome):
-
-        filtro = f"'{nome}' in parents and mimeType='application/vnd.google-apps.folder'"
-
-        try:
-            resultado = self.service.files().list(q=filtro).execute()
-            pastas = resultado.get('files', [])
-
-            pasta_certa = [pasta for pasta in pastas if pasta['name'] == nome]
-            print(resultado)
-            print(pastas)
-
-            if pasta_certa:
-                return pasta_certa[0]['id']
-
-        except:
-            dados = {
-                'name': nome,
-                'mimeType': 'application/vnd.google-apps.folder',
-            }
-            pasta_final = self.service.files().create(body=dados, fields='id').execute()
-            print(pasta_final)
-            return pasta_final.get('id')
 
     def salvar_arquivo(self, nome, arquivo, tipo):
 
-        pasta_id = self.id_pasta(tipo)
+        if tipo =="BARRA":
+            pasta_id = "1fr2iHrqbyFjWK7M1BUzlafPCYhvfLg95"
+        elif tipo =="SC":
+            pasta_id = "1qCa9YMPyh21Z5tcQxoEOZLhuVPCDMBYs"
+        elif tipo =="TATUAPE":
+            pasta_id = "1NIgoo6T64HSzOzy_EYH96tahG_ld4Odr"
+        elif tipo =="VL_OLIMPIA":
+            pasta_id = "1WirHVwqJDPyJP_FHiL2twhOLKtXkldya"
+        elif tipo =="ALPHAVILLE":
+            pasta_id = "1Z_T4bBH1atlBYHaIvJvnbY0ABthkihk0"
+        elif tipo =="SBERNARDO":
+            pasta_id = "1pRaer4j5VjVvhs9MqctBmxx4k8SqElY5"
+        elif tipo =="CAMPINAS":
+            pasta_id = "1-IQWQEkJ__dHtfCJH2-CF2Ct1Ao0_ouT"
+        elif tipo =="BRASILIA":
+            pasta_id = "1OrcyfAtFWuhnKSBOIq31x1cepWjhOkYx"
+
 
         # Upload do arquivo
         file_path = f'{arquivo}'  # Usando uma raw string
         media = MediaFileUpload(file_path)
         file_metadata = {'name': nome, 'parents': [pasta_id]}
-        uploaded_file = self.service.files().create(body=file_metadata, media_body=media, fields='id').execute()
+        uploaded_file = self.service.files().create(body=file_metadata, media_body=media).execute()
         return print(f'File uploaded com sucesso no ID: {uploaded_file.get("id")}')
-
-
-    def teste(self):
-
-        filtro = f"'{'13HYmQmcqx2Met81tnv-xJIIj2yJRGMcn'}' in parents and mimeType='application/vnd.google-apps.folder'"
-
-        try:
-            resultado = self.service.files().list(q=filtro, includeItemsFromAllDrives=True, supportsAllDrives=True).execute()
-            print(resultado)
-            pastas = resultado.get('files', [])
-            pasta_certa = [pasta for pasta in pastas if pasta['name'] == 'pasta teste']
-
-        except:
-            print('erro')
-
-        file_path = r'C:\Users\Beep Saude\Documents\projetos\requirements.txt'
-        media = MediaFileUpload(file_path)
-        file_metadata = {'name': 'teste', 'parents': '13HYmQmcqx2Met81tnv-xJIIj2yJRGMcn'}
-        uploaded_file = self.service.files().create(body=file_metadata, media_body=media, supportsAllDrives=True, ignoreDefaultVisibility=True).execute()
-        resultado = self.service.files().list(q=filtro).execute()
-        pastas = resultado
-        print(pastas)
-        return print(uploaded_file)
-
-google_drive().teste()
 

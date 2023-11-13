@@ -393,11 +393,17 @@ def controlador():
                 pagina_ferramenta(page)
                 processos_programados(page)
                 encontrar_e_digitar_hub(page, hub,"SV")  # Realize ações para o hub
+                num_proc = numero_processo(page)
                 atualizar(page)
                 processos_programados_segundo(page)
-
+                encontrar_segundo(page, num_proc)
+                atualizar2(page)
                 processos_programados_terceito(page)
                 encontrar_e_digitar_hub_terceiro(page, hub)
+                atualizar2(page)
+                path = encontrar_arquivo_download(page)
+                nome_hub = hub[:-8]
+                upload_drive('sv', path, nome_hub)
 
             print("Processo finalizado!")
 

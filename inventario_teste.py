@@ -6,6 +6,41 @@ import pandas
 import time
 import os
 
+print("Deseja rodar ALMOX?")
+x = input("(s/n) -> ")
+if x == 's':
+    hubs = ["SC_RJ_1256",
+            "BARRA_RJ_0608",
+            "TATUAPE_SP_1337",
+            "VL_OLIMPIA_SP_0446",
+            "ALPHAVILLE_SP_1094",
+            "SBERNARDO_SP_1175",
+            "CAMPINAS_SP_1507",
+            "BRASILIA_DF_0950"]
+    vacina = []
+    lab_vacina = []
+    lab = []
+    for hub in hubs:
+        print("Deseja rodar para o hub {}".format(hub))
+        r = input("(s/n) -> ")
+        if r == 's':
+            vacina.append(hub)
+            lab_vacina.append(hub)
+            lab.append(hub)
+
+else:
+    vacina = []
+    lab_vacina = []
+    lab = []
+
+print(vacina)
+print("Estão corretos?")
+s = input("(s/n) -> ")
+if s == 's':
+    pass
+else:
+    exit()
+
 url = "https://fa-evcj-test-saasfaprod1.fa.ocs.oraclecloud.com"
 
 
@@ -684,11 +719,8 @@ def controlador():
 
     print("Iniciando a contagem para Vacina")
 
-    for hub, dias_semana in vacina.items():
-        if dia_da_semana == dias_semana:
-            hubs_vacina.append(hub)
 
-    for hub in hubs_vacina:
+    for hub in vacina:
         print("Iniciando contagem do hub ", end='')
         print(hub)
         contagem_inventario(hub, "vacina", elementos[3])
@@ -701,11 +733,8 @@ def controlador():
 
     print("Iniciando a contagem para Lab Vacina")
 
-    for hub, dias_semana in lab_vacina.items():
-        if dia_da_semana == dias_semana:
-            hubs_lab_vacina.append(hub)
 
-    for hub in hubs_lab_vacina:
+    for hub in lab_vacina:
         print("Iniciando contagem do hub ", end='')
         print(hub)
         contagem_inventario(hub, "lab_vacina", elementos[2])
@@ -718,11 +747,7 @@ def controlador():
 
     print("Iniciando a contagem para Lab")
 
-    for hub, dias_semana in lab.items():
-        if dia_da_semana == dias_semana:
-            hubs_lab.append(hub)
-
-    for hub in hubs_lab:
+    for hub in lab:
         print("Iniciando contagem do hub ", end='')
         print(hub)
         contagem_inventario(hub, "lab", elementos[1])
