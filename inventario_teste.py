@@ -7,68 +7,157 @@ import time
 import os
 import tkinter as tk
 
-window = tk.Tk()
-window.title('Seleção de Hubs')
-window.geometry('500x480')
+lista_vac = [0,0,0,0,0,0,0,0]
+lista_labvac = [0,0,0,0,0,0,0,0]
+lista_lab = [0,0,0,0,0,0,0,0]
+grid_hubs = ["Barra",
+        "São Cristóvão",
+        "Tatuapé",
+        "Vila Olímpia",
+        "São Bernardo",
+        "Campinas",
+        "Brasília",
+        "Alphaville"]
 
-lista = [0, 0, 0, 0, 0, 0, 0, 0]
+
 
 def confirmar():
 
-    global lista
-    lista = [var1.get(),var2.get(),var3.get(),var4.get(),var5.get(),var6.get(),var7.get(),var8.get()]
-    if lista == [0,0,0,0,0,0,0,0]:
-        closing = tk.Tk()
-        closing.title('Confirmação')
-        closing.geometry('300x200')
-        t = tk.Label(closing, text='Nenhum Hub selecionado.\nDeseja prosseguir?', font= ('Aerial', 15))
-        t.pack()
-        s = tk.Button(closing, text ="Confirmar", command=lambda:[window.destroy(), closing.destroy()])
-        s.place(x=70,y=120)
-        n = tk.Button(closing, text ="Retornar", command=closing.destroy)
-        n.place(x=170,y=120)
+    confirm = tk.Tk()
+    confirm.title('Confirmação')
+    confirm.geometry('600x480')
+    t = tk.Label(confirm, text='Processo selecionados:', font= ('Aerial', 15))
+    t.grid(row = 0, column= 2, padx=5)
+    l1 = tk.Label(confirm, text='Vacina', font= ('Aerial', 12))
+    l1.grid(row = 1, column = 1)
+    l2 = tk.Label(confirm, text='Laboratório/Vacina', font= ('Aerial', 12))
+    l2.grid(row = 1, column = 2)
+    l3 = tk.Label(confirm, text='Laboratório', font= ('Aerial', 12))
+    l3.grid(row = 1, column = 3)
+    confirm.grid_columnconfigure((0, 4), weight=1)
+    confirm.grid_rowconfigure(11, weight=4)
+    confirm.grid_rowconfigure(0, weight=2)
+    confirm.grid_rowconfigure((1, 10), weight=1)
+    a1=a2=a3=a4=a5=a6=a7=a8=b1=b2=b3=b4=b5=b6=b7=b8=c1=c2=c3=c4=c5=c6=c7=c8 = '-'
+    a = [a1,a2,a3,a4,a5,a6,a7,a8]
+    b = [b1,b2,b3,b4,b5,b6,b7,b8]
+    c = [c1,c2,c3,c4,c5,c6,c7,c8]
 
-    else:
+    for i in range(8):
+        if lista_vac[i]:
+            a[i] =tk.Label(confirm, text=grid_hubs[i], font= ('Aerial', 10)).grid(row = i+2, column = 1)
+        else:
+            a[i] =tk.Label(confirm, text=a[i], font= ('Aerial', 10)).grid(row = i+2, column = 1)
+        if lista_labvac[i]:
+            b[i] =tk.Label(confirm, text=grid_hubs[i], font= ('Aerial', 10)).grid(row = i+2, column = 2)
+        else:
+            b[i] =tk.Label(confirm, text=b[i], font= ('Aerial', 10)).grid(row = i+2, column = 2)
+        if lista_lab[i]:
+            c[i] =tk.Label(confirm, text=grid_hubs[i], font= ('Aerial', 10)).grid(row = i+2, column = 3)
+        else:
+            c[i] =tk.Label(confirm, text=c[i], font= ('Aerial', 10)).grid(row = i+2, column = 3)
+
+    s = tk.Button(confirm, text ="Confirmar", command=lambda:[confirm.destroy(), main.destroy()])
+    s.place(x=150,y=390)
+    n = tk.Button(confirm, text ="Editar", command=confirm.destroy)
+    n.place(x=350,y=390)
+
+    confirm.protocol("WM_DELETE_WINDOW", lambda:[confirm.destroy(), main.destroy()])
+
+
+
+def sub_window(sub):
+
+    window = tk.Tk()
+    window.title('Seleção de Hubs')
+    window.geometry('700x480')
+    l = tk.Label(window, text='Escolha os hubs para rodar {}:'.format(sub), font= ('Aerial', 15))
+    l.pack(pady=20)
+
+    var1 = tk.IntVar(window)
+    c1 = tk.Checkbutton(window, text='Barra',variable=var1, onvalue=1, offvalue=0, anchor='w', width=50, font= ('Aerial', 12))
+    c1.pack()
+    var2 = tk.IntVar(window)
+    c2 = tk.Checkbutton(window, text='São Cristóvão',variable=var2, onvalue=1, offvalue=0, anchor='w', width=50, font= ('Aerial', 12))
+    c2.pack()
+    var3 = tk.IntVar(window)
+    c3 = tk.Checkbutton(window, text='Tatuapé',variable=var3, onvalue=1, offvalue=0, anchor='w', width=50, font= ('Aerial', 12))
+    c3.pack()
+    var4 = tk.IntVar(window)
+    c4 = tk.Checkbutton(window, text='Vila Olímpia',variable=var4, onvalue=1, offvalue=0, anchor='w', width=50, font= ('Aerial', 12))
+    c4.pack()
+    var5 = tk.IntVar(window)
+    c5 = tk.Checkbutton(window, text='São Bernardo',variable=var5, onvalue=1, offvalue=0, anchor='w', width=50, font= ('Aerial', 12))
+    c5.pack()
+    var6 = tk.IntVar(window)
+    c6 = tk.Checkbutton(window, text='Campinas',variable=var6, onvalue=1, offvalue=0, anchor='w', width=50, font= ('Aerial', 12))
+    c6.pack()
+    var7 = tk.IntVar(window)
+    c7 = tk.Checkbutton(window, text='Brasília',variable=var7, onvalue=1, offvalue=0, anchor='w', width=50, font= ('Aerial', 12))
+    c7.pack()
+    var8 = tk.IntVar(window)
+    c8 = tk.Checkbutton(window, text='Alphaville',variable=var8, onvalue=1, offvalue=0, anchor='w', width=50, font= ('Aerial', 12))
+    c8.pack()
+
+
+    def get_lista_vac():
+        global lista_vac
+        lista_vac = [var1.get(),var2.get(),var3.get(),var4.get(),var5.get(),var6.get(),var7.get(),var8.get()]
+        window.destroy()
+
+    def get_lista_labvac():
+        global lista_labvac
+        lista_labvac = [var1.get(),var2.get(),var3.get(),var4.get(),var5.get(),var6.get(),var7.get(),var8.get()]
+        window.destroy()
+
+    def get_lista_lab():
+        global lista_lab
+        lista_lab = [var1.get(),var2.get(),var3.get(),var4.get(),var5.get(),var6.get(),var7.get(),var8.get()]
         window.destroy()
 
 
+    if sub =='Vacina':
+        B = tk.Button(window, text ="Confirmar", command=get_lista_vac)
+        B.place(x=300,y=400)
 
-l = tk.Label(window, text='Escolha os hubs a serem utilizados:', font= ('Aerial', 15))
-l.pack(pady=25)
+    elif sub =='Laboratório/Vacina':
+        B = tk.Button(window, text ="Confirmar", command=get_lista_labvac)
+        B.place(x=300,y=400)
 
-var1 = tk.IntVar()
-c1 = tk.Checkbutton(window, text='Barra',variable=var1, onvalue=1, offvalue=0, anchor='w', width=30, font= ('Aerial', 12))
-c1.pack()
-var2 = tk.IntVar()
-c2 = tk.Checkbutton(window, text='São Cristóvão',variable=var2, onvalue=1, offvalue=0, anchor='w', width=30, font= ('Aerial', 12))
-c2.pack()
-var3 = tk.IntVar()
-c3 = tk.Checkbutton(window, text='Tatuapé',variable=var3, onvalue=1, offvalue=0, anchor='w', width=30, font= ('Aerial', 12))
-c3.pack()
-var4 = tk.IntVar()
-c4 = tk.Checkbutton(window, text='Vila Olímpia',variable=var4, onvalue=1, offvalue=0, anchor='w', width=30, font= ('Aerial', 12))
-c4.pack()
-var5 = tk.IntVar()
-c5 = tk.Checkbutton(window, text='São Bernardo',variable=var5, onvalue=1, offvalue=0, anchor='w', width=30, font= ('Aerial', 12))
-c5.pack()
-var6 = tk.IntVar()
-c6 = tk.Checkbutton(window, text='Campinas',variable=var6, onvalue=1, offvalue=0, anchor='w', width=30, font= ('Aerial', 12))
-c6.pack()
-var7 = tk.IntVar()
-c7 = tk.Checkbutton(window, text='Brasília',variable=var7, onvalue=1, offvalue=0, anchor='w', width=30, font= ('Aerial', 12))
-c7.pack()
-var8 = tk.IntVar()
-c8 = tk.Checkbutton(window, text='Alphaville',variable=var8, onvalue=1, offvalue=0, anchor='w', width=30, font= ('Aerial', 12))
-c8.pack()
+    elif sub =='Laboratório':
+        B = tk.Button(window, text ="Confirmar", command=get_lista_lab)
+        B.place(x=300,y=400)
 
 
-B = tk.Button(window, text ="Confirmar", command=confirmar)
-B.place(x=210,y=400)
+def call_vac():
+    sub_window('Vacina')
+def call_labvac():
+    sub_window('Laboratório/Vacina')
+def call_lab():
+    sub_window('Laboratório')
 
-window.protocol("WM_DELETE_WINDOW", confirmar)
+
+main = tk.Tk()
+main.title('Seleção de subinventário')
+main.geometry('600x300')
+o = tk.Label(main, text='Escolha os subinventários que deseja rodar :', font= ('Aerial', 15))
+o.pack(pady=25)
+
+v = tk.Button(main, text ="Vacina", command=call_vac)
+v.place(x=80,y=120)
+lv = tk.Button(main, text ="Laboratório/Vacina", command=call_labvac)
+lv.place(x=215,y=120)
+l = tk.Button(main, text ="Laboratório", command=call_lab)
+l.place(x=420,y=120)
+
+c = tk.Button(main, text ="Confirmar", command=confirmar)
+c.place(x=250,y=220)
 
 
-window.mainloop()
+main.protocol("WM_DELETE_WINDOW", lambda:[confirmar()])
+
+
+main.mainloop()
 
 hubs = ["BARRA_RJ_0608",
         "SC_RJ_1256",
@@ -83,10 +172,15 @@ lab_vacina = []
 lab = []
 
 for i in range(8):
-    if lista[i]:
+    if lista_vac[i]:
         vacina.append(hubs[i])
+for i in range(8):
+    if lista_labvac[i]:
         lab_vacina.append(hubs[i])
+for i in range(8):
+    if lista_lab[i]:
         lab.append(hubs[i])
+
 
 
 
