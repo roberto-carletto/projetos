@@ -1,11 +1,25 @@
-import pyautogui
-import pyperclip
-from playwright.sync_api import sync_playwright
-from datetime import datetime
-import pandas
-import time
 import os
-import tkinter as tk
+try:
+    import pyautogui
+    import pyperclip
+    from playwright.sync_api import sync_playwright
+    from datetime import datetime
+    import pandas
+    import time
+    import tkinter as tk
+except:
+    path = os.getcwd()
+    os.chdir(path)
+    cmd = 'pip install -r requirements.txt'
+    os.system(cmd)
+    os.system('playwright install')
+    import pyautogui
+    import pyperclip
+    from playwright.sync_api import sync_playwright
+    from datetime import datetime
+    import pandas
+    import time
+    import tkinter as tk
 
 lista_vac = [0,0,0,0,0,0,0,0]
 lista_labvac = [0,0,0,0,0,0,0,0]
@@ -809,8 +823,8 @@ def controlador():
         elif hub == "SBERNARDO_SP_1175":
             contagem_inventario(hub, 'sv descartaveis', elementos[7])
         elif hub == "SC_RJ_1256":
-            contagem_inventario(hub, 'sv descartaveis', elementos[11])
-            continue 
+            contagem_inventario(hub, 'sv descartaveis', elementos[8])
+            continue
         contagem_inventario(hub, "sv_descartaveis", elementos[6])
 
     print("Processo finalizado!")
