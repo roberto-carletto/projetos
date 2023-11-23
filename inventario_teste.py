@@ -4,10 +4,10 @@ try:
     import pyperclip
     from playwright.sync_api import sync_playwright
     from datetime import datetime
-    import pandas
     import time
     import tkinter as tk
 except:
+    print('vishhhhhhhhhhhhhhhhhhhhhh')
     path = os.getcwd()
     os.chdir(path)
     cmd = 'pip install -r requirements.txt'
