@@ -2,7 +2,6 @@ import pyautogui
 import pyperclip
 from playwright.sync_api import sync_playwright
 from datetime import datetime
-import pandas
 import time
 import os
 

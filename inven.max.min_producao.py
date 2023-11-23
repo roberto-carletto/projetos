@@ -3,10 +3,8 @@ import pyperclip
 import clipboard
 from playwright.sync_api import sync_playwright
 from datetime import datetime
-import pandas
 import time
 import os
-from zipfile import ZipFile
 from drive import google_drive
 
 def realizar_login(page):
