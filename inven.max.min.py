@@ -141,9 +141,9 @@ def atualizar(page):
 
 
 def processos_programados_segundo(page):
-    for _ in range(20):
+    for _ in range(21):
         page.keyboard.press("Tab")
-        time.sleep(0.1)
+        time.sleep(1)
 
     page.keyboard.press("Enter")
 
@@ -332,29 +332,36 @@ def upload_drive(nome, path, tipo):
     type = tipo
     google_drive().salvar_arquivo(name, path, type)
 
+def upload_drive_min_max(nome, path, tipo):
+
+    data = get_data()
+    name = 'Min-Max ' + nome + '_' + data
+    type = tipo
+    google_drive().salvar_arquivo(name, path, type)
+
 
 
 def controlador():
         lab = [
             'BARRA_RJ_0608',
-            'SC_RJ_1256',
-            'TATUAPE_SP_1337',
-            'VL_OLIMPIA_SP_0446',
-            'ALPHAVILLE_SP_1094',
-            'SBERNARDO_SP_1175',
-            'CAMPINAS_SP_1507',
-            'BRASILIA_DF_0950'
+            # 'SC_RJ_1256',
+            # 'TATUAPE_SP_1337',
+            # 'VL_OLIMPIA_SP_0446',
+            # 'ALPHAVILLE_SP_1094',
+            # 'SBERNARDO_SP_1175',
+            # 'CAMPINAS_SP_1507',
+            # 'BRASILIA_DF_0950'
         ]
 
         sv = [
             'BARRA_RJ_0608',
-            'SC_RJ_1256',
-            'TATUAPE_SP_1337',
-            'VL_OLIMPIA_SP_0446',
-            'ALPHAVILLE_SP_1094',
-            'SBERNARDO_SP_1175',
-            'CAMPINAS_SP_1507',
-            'BRASILIA_DF_0950'
+            # 'SC_RJ_1256',
+            # 'TATUAPE_SP_1337',
+            # 'VL_OLIMPIA_SP_0446',
+            # 'ALPHAVILLE_SP_1094',
+            # 'SBERNARDO_SP_1175',
+            # 'CAMPINAS_SP_1507',
+            # 'BRASILIA_DF_0950'
         ]
         hubs_lab = []
         hubs_sv = []
@@ -371,6 +378,9 @@ def controlador():
                 encontrar_e_digitar_hub(page, hub,"LAB")  # Realize ações para o hub
                 num_proc = numero_processo(page)
                 atualizar(page)
+                path = encontrar_arquivo_download(page)
+                nome_hub = hub[:-8]
+                upload_drive_min_max('lab', path, nome_hub)
                 processos_programados_segundo(page)
                 encontrar_segundo(page, num_proc)
                 atualizar2(page)
@@ -395,6 +405,9 @@ def controlador():
                 encontrar_e_digitar_hub(page, hub,"SV")  # Realize ações para o hub
                 num_proc = numero_processo(page)
                 atualizar(page)
+                path = encontrar_arquivo_download(page)
+                nome_hub = hub[:-8]
+                upload_drive_min_max('sv', path, nome_hub)
                 processos_programados_segundo(page)
                 encontrar_segundo(page, num_proc)
                 atualizar2(page)

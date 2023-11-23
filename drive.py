@@ -15,7 +15,7 @@ from google.oauth2 import service_account
 class google_drive():
     def __init__(self):
         self.scope = ['https://www.googleapis.com/auth/drive']
-        self.service_account_json_key = r"C:\Users\Beep Saude\Documents\projetos\credentials.json"
+        self.service_account_json_key = r"C:\Users\Beep Saude\projetos\credentials.json"
         self.credentials = service_account.Credentials.from_service_account_file(
                                     filename=self.service_account_json_key,
                                     scopes=self.scope)
@@ -40,6 +40,8 @@ class google_drive():
             pasta_id = "1-IQWQEkJ__dHtfCJH2-CF2Ct1Ao0_ouT"
         elif tipo =="BRASILIA":
             pasta_id = "1OrcyfAtFWuhnKSBOIq31x1cepWjhOkYx"
+        elif tipo =="RECIFE":
+            pasta_id = "1TlYg0ou-fIUNf-vUM4nUWw27-5Ow9jjP"
 
 
         # Upload do arquivo

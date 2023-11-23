@@ -10,7 +10,7 @@ from zipfile import ZipFile
 from drive import google_drive
 
 def realizar_login(page):
-    page.goto("https://login-evcj-test-saasfaprod1.fa.ocs.oraclecloud.com")
+    page.goto("https://login-evcj-saasfaprod1.fa.ocs.oraclecloud.com")
     time.sleep(1)
 
     username_input = page.locator('xpath=/html/body/div[2]/div[3]/div/main/form/input[1]')
@@ -24,8 +24,9 @@ def realizar_login(page):
     time.sleep(2)
 
 def acessar_contagens_ciclos(page):
-    page.goto("https://fa-evcj-test-saasfaprod1.fa.ocs.oraclecloud.com/fscmUI/faces/FuseWelcome?_afrLoop=14629167889228257&fnd=%3B%3B%3B%3Bfalse%3B256%3B%3B%3B&_adf.ctrl-state=m8rxhn2th_736")
+    page.goto("https://fa-evcj-saasfaprod1.fa.ocs.oraclecloud.com/fscmUI/faces/FuseWelcome?_afrLoop=14629167889228257&fnd=%3B%3B%3B%3Bfalse%3B256%3B%3B%3B&_adf.ctrl-state=m8rxhn2th_736")
     time.sleep(2)
+    print("Finalizado login")
 
 
 def pagina_ferramenta(page):
@@ -36,6 +37,7 @@ def pagina_ferramenta(page):
     ferramenta_element.click()
 
     time.sleep(2)
+    print("Página de Ferramenta")
 
 def processos_programados(page):
    #programados_element =  page.locator('xpath=/html/body/div[1]/form/div/div/div/div[2]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[2]/div[23]/div/div[2]/div[2]/div[5]/div')
@@ -49,7 +51,7 @@ def processos_programados(page):
     time.sleep(5)
 
    #input_element = page.locator('xpath=/html/body/div[1]/form/div[2]/div[2]/div[1]/div[1]/table/tbody/tr/td/div/div/table/tbody/tr[2]/td[2]/div/table/tbody/tr/td/table/tbody/tr[4]/td[2]/span/input')
-    input_element = page.locator('xpath=/html/body/div[1]/form/div[2]/div[1]/div[1]/div[1]/table/tbody/tr/td/div/div/table/tbody/tr[2]/td[2]/div/table/tbody/tr/td/table/tbody/tr[4]/td[2]/span/input')
+    input_element = page.locator('xpath=/html/body/div[1]/form/div[2]/div[2]/div[1]/div[1]/table/tbody/tr/td/div/div/table/tbody/tr[2]/td[2]/div/table/tbody/tr/td/table/tbody/tr[4]/td[2]/span/input')
 
     # Preencha o campo de entrada com o texto desejado
     input_element.fill("Imprimir Relatório de Planejamento Mín-Máx")
@@ -70,6 +72,7 @@ def processos_programados(page):
     time.sleep(2)
 
     page.keyboard.press("Enter")
+    print("Processos programados")
 
 
 def encontrar_e_digitar_hub(page, hub, tipo):
@@ -78,9 +81,9 @@ def encontrar_e_digitar_hub(page, hub, tipo):
     # Execute qualquer lógica que você desejar para este hub
 
    #input_element = page.locator('xpath=/html/body/div[1]/form/div[2]/div[2]/div[1]/div[1]/table/tbody/tr/td/div/div/table/tbody/tr[2]/td[2]/div/div[1]/div[2]/div[2]/div/div/div/div/span/div/table/tbody/tr/td/table/tbody/tr[2]/td[2]/span/input')
-    input_element = page.locator('xpath=/html/body/div[1]/form/div[2]/div[1]/div[1]/div[1]/table/tbody/tr/td/div/div/table/tbody/tr[2]/td[2]/div/div[1]/div[2]/div[2]/div/div/div/div/span/div/table/tbody/tr/td/table/tbody/tr[2]/td[2]/span/input')
+    input_element = page.locator('xpath=/html/body/div[1]/form/div[2]/div[2]/div[1]/div[1]/table/tbody/tr/td/div/div/table/tbody/tr[2]/td[2]/div/div[1]/div[2]/div[2]/div/div/div/div/span/div/table/tbody/tr/td/table/tbody/tr[2]/td[2]/span/input')
     input_element.fill(hub)
-    time.sleep(2)
+    time.sleep(5)
 
     page.keyboard.press("Tab")
 
@@ -95,7 +98,7 @@ def encontrar_e_digitar_hub(page, hub, tipo):
     # Execute qualquer lógica que você desejar para este hub
 
    #input_element = page.locator('xpath=/html/body/div[1]/form/div[2]/div[2]/div[1]/div[1]/table/tbody/tr/td/div/div/table/tbody/tr[2]/td[2]/div/div[1]/div[2]/div[2]/div/div/div/div/span/div/table/tbody/tr/td/table/tbody/tr[8]/td[2]/span/input')
-    input_element = page.locator('xpath=/html/body/div[1]/form/div[2]/div[1]/div[1]/div[1]/table/tbody/tr/td/div/div/table/tbody/tr[2]/td[2]/div/div[1]/div[2]/div[2]/div/div/div/div/span/div/table/tbody/tr/td/table/tbody/tr[8]/td[2]/span/input')
+    input_element = page.locator('xpath=/html/body/div[1]/form/div[2]/div[2]/div[1]/div[1]/table/tbody/tr/td/div/div/table/tbody/tr[2]/td[2]/div/div[1]/div[2]/div[2]/div/div/div/div/span/div/table/tbody/tr/td/table/tbody/tr[8]/td[2]/span/input')
 
     input_element.fill(tipo)
 
@@ -126,10 +129,11 @@ def encontrar_e_digitar_hub(page, hub, tipo):
 
     print(f"Contagem concluída para o hub: {hub}")
     print(f"Contagem concluída para o tipo: {tipo}")
+    print("Finalizado o primeiro processo")
 
 def numero_processo(page):
    #texto = page.query_selector("xpath=/html/body/div[1]/form/div[2]/div[2]/div[3]/div[1]/table/tbody/tr/td/div/div/table/tbody/tr[2]/td[2]/div/div[2]/span/label").inner_text()
-    texto = page.query_selector("xpath=/html/body/div[1]/form/div[2]/div[1]/div[3]/div[1]/table/tbody/tr/td/div/div/table/tbody/tr[2]/td[2]/div/div[2]/span/label").inner_text()
+    texto = page.query_selector("xpath=/html/body/div[1]/form/div[2]/div[2]/div[3]/div[1]/table/tbody/tr/td/div/div/table/tbody/tr[2]/td[2]/div/div[2]/span/label").inner_text()
 
     num = texto[11:18]
     num_proc = 'MINMAX' + num
@@ -148,9 +152,9 @@ def atualizar(page):
 
 
 def processos_programados_segundo(page):
-    for _ in range(20):
+    for _ in range(21):
         page.keyboard.press("Tab")
-        time.sleep(0.1)
+        time.sleep(1)
 
     page.keyboard.press("Enter")
 
@@ -158,11 +162,10 @@ def processos_programados_segundo(page):
     #programar novo processo
    #page.locator('xpath=/html/body/div[1]/form/div[1]/div/div/div[2]/div/div/div/div[3]/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div/div[1]/div[1]/div/div/div[1]/div/div[1]/table/tbody/tr/td[1]/div/div/div/div/div[2]/div/div/div[1]/div/div[1]/div[1]/div/div/table/tbody/tr/td[2]/div/div[1]/div[1]/table/tbody/tr/td[1]/div').click()
     page.locator('xpath=/html/body/div[1]/form/div[1]/div/div/div[1]/div/div/div/div[3]/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div/div[1]/div[1]/div/div/div[1]/div/div[1]/table/tbody/tr/td[1]/div/div/div/div/div[2]/div/div/div[1]/div/div[1]/div[1]/div/div/table/tbody/tr/td[2]/div/div[1]/div[1]/table/tbody/tr/td[1]/div').click()
-    
     time.sleep(5)
 
    #input_element = page.locator('xpath=/html/body/div[1]/form/div[2]/div[2]/div[1]/div[1]/table/tbody/tr/td/div/div/table/tbody/tr[2]/td[2]/div/table/tbody/tr/td/table/tbody/tr[4]/td[2]/span/input')
-    input_element = page.locator('xpath=/html/body/div[1]/form/div[2]/div[1]/div[1]/div[1]/table/tbody/tr/td/div/div/table/tbody/tr[2]/td[2]/div/table/tbody/tr/td/table/tbody/tr[4]/td[2]/span/input')
+    input_element = page.locator('xpath=/html/body/div[1]/form/div[2]/div[2]/div[1]/div[1]/table/tbody/tr/td/div/div/table/tbody/tr[2]/td[2]/div/table/tbody/tr/td/table/tbody/tr[4]/td[2]/span/input')
 
     # Preencha o campo de entrada com o texto desejado
     input_element.fill("Processar Interface de Orquestração da Cadeia de Suprimentos")
@@ -177,6 +180,7 @@ def processos_programados_segundo(page):
     # # Pressione 'Enter' para enviar o formulário
     page.keyboard.press('Enter')
     time.sleep(5)
+    print("Iniciando primeiro processo")
 
 
 def encontrar_segundo(page, num_proc):
@@ -211,7 +215,7 @@ def encontrar_segundo(page, num_proc):
     time.sleep(3)
     page.keyboard.press('Enter')
     time.sleep(3)
-    print ("terminor a segunda parte")
+    print ("Finalizado o segundo processo")
 
 
 def processos_programados_terceito(page):
@@ -223,7 +227,7 @@ def processos_programados_terceito(page):
     time.sleep(5)
 
    #input_element = page.locator('xpath=/html/body/div[1]/form/div[2]/div[2]/div[1]/div[1]/table/tbody/tr/td/div/div/table/tbody/tr[2]/td[2]/div/table/tbody/tr/td/table/tbody/tr[4]/td[2]/span/input')
-    input_element = page.locator('xpath=/html/body/div[1]/form/div[2]/div[1]/div[1]/div[1]/table/tbody/tr/td/div/div/table/tbody/tr[2]/td[2]/div/table/tbody/tr/td/table/tbody/tr[4]/td[2]/span/input')
+    input_element = page.locator('xpath=/html/body/div[1]/form/div[2]/div[2]/div[1]/div[1]/table/tbody/tr/td/div/div/table/tbody/tr[2]/td[2]/div/table/tbody/tr/td/table/tbody/tr[4]/td[2]/span/input')
 
     # Preencha o campo de entrada com o texto desejado
     input_element.fill("Imprimir Relatório de Slip de Separação de Solicitação de Movimento")
@@ -238,14 +242,15 @@ def processos_programados_terceito(page):
     # # Pressione 'Enter' para enviar o formulário
     page.keyboard.press('Enter')
     time.sleep(5)
+    print("Iniciando o terceiro processo")
 
-def encontrar_e_digitar_hub_terceiro(page, hub):
+def encontrar_e_digitar_hub_terceiro(page, hub, tipo):
     # Realize ações específicas para o hub atual aqui
     print(f"Iniciando contagem do hub: {hub}")
     # Execute qualquer lógica que você desejar para este hub
 
    #input_element = page.locator('xpath=/html/body/div[1]/form/div[2]/div[2]/div[1]/div[1]/table/tbody/tr/td/div/div/table/tbody/tr[2]/td[2]/div/div[1]/div[2]/div[2]/div/div/div/div/span/div/table/tbody/tr/td/table/tbody/tr[2]/td[2]/span/input')
-    input_element = page.locator('xpath=/html/body/div[1]/form/div[2]/div[1]/div[1]/div[1]/table/tbody/tr/td/div/div/table/tbody/tr[2]/td[2]/div/div[1]/div[2]/div[2]/div/div/div/div/span/div/table/tbody/tr/td/table/tbody/tr[2]/td[2]/span/input')
+    input_element = page.locator('xpath=/html/body/div[1]/form/div[2]/div[2]/div[1]/div[1]/table/tbody/tr/td/div/div/table/tbody/tr[2]/td[2]/div/div[1]/div[2]/div[2]/div/div/div/div/span/div/table/tbody/tr/td/table/tbody/tr[2]/td[2]/span/input')
     input_element.fill(hub)
     time.sleep(3)
 
@@ -253,7 +258,16 @@ def encontrar_e_digitar_hub_terceiro(page, hub):
     page.keyboard.press('Enter')
     time.sleep(3)
 
-    for _ in range(10):
+    for _ in range(7):
+        page.keyboard.press("Tab")
+        time.sleep(0.02)
+    time.sleep(5)
+
+    input_element = page.locator('xpath=/html/body/div[1]/form/div[2]/div[2]/div[1]/div[1]/table/tbody/tr/td/div/div/table/tbody/tr[2]/td[2]/div/div[1]/div[2]/div[2]/div/div/div/div/span/div/table/tbody/tr/td/table/tbody/tr[9]/td[2]/span/input')
+    input_element.fill(tipo)
+    time.sleep(3)
+
+    for _ in range(3):
         page.keyboard.press("Tab")
         time.sleep(0.02)
     time.sleep(5)
@@ -300,6 +314,7 @@ def encontrar_e_digitar_hub_terceiro(page, hub):
     time.sleep(3)
     page.keyboard.press('Enter')
     time.sleep(5)
+    print("FInalizado o terceiro processo")
 
 def atualizar2(page):
 
@@ -347,29 +362,35 @@ def upload_drive(nome, path, tipo):
     type = tipo
     google_drive().salvar_arquivo(name, path, type)
 
+def upload_drive_min_max(nome, path, tipo):
 
+    data = get_data()
+    name = 'Min-Max ' + nome + '_' + data
+    type = tipo
+    google_drive().salvar_arquivo(name, path, type)
 
 def controlador():
         lab = [
-            'BARRA_RJ_0608',
-            'SC_RJ_1256',
-            'TATUAPE_SP_1337',
-            'VL_OLIMPIA_SP_0446',
-            'ALPHAVILLE_SP_1094',
-            'SBERNARDO_SP_1175',
-            'CAMPINAS_SP_1507',
-            'BRASILIA_DF_0950'
+            'RECIFE_PE_1760',
+            #'BARRA_RJ_0608',
+            # 'SC_RJ_1256',
+            # 'TATUAPE_SP_1337',
+            # 'VL_OLIMPIA_SP_0446',
+            # 'ALPHAVILLE_SP_1094',
+            # 'SBERNARDO_SP_1175',
+            # 'CAMPINAS_SP_1507',
+            # 'BRASILIA_DF_0950'
         ]
 
         sv = [
-            'BARRA_RJ_0608',
-            'SC_RJ_1256',
-            'TATUAPE_SP_1337',
-            'VL_OLIMPIA_SP_0446',
-            'ALPHAVILLE_SP_1094',
-            'SBERNARDO_SP_1175',
-            'CAMPINAS_SP_1507',
-            'BRASILIA_DF_0950'
+            'RECIFE_PE_1760',
+            # 'SC_RJ_1256',
+            # 'TATUAPE_SP_1337',
+            # 'VL_OLIMPIA_SP_0446',
+            # 'ALPHAVILLE_SP_1094',
+            # 'SBERNARDO_SP_1175',
+            # 'CAMPINAS_SP_1507',
+            # 'BRASILIA_DF_0950'
         ]
         hubs_lab = []
         hubs_sv = []
@@ -386,11 +407,14 @@ def controlador():
                 encontrar_e_digitar_hub(page, hub,"LAB")  # Realize ações para o hub
                 num_proc = numero_processo(page)
                 atualizar(page)
+                path = encontrar_arquivo_download(page)
+                nome_hub = hub[:-8]
+                upload_drive_min_max('lab', path, nome_hub)
                 processos_programados_segundo(page)
                 encontrar_segundo(page, num_proc)
                 atualizar2(page)
                 processos_programados_terceito(page)
-                encontrar_e_digitar_hub_terceiro(page, hub)
+                encontrar_e_digitar_hub_terceiro(page, hub,"LAB")
                 atualizar2(page)
                 path = encontrar_arquivo_download(page)
                 nome_hub = hub[:-8]
@@ -400,7 +424,7 @@ def controlador():
 
         for hub in sv:
             with sync_playwright() as p:
-                browser = p.chromium.launch(headless=False)
+                browser = p.chromium.launch(headless=True)
                 page = browser.new_page()
 
                 realizar_login(page)
@@ -410,11 +434,14 @@ def controlador():
                 encontrar_e_digitar_hub(page, hub,"SV")  # Realize ações para o hub
                 num_proc = numero_processo(page)
                 atualizar(page)
+                path = encontrar_arquivo_download(page)
+                nome_hub = hub[:-8]
+                upload_drive_min_max('sv', path, nome_hub)
                 processos_programados_segundo(page)
                 encontrar_segundo(page, num_proc)
                 atualizar2(page)
                 processos_programados_terceito(page)
-                encontrar_e_digitar_hub_terceiro(page, hub)
+                encontrar_e_digitar_hub_terceiro(page, hub,"SV")
                 atualizar2(page)
                 path = encontrar_arquivo_download(page)
                 nome_hub = hub[:-8]
