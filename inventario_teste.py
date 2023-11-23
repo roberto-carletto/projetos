@@ -7,7 +7,6 @@ try:
     import time
     import tkinter as tk
 except:
-    print('vishhhhhhhhhhhhhhhhhhhhhh')
     path = os.getcwd()
     os.chdir(path)
     cmd = 'pip install -r requirements.txt'
