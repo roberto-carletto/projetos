@@ -3,8 +3,10 @@ import pyperclip
 import clipboard
 from playwright.sync_api import sync_playwright
 from datetime import datetime
+import pandas
 import time
 import os
+from zipfile import ZipFile
 from drive import google_drive
 
 def realizar_login(page):
@@ -369,9 +371,8 @@ def upload_drive_min_max(nome, path, tipo):
 
 def controlador():
         lab = [
-            'RECIFE_PE_1760',
             #'BARRA_RJ_0608',
-            # 'SC_RJ_1256',
+            'SC_RJ_1256',
             # 'TATUAPE_SP_1337',
             # 'VL_OLIMPIA_SP_0446',
             # 'ALPHAVILLE_SP_1094',
@@ -381,8 +382,8 @@ def controlador():
         ]
 
         sv = [
-            'RECIFE_PE_1760',
-            # 'SC_RJ_1256',
+            #'BARRA_RJ_0608',
+            'SC_RJ_1256',
             # 'TATUAPE_SP_1337',
             # 'VL_OLIMPIA_SP_0446',
             # 'ALPHAVILLE_SP_1094',
@@ -422,7 +423,7 @@ def controlador():
 
         for hub in sv:
             with sync_playwright() as p:
-                browser = p.chromium.launch(headless=True)
+                browser = p.chromium.launch(headless=False)
                 page = browser.new_page()
 
                 realizar_login(page)
