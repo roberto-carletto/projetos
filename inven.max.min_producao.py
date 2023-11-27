@@ -1,13 +1,26 @@
-import pyautogui
-import pyperclip
-import clipboard
-from playwright.sync_api import sync_playwright
-from datetime import datetime
-import pandas
-import time
 import os
-from zipfile import ZipFile
-from drive import google_drive
+try:
+    import pyautogui
+    import pyperclip
+    import clipboard
+    from playwright.sync_api import sync_playwright
+    from datetime import datetime
+    import pandas
+    import time
+    from zipfile import ZipFile
+    from drive import google_drive
+except:
+    path = os.getcwd()
+    os.chdir(path)
+    cmd = 'pip install -r requirements.txt'
+    os.system(cmd)
+    os.system('playwright install')
+    import pyautogui
+    import pyperclip
+    from playwright.sync_api import sync_playwright
+    from datetime import datetime
+    import pandas
+    import time
 
 def realizar_login(page):
     page.goto("https://login-evcj-saasfaprod1.fa.ocs.oraclecloud.com")
@@ -371,32 +384,34 @@ def upload_drive_min_max(nome, path, tipo):
 
 def controlador():
         lab = [
+            'RECIFE_PE_1760',
             #'BARRA_RJ_0608',
-            'SC_RJ_1256',
-            # 'TATUAPE_SP_1337',
-            # 'VL_OLIMPIA_SP_0446',
-            # 'ALPHAVILLE_SP_1094',
-            # 'SBERNARDO_SP_1175',
-            # 'CAMPINAS_SP_1507',
-            # 'BRASILIA_DF_0950'
+            #'SC_RJ_1256',
+            #'TATUAPE_SP_1337',
+            #'VL_OLIMPIA_SP_0446',
+            #'ALPHAVILLE_SP_1094',
+            #'SBERNARDO_SP_1175',
+            #'CAMPINAS_SP_1507',
+            #'BRASILIA_DF_0950'
         ]
 
         sv = [
+            'RECIFE_PE_1760',
             #'BARRA_RJ_0608',
-            'SC_RJ_1256',
-            # 'TATUAPE_SP_1337',
-            # 'VL_OLIMPIA_SP_0446',
-            # 'ALPHAVILLE_SP_1094',
-            # 'SBERNARDO_SP_1175',
-            # 'CAMPINAS_SP_1507',
-            # 'BRASILIA_DF_0950'
+            #'SC_RJ_1256',
+            #'TATUAPE_SP_1337',
+            #'VL_OLIMPIA_SP_0446',
+            #'ALPHAVILLE_SP_1094',
+            #'SBERNARDO_SP_1175',
+            #'CAMPINAS_SP_1507',
+            #'BRASILIA_DF_0950'
         ]
         hubs_lab = []
         hubs_sv = []
 
         for hub in lab:
             with sync_playwright() as p:
-                browser = p.chromium.launch(headless=False)
+                browser = p.chromium.launch(headless=True)
                 page = browser.new_page()
 
                 realizar_login(page)
@@ -423,7 +438,7 @@ def controlador():
 
         for hub in sv:
             with sync_playwright() as p:
-                browser = p.chromium.launch(headless=False)
+                browser = p.chromium.launch(headless=True)
                 page = browser.new_page()
 
                 realizar_login(page)
