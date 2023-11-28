@@ -34,7 +34,7 @@ class google_drive():
             pasta_id = "1ip05OGxp0cmcSMYpQ92CGE6df_bloQPM"
         elif tipo =="ALPHAVILLE":
             pasta_id = "1tbCtw-CQx-omuN2PlKPC7y-AHm5Fi9Fs"
-        elif tipo =="BERNARDO":
+        elif tipo =="S.BERNARDO":
             pasta_id = "1otOJwTXw30iHO_0F9qmcV_7y7jsIKpQq"
         elif tipo =="CAMPINAS":
             pasta_id = "1zBeS_ZBJ4X5jQ3XkgwTSpqQL_xMfB_xl"
