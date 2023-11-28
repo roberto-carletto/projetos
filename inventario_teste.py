@@ -1,6 +1,5 @@
 import os
 try:
-    import pyautogui
     import pyperclip
     from playwright.sync_api import sync_playwright
     from datetime import datetime
@@ -12,7 +11,6 @@ except:
     cmd = 'pip install -r requirements.txt'
     os.system(cmd)
     os.system('playwright install')
-    import pyautogui
     import pyperclip
     from playwright.sync_api import sync_playwright
     from datetime import datetime
@@ -325,7 +323,7 @@ def pagina_inicial_novamente(page):
     page.goto(url+"/fscmUI/faces/FuseWelcome?_afrLoop=14629167889228257&fnd=%3B%3B%3B%3Bfalse%3B256%3B%3B%3B&_adf.ctrl-state=m8rxhn2th_736")
     time.sleep(10)
 
-    pyautogui.press('ENTER')
+    page.keyboard.press('Enter')
 
 def elemento_da_seta(page):
     seta_element = page.locator('xpath=/html/body/div[1]/form/div/div/div/div[2]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[1]/div[2]/div/div[12]')
@@ -334,14 +332,14 @@ def elemento_da_seta(page):
     time.sleep(10)
 
 
-def localizar_elemento():
+def localizar_elemento(page):
     # Pressiona a tecla de seta para a esquerda quatro vezes
     for _ in range(4):
-        pyautogui.press('left')
+        page.keyboard.press('ArrowLeft')
         time.sleep(1)  # Opcional: adicione um atraso entre cada pressionamento de tecla
 
     # Pressiona a tecla ENTER
-    pyautogui.press('ENTER')
+    page.keyboard.press('Enter')
     time.sleep(3)
 
 def elemento_da_pagina(page):
@@ -353,16 +351,16 @@ def terceira_elemento(page):
     terceira_element = page.locator('xpath=/html/body/div[1]/form/div/div/div/div[2]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[1]/div[2]/div/div[7]')
     terceira_element.click()  # Adicione parênteses aqui
     time.sleep(3)
-    pyautogui.press('ENTER')
+    page.keyboard.press('Enter')
     time.sleep(3)
 
 
-def pressionar_tecla_seta_e_enter():
+def pressionar_tecla_seta_e_enter(page):
     for _ in range(2):
-        pyautogui.press('left')
+        page.keyboard.press('ArrowLeft')
         time.sleep(3)
 
-    pyautogui.press('ENTER')
+    page.keyboard.press('Enter')
     time.sleep(1)
 
 def procurar_elemento(page):
@@ -370,13 +368,13 @@ def procurar_elemento(page):
     procurar_element.click()
     time.sleep(3)
 
-    pyautogui.press('ENTER')
+    page.keyboard.press('Enter')
 
 def procurar_quarto_elemento(page):
     quarto_element = page.locator('xpath=/html/body/div[1]/form/div/div/div/div[2]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[1]/div[2]/div/div[4]')
     quarto_element.click()
     time.sleep(3)
-    pyautogui.press('ENTER')
+    page.keyboard.press('Enter')
 
     time.sleep(3)
 
@@ -385,21 +383,21 @@ def colocar_seta_novamente(page):
     seta_element = page.locator('xpath=/html/body/div[1]/form/div/div/div/div[2]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[1]/div[1]/div[1]')
     seta_element.click
     time.sleep(3)
-    pyautogui.press('ENTER')
+    page.keyboard.press('Enter')
 
-def procurar_o_inicio_da_pagina():
+def procurar_o_inicio_da_pagina(page):
     for _ in range(3):
-        pyautogui.press('left')
+        page.keyboard.press('ArrowLeft')
         time.sleep(3)
 
-        pyautogui.press('ENTER')
+        page.keyboard.press('Enter')
     time.sleep(1)
 
 def procurar_quinto_elemento(page):
     quinto_element = page.locator('xpath=/html/body/div[1]/form/div/div/div/div[2]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[1]/div[1]/div[1]')
     quinto_element.click()
     time.sleep(3)
-    pyautogui.press('ENTER')
+    page.keyboard.press('Enter')
 
     time.sleep(3)
 
@@ -407,7 +405,7 @@ def segunda_vez_gerenciamento_de_estoque(page):
     gerenciamento_element = page.locator('xpath=/html/body/div[1]/form/div/div/div/div[2]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[2]/div[1]/div/div[2]/div[2]/div[3]/div')
     gerenciamento_element.click()
     time.sleep(3)
-    pyautogui.press('ENTER')
+    page.keyboard.press('Enter')
 
 def novamente_mostrar_tarefas(page):
     page.locator('xpath=/html/body/div[1]/form/div[1]/div/div/div[2]/div/div/div/div[3]/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div/div[1]/div[6]/table/tbody/tr/td[1]/div/div[1]').click()
@@ -491,17 +489,17 @@ def retornar_atualizar_processos(page):
 
     time.sleep(20) #deixar 20
 
-def press_tab_and_enter(num_tabs=23, tab_delay=0.1, enter_delay=5):
+def press_tab_and_enter(page, num_tabs=19, tab_delay=0.5, enter_delay=5):
     # Pressiona a tecla 'Tab' várias vezes
     for _ in range(num_tabs):
-        pyautogui.press('Tab')
+        page.keyboard.press('Tab')
         time.sleep(tab_delay)
 
     # Aguarda um período de tempo
     time.sleep(enter_delay)
 
     # Pressiona a tecla 'Enter'
-    pyautogui.press('Enter')
+    page.keyboard.press('Enter')
 
 def preencher_e_submeter_formulario(page):
     # Localize o campo de entrada
@@ -516,7 +514,7 @@ def preencher_e_submeter_formulario(page):
 
     # Pressione 'Tab' algumas vezes (no exemplo, 3 vezes) para navegar para o próximo elemento
     for _ in range(3):
-        pyautogui.press('Tab')
+        page.keyboard.press('Tab')
         time.sleep(3)
 
     # Pressione 'Enter' para enviar o formulário
@@ -524,26 +522,26 @@ def preencher_e_submeter_formulario(page):
     time.sleep(5)
 
 
-def encontrar_e_digitar_hub(hub):
+def encontrar_e_digitar_hub(page, hub):
     # Pressiona 'Tab' várias vezes (no exemplo, 7 vezes)
     for _ in range(7):
-        pyautogui.press('Tab')
+        page.keyboard.press('Tab')
     time.sleep(5)
 
 
     print(f'Digitando o hub: {hub}')
 
     # Simular a inserção do hub (neste caso, simulamos pressionando as teclas)
-    pyautogui.typewrite(hub)
+    page.keyboard.type(hub)
 
 
 
     time.sleep(3)
-    pyautogui.press('Tab')
+    page.keyboard.press('Tab')
     time.sleep(3)
 
 
-def combinar_e_digitar_informacoes(registro_contagem_ciclica, hub):
+def combinar_e_digitar_informacoes(page, registro_contagem_ciclica, hub):
 
 
     if registro_contagem_ciclica == "descartaveis":
@@ -599,25 +597,32 @@ def combinar_e_digitar_informacoes(registro_contagem_ciclica, hub):
 
 
     # Simular a inserção das informações (neste caso, simulamos pressionando as teclas)
-    pyautogui.hotkey("ctrl", "v")
+    page.keyboard.press("Control+V")
 
     time.sleep(15)
     for _ in range(14):
-        pyautogui.press('Tab')
+        page.keyboard.press('Tab')
     time.sleep(2)
-    pyautogui.press('ENTER')
+    page.keyboard.press('Enter')
     time.sleep(2)
 
     for _ in range(13):
-        pyautogui.press('Tab')
+        page.keyboard.press('Tab')
     time.sleep(2)
-    pyautogui.press('ENTER')
+    page.keyboard.press('Enter')
     time.sleep(10)
 
     # Feche o navegador
-    pyautogui.hotkey('ctrl', 'w')
+    page.keyboard.press("Control+W")
     print("Hub finalizado!")
     print("Iniciando próximo ciclo")
+
+def progresso(t, f):
+
+    p = f/t
+    p = str((p*100)//1)
+    p = p[:-2]
+    print("Progresso atual: {}%".format(p))
 
 
 
@@ -628,7 +633,7 @@ def combinar_e_digitar_informacoes(registro_contagem_ciclica, hub):
 
 def contagem_inventario(hub, registro_contagem_ciclica, elemento):
     with sync_playwright() as p:
-        browser = p.chromium.launch(headless=False)
+        browser = p.chromium.launch(headless=True)
         page = browser.new_page()
 
 
@@ -658,15 +663,15 @@ def contagem_inventario(hub, registro_contagem_ciclica, elemento):
         pagina_inicial_novamente(page)
         elemento_da_seta(page)
         quantidade_de_pressionadas = 4
-        localizar_elemento()
+        localizar_elemento(page)
         elemento_da_pagina(page)
         terceira_elemento(page)
         quantidade_de_pressionadas = 2  
-        pressionar_tecla_seta_e_enter()
+        pressionar_tecla_seta_e_enter(page)
         procurar_elemento(page)
         procurar_quarto_elemento(page)
         colocar_seta_novamente(page)
-        procurar_o_inicio_da_pagina()
+        procurar_o_inicio_da_pagina(page)
         procurar_quinto_elemento(page)
         segunda_vez_gerenciamento_de_estoque(page)
         novamente_mostrar_tarefas(page)
@@ -678,15 +683,15 @@ def contagem_inventario(hub, registro_contagem_ciclica, elemento):
         retornar_pagina_ferramenta(page)
         retornar_processos_programados(page)
         retornar_atualizar_processos(page)
-        press_tab_and_enter()
+        press_tab_and_enter(page)
         preencher_e_submeter_formulario(page)
 
 
-        encontrar_e_digitar_hub(hub)
+        encontrar_e_digitar_hub(page, hub)
 
         # Chame a função para combinar e digitar as informações
 
-        combinar_e_digitar_informacoes(registro_contagem_ciclica, hub)
+        combinar_e_digitar_informacoes(page, registro_contagem_ciclica, hub)
 
 
 
@@ -696,7 +701,7 @@ def contagem_inventario(hub, registro_contagem_ciclica, elemento):
 def controlador():
 
 
-    vacina = {
+    """ vacina = {
             "SC_RJ_1256": 4, # Segunda-feira
             # "BARRA_RJ_0608": 4, # Segunda-feira
             "TATUAPE_SP_1337": 6, # Segunda-feira
@@ -731,7 +736,7 @@ def controlador():
             "TATUAPE_SP_1337": 1            , # Sexta-feira
             "BRASILIA": 7 # Sexta-feira
 
-    }
+    } """
 
     duraveis = {
             "SC_RJ_1256": 1, # Terça-feira
@@ -803,71 +808,83 @@ def controlador():
     hubs_sv_descartaveis = []
     hubs_sv_duraveis = []
 
+    total = 0
+    finalizado = 0
+
     dia_da_semana = datetime.now().date().weekday()
     dia_mes = datetime.now().date().day
-
-
-
-    print("Iniciando a contagem para sv descartáveis")
 
     for hub, dias_semana in sv_descartaveis.items():
         if dia_da_semana == dias_semana:
             hubs_sv_descartaveis.append(hub)
+            total+=1
+
+    for hub in lab_vacina:
+        hubs_lab_vacina.append(hub)
+        total+=1
+
+    for hub in vacina:
+        hubs_vacina.append(hub)
+        total+=1
+
+    for hub in lab:
+        hubs_lab.append(hub)
+        total+=1
+
+    for hub, dias_semana in duraveis.items():
+        if dia_da_semana == dias_semana:
+            if (dia_mes < 8) or (14 < dia_mes < 22):
+                hubs_duraveis.append(hub)
+                total+=1
+
+    for hub, dias_semana in insumos.items():
+        if dia_da_semana == dias_semana:
+            hubs_insumos.append(hub)
+            total+=1
+
+    for hub, dias_semana in descartaveis.items():
+        if dia_da_semana == dias_semana:
+            hubs_descartaveis.append(hub)
+            total+=1
+
+
+
+    print("Iniciando o processo:")
+    print("Progresso atual: 0%")
+
+     # Inicia a contagem para SV
+
+    print("Iniciando a contagem para sv descartáveis")
+
+    if len(hubs_sv_descartaveis) == 0:
+        print("Nenhum hub selecionado")
 
     for hub in hubs_sv_descartaveis:
         print("Iniciando contagem do hub ", end='')
         print(hub)
         if  hub == "BRASILIA_DF_0950": 
             contagem_inventario(hub, 'sv descartaveis', elementos[4])
+            finalizado+=1
+            progresso(total, finalizado)
+            continue
         elif hub == "SBERNARDO_SP_1175":
             contagem_inventario(hub, 'sv descartaveis', elementos[7])
-        elif hub == "SC_RJ_1256":
-            contagem_inventario(hub, 'sv descartaveis', elementos[8])
+            finalizado+=1
+            progresso(total, finalizado)
             continue
-        contagem_inventario(hub, "sv_descartaveis", elementos[6])
-
-    print("Processo finalizado!")
-    print("------------------------------------------------")
-
-    print("Iniciando a contagem para sv duráveis")
-
-    for hub, dias_semana in sv_duraveis.items():
-        if dia_da_semana == dias_semana:
-            hubs_sv_duraveis.append(hub)
-
-    for hub in hubs_sv_duraveis:
-        print("Iniciando contagem do hub ", end='')
-        print(hub)
-        if  hub == "BRASILIA_DF_0950": 
-            contagem_inventario(hub, 'sv_duraveis', elementos[6])
-        elif hub == "SBERNARDO_SP_1175":
-            contagem_inventario(hub, 'sv_duraveis', elementos[6])
-            continue 
-        contagem_inventario(hub, "sv_duraveis", elementos[7])
-
-    print("Processo finalizado!")
-    print("------------------------------------------------")
-
-    print("Iniciando a contagem para sv duraveis")
-
-    
-
-    for hub, dias_semana in sv_descartaveis.items():
-        if dia_da_semana == dias_semana:
-            hubs_sv_descartaveis.append(hub)
-
-    for hub in hubs_sv_descartaveis:
-        print("Iniciando contagem do hub ", end='')
-        print(hub)
-        if  hub == "BRASILIA_DF_0950": 
-            contagem_inventario(hub, 'sv_descartaveis', elementos[4])
-        elif hub == "SBERNARDO_SP_1175":
-            contagem_inventario(hub, 'sv_descartaveis', elementos[7])
+        elif hub == "SC_RJ_1256":
+            contagem_inventario(hub, 'sv descartaveis', elementos[11])
+            finalizado+=1
+            progresso(total, finalizado)
             continue 
         contagem_inventario(hub, "sv_descartaveis", elementos[6])
+        finalizado+=1
+        progresso(total, finalizado)
 
     print("Processo finalizado!")
     print("------------------------------------------------")
+
+
 
 
 
@@ -876,10 +893,15 @@ def controlador():
     print("Iniciando a contagem para Vacina")
 
 
-    for hub in vacina:
+    if len(hubs_vacina) == 0:
+        print("Nenhum hub selecionado")
+
+    for hub in hubs_vacina:
         print("Iniciando contagem do hub ", end='')
         print(hub)
         contagem_inventario(hub, "vacina", elementos[3])
+        finalizado+=1
+        progresso(total, finalizado)
 
     print("Processo finalizado!")
     print("------------------------------------------------")
@@ -890,10 +912,15 @@ def controlador():
     print("Iniciando a contagem para Lab Vacina")
 
 
-    for hub in lab_vacina:
+    if len(hubs_lab_vacina) == 0:
+        print("Nenhum hub selecionado")
+
+    for hub in hubs_lab_vacina:
         print("Iniciando contagem do hub ", end='')
         print(hub)
         contagem_inventario(hub, "lab_vacina", elementos[2])
+        finalizado+=1
+        progresso(total, finalizado)
 
     print("Processo finalizado!")
     print("------------------------------------------------")
@@ -903,10 +930,16 @@ def controlador():
 
     print("Iniciando a contagem para Lab")
 
-    for hub in lab:
+
+    if len(hubs_lab) == 0:
+        print("Nenhum hub selecionado")
+
+    for hub in hubs_lab:
         print("Iniciando contagem do hub ", end='')
         print(hub)
         contagem_inventario(hub, "lab", elementos[1])
+        finalizado+=1
+        progresso(total, finalizado)
 
     print("Processo finalizado!")
     print("------------------------------------------------")
@@ -915,18 +948,16 @@ def controlador():
 
     print("Iniciando a contagem para Duráveis")
 
-    for hub, dias_semana in duraveis.items():
-        if dia_da_semana == dias_semana:
-            if (dia_mes < 8) or (14 < dia_mes < 22):
-                hubs_duraveis.append(hub)
+
+    if len(hubs_duraveis) == 0:
+        print("Nenhum hub selecionado")
 
     for hub in hubs_duraveis:
         print("Iniciando contagem do hub ", end='')
         print(hub)
-        if  hub == "BRASILIA_DF_0950": 
-            contagem_inventario(hub, 'duraveis', elementos[2])
-            continue 
         contagem_inventario(hub, "duraveis", elementos[4])
+        finalizado+=1
+        progresso(total, finalizado)
 
 
     print("Processo finalizado!")
@@ -936,14 +967,16 @@ def controlador():
 
     print("Iniciando a contagem para insumos")
 
-    for hub, dias_semana in insumos.items():
-        if dia_da_semana == dias_semana:
-            hubs_insumos.append(hub)
+
+    if len(hubs_insumos) == 0:
+        print("Nenhum hub selecionado")
 
     for hub in hubs_insumos:
         print("Iniciando contagem do hub ", end='')
         print(hub)
         contagem_inventario(hub,  "insumos", elementos[5])
+        finalizado+=1
+        progresso(total, finalizado)
 
     print("Processo finalizado!")
     print("------------------------------------------------")
@@ -952,18 +985,21 @@ def controlador():
 
     print("Iniciando a contagem para Descartáveis")
 
-    for hub, dias_semana in descartaveis.items():
-        if dia_da_semana == dias_semana:
-            hubs_descartaveis.append(hub)
-    
+
+    if len(hubs_descartaveis) == 0:
+        print("Nenhum hub selecionado")
 
     for hub in hubs_descartaveis:
         print("Iniciando contagem do hub ", end='')
         print(hub)
         if  hub == "BRASILIA_DF_0950": 
             contagem_inventario(hub, 'descartaveis', elementos[3])
-            continue    
+            finalizado+=1
+            progresso(total, finalizado)
+            continue
         contagem_inventario(hub,  "descartaveis", elementos[0])
+        finalizado+=1
+        progresso(total, finalizado)
 
     print("Processo finalizado!")
     print("------------------------------------------------")
@@ -972,21 +1008,3 @@ def controlador():
     print("Fim da execução")
 
 controlador()
-
-
-
-
-
-
-
-
-
-
-#subinventario
-
-#  Lab descartaveis   'xpath=/html/body/div[1]/form/div[1]/div/div/div[2]/div/div/div/div[3]/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div/div[1]/div[2]/div/div/div[1]/div/div[1]/table/tbody/tr/td[1]/div/div/div/div/div/div/div/div/div/div/div/div/div[2]/div/div/div/div/div/div/div/div[3]/div[2]/div/span/div[1]/div[2]/div/div[2]/table/tbody/tr[5]/td[2]/div',
-#  Almox. Lab         'xpath=/html/body/div[1]/form/div[1]/div/div/div[2]/div/div/div/div[3]/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div/div[1]/div[2]/div/div/div[1]/div/div[1]/table/tbody/tr/td[1]/div/div/div/div/div/div/div/div/div/div/div/div/div[2]/div/div/div/div/div/div/div/div[3]/div[2]/div/span/div[1]/div[2]/div/div[2]/table/tbody/tr[2]/td[2]/div',
-# Almox lab/vac       'xpath=/html/body/div[1]/form/div[1]/div/div/div[2]/div/div/div/div[3]/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div/div[1]/div[2]/div/div/div[1]/div/div[1]/table/tbody/tr/td[1]/div/div/div/div/div/div/div/div/div/div/div/div/div[2]/div/div/div/div/div/div/div/div[3]/div[2]/div/span/div[1]/div[2]/div/div[2]/table/tbody/tr[3]/td[2]/div',      
-# Almox vac           'xpath=/html/body/div[1]/form/div[1]/div/div/div[2]/div/div/div/div[3]/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div/div[1]/div[2]/div/div/div[1]/div/div[1]/table/tbody/tr/td[1]/div/div/div/div/div/div/div/div/div/div/div/div/div[2]/div/div/div/div/div/div/div/div[3]/div[2]/div/span/div[1]/div[2]/div/div[2]/table/tbody/tr[4]/td[2]/div', 
-# # Almox DURAVEIS           'xpath=/html/body/div[1]/form/div[1]/div/div/div[2]/div/div/div/div[3]/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div/div[1]/div[2]/div/div/div[1]/div/div[1]/table/tbody/tr/td[1]/div/div/div/div/div/div/div/div/div/div/div/div/div[2]/div/div/div/div/div/div/div/div[3]/div[2]/div/span/div[1]/div[2]/div/div[2]/table/tbody/tr[6]/td[2]/div',
-# Insumos             'xpath=/html/body/div[1]/form/div[1]/div/div/div[2]/div/div/div/div[3]/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div/div[1]/div[2]/div/div/div[1]/div/div[1]/table/tbody/tr/td[1]/div/div/div/div/div/div/div/div/div/div/div/div/div[2]/div/div/div/div/div/div/div/div[3]/div[2]/div/span/div[1]/div[2]/div/div[2]/table/tbody/tr[3]/td[2]/div',

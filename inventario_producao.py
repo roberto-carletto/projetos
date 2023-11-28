@@ -1,6 +1,5 @@
 import os
 try:
-    import pyautogui
     import pyperclip
     from playwright.sync_api import sync_playwright
     from datetime import datetime
@@ -12,7 +11,6 @@ except:
     cmd = 'pip install -r requirements.txt'
     os.system(cmd)
     os.system('playwright install')
-    import pyautogui
     import pyperclip
     from playwright.sync_api import sync_playwright
     from datetime import datetime
@@ -330,7 +328,7 @@ def pagina_inicial_novamente(page):
     page.goto(url+"/fscmUI/faces/FuseWelcome?_afrLoop=14629167889228257&fnd=%3B%3B%3B%3Bfalse%3B256%3B%3B%3B&_adf.ctrl-state=m8rxhn2th_736")
     time.sleep(10)
 
-    pyautogui.press('ENTER')
+    page.keyboard.press('Enter')
 
 def elemento_da_seta(page):
     # seta_element = page.locator('xpath=/html/body/div[1]/form/div/div/div/div[2]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[1]/div[2]/div/div[12]')
@@ -340,14 +338,14 @@ def elemento_da_seta(page):
     time.sleep(10)
 
 
-def localizar_elemento():
+def localizar_elemento(page):
     # Pressiona a tecla de seta para a esquerda quatro vezes
     for _ in range(4):
-        pyautogui.press('left')
+        page.keyboard.press('ArrowLeft')
         time.sleep(1)  # Opcional: adicione um atraso entre cada pressionamento de tecla
 
     # Pressiona a tecla ENTER
-    pyautogui.press('ENTER')
+    page.keyboard.press('Enter')
     time.sleep(3)
 
 def elemento_da_pagina(page):
@@ -361,16 +359,16 @@ def terceira_elemento(page):
     terceira_element = page.locator('xpath=/html/body/div[1]/form/div/div/div/div[1]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[1]/div[2]/div/div[7]')
     terceira_element.click()  # Adicione parênteses aqui
     time.sleep(3)
-    pyautogui.press('ENTER')
+    page.keyboard.press('Enter')
     time.sleep(3)
 
 
-def pressionar_tecla_seta_e_enter():
+def pressionar_tecla_seta_e_enter(page):
     for _ in range(2):
-        pyautogui.press('left')
+        page.keyboard.press('ArrowLeft')
         time.sleep(3)
 
-    pyautogui.press('ENTER')
+    page.keyboard.press('Enter')
     time.sleep(1)
 
 def procurar_elemento(page):
@@ -380,14 +378,14 @@ def procurar_elemento(page):
     procurar_element.click()
     time.sleep(3)
 
-    pyautogui.press('ENTER')
+    page.keyboard.press('Enter')
 
 def procurar_quarto_elemento(page):
     # quarto_element = page.locator('xpath=/html/body/div[1]/form/div/div/div/div[2]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[1]/div[2]/div/div[4]')
     quarto_element = page.locator('xpath=/html/body/div[1]/form/div/div/div/div[1]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[1]/div[2]/div/div[4]')
     quarto_element.click()
     time.sleep(3)
-    pyautogui.press('ENTER')
+    page.keyboard.press('Enter')
 
     time.sleep(3)
 
@@ -397,14 +395,14 @@ def colocar_seta_novamente(page):
     seta_element = page.locator('xpath=/html/body/div[1]/form/div/div/div/div[1]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[1]/div[1]/div[1]')
     seta_element.click
     time.sleep(3)
-    pyautogui.press('ENTER')
+    page.keyboard.press('Enter')
 
-def procurar_o_inicio_da_pagina():
+def procurar_o_inicio_da_pagina(page):
     for _ in range(3):
-        pyautogui.press('left')
+        page.keyboard.press('ArrowLeft')
         time.sleep(3)
 
-        pyautogui.press('ENTER')
+        page.keyboard.press('Enter')
     time.sleep(1)
 
 def procurar_quinto_elemento(page):
@@ -412,7 +410,7 @@ def procurar_quinto_elemento(page):
     quinto_element = page.locator('xpath=/html/body/div[1]/form/div/div/div/div[1]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[1]/div[1]/div[1]')
     quinto_element.click()
     time.sleep(3)
-    pyautogui.press('ENTER')
+    page.keyboard.press('Enter')
 
     time.sleep(3)
 
@@ -421,7 +419,7 @@ def segunda_vez_gerenciamento_de_estoque(page):
     gerenciamento_element = page.locator('xpath=/html/body/div[1]/form/div/div/div/div[1]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[2]/div[1]/div/div[2]/div[2]/div[3]/div')
     gerenciamento_element.click()
     time.sleep(3)
-    pyautogui.press('ENTER')
+    page.keyboard.press('Enter')
 
 def novamente_mostrar_tarefas(page):
     page.locator('xpath=/html/body/div[1]/form/div[1]/div/div/div[1]/div/div/div/div[3]/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div/div[1]/div[6]/table/tbody/tr/td[1]/div/div[1]').click()
@@ -506,17 +504,17 @@ def retornar_atualizar_processos(page):
 
     time.sleep(20) #deixar 20
 
-def press_tab_and_enter(num_tabs=23, tab_delay=0.1, enter_delay=5):
+def press_tab_and_enter(page, num_tabs=19, tab_delay=0.5, enter_delay=5):
     # Pressiona a tecla 'Tab' várias vezes
     for _ in range(num_tabs):
-        pyautogui.press('Tab')
+        page.keyboard.press('Tab')
         time.sleep(tab_delay)
 
     # Aguarda um período de tempo
     time.sleep(enter_delay)
 
     # Pressiona a tecla 'Enter'
-    pyautogui.press('Enter')
+    page.keyboard.press('Enter')
 
 def preencher_e_submeter_formulario(page):
     # Localize o campo de entrada
@@ -531,7 +529,7 @@ def preencher_e_submeter_formulario(page):
 
     # Pressione 'Tab' algumas vezes (no exemplo, 3 vezes) para navegar para o próximo elemento
     for _ in range(3):
-        pyautogui.press('Tab')
+        page.keyboard.press('Tab')
         time.sleep(3)
 
     # Pressione 'Enter' para enviar o formulário
@@ -539,26 +537,26 @@ def preencher_e_submeter_formulario(page):
     time.sleep(5)
 
 
-def encontrar_e_digitar_hub(hub):
+def encontrar_e_digitar_hub(page, hub):
     # Pressiona 'Tab' várias vezes (no exemplo, 7 vezes)
     for _ in range(7):
-        pyautogui.press('Tab')
+        page.keyboard.press('Tab')
     time.sleep(5)
 
 
     print(f'Digitando o hub: {hub}')
 
     # Simular a inserção do hub (neste caso, simulamos pressionando as teclas)
-    pyautogui.typewrite(hub)
+    page.keyboard.type(hub)
 
 
 
     time.sleep(3)
-    pyautogui.press('Tab')
+    page.keyboard.press('Tab')
     time.sleep(3)
 
 
-def combinar_e_digitar_informacoes(registro_contagem_ciclica, hub):
+def combinar_e_digitar_informacoes(page, registro_contagem_ciclica, hub):
 
 
     if registro_contagem_ciclica == "descartaveis":
@@ -611,23 +609,23 @@ def combinar_e_digitar_informacoes(registro_contagem_ciclica, hub):
 
 
     # Simular a inserção das informações (neste caso, simulamos pressionando as teclas)
-    pyautogui.hotkey("ctrl", "v")
+    page.keyboard.press("Control+V")
 
     time.sleep(15)
     for _ in range(14):
-        pyautogui.press('Tab')
+        page.keyboard.press('Tab')
     time.sleep(2)
-    pyautogui.press('ENTER')
+    page.keyboard.press('Enter')
     time.sleep(2)
 
     for _ in range(13):
-        pyautogui.press('Tab')
+        page.keyboard.press('Tab')
     time.sleep(2)
-    pyautogui.press('ENTER')
+    page.keyboard.press('Enter')
     time.sleep(10)
 
     # Feche o navegador
-    pyautogui.hotkey('ctrl', 'w')
+    page.keyboard.press('Control+W')
     print("Hub finalizado!")
     print("Iniciando próximo ciclo")
 
@@ -638,14 +636,11 @@ def progresso(t, f):
     p = p[:-2]
     print("Progresso atual: {}%".format(p))
 
-    
 
 def contagem_inventario(hub, registro_contagem_ciclica, elemento):
     with sync_playwright() as p:
-        browser = p.chromium.launch(headless=False)
+        browser = p.chromium.launch(headless=True)
         page = browser.new_page()
-
-
 
         fazer_login(page)
         acessar_contagens_de_ciclos(page)
@@ -672,15 +667,15 @@ def contagem_inventario(hub, registro_contagem_ciclica, elemento):
         pagina_inicial_novamente(page)
         elemento_da_seta(page)
         quantidade_de_pressionadas = 4
-        localizar_elemento()
+        localizar_elemento(page)
         elemento_da_pagina(page)
         terceira_elemento(page)
         quantidade_de_pressionadas = 2  
-        pressionar_tecla_seta_e_enter()
+        pressionar_tecla_seta_e_enter(page)
         procurar_elemento(page)
         procurar_quarto_elemento(page)
         colocar_seta_novamente(page)
-        procurar_o_inicio_da_pagina()
+        procurar_o_inicio_da_pagina(page)
         procurar_quinto_elemento(page)
         segunda_vez_gerenciamento_de_estoque(page)
         novamente_mostrar_tarefas(page)
@@ -692,15 +687,15 @@ def contagem_inventario(hub, registro_contagem_ciclica, elemento):
         retornar_pagina_ferramenta(page)
         retornar_processos_programados(page)
         retornar_atualizar_processos(page)
-        press_tab_and_enter()
+        press_tab_and_enter(page)
         preencher_e_submeter_formulario(page)
 
 
-        encontrar_e_digitar_hub(hub)
+        encontrar_e_digitar_hub(page, hub)
 
         # Chame a função para combinar e digitar as informações
 
-        combinar_e_digitar_informacoes(registro_contagem_ciclica, hub)
+        combinar_e_digitar_informacoes(page, registro_contagem_ciclica, hub)
 
 
 
@@ -710,42 +705,6 @@ def contagem_inventario(hub, registro_contagem_ciclica, elemento):
 def controlador():
 
 
-    vacina = {
-            "SC_RJ_1256": 4, # Segunda-feira
-            "BARRA_RJ_0608": 4, # Segunda-feira
-            "TATUAPE_SP_1337": 6, # Segunda-feira
-            "VL_OLIMPIA_SP_0446": 6, # Terça-feira
-            "ALPHAVILLE_SP_1094": 6, # Terça-feira
-            "SBERNARDO_SP_1175": 6, # Terça-feira
-            "CAMPINAS_SP_1507": 6, # Terça-feira
-            "BRASILIA_DF_0950": 6 # Sexta-feira
-    }
-
-    lab_vacina = {
-            "SC_RJ_1256": 3, # Terça-feira
-            "BARRA_RJ_0608": 3, # Terça-feira
-            "VL_OLIMPIA_SP_0446": 7, # Terça-feira
-            "ALPHAVILLE_SP_1094": 7, # Terça-feira
-            "SBERNARDO_SP_1175": 7, # Terça-feira
-            "CAMPINAS_SP_1507": 6, # Terça-feira
-            "TATUAPE_SP_1337": 6, # Quarta-feira
-            "BRASILIA": 7 # Sexta-feira
-
-    }
-
-    lab = {
-            "RECIFE_PE_1760":0,
-            "CURITIBA_PR_0870":4,
-            "SC_RJ_1256": 4, # Quarta-feira
-            "BARRA_RJ_0608": 4, # Quarta-feira
-            "VL_OLIMPIA_SP_0446": 4, # Quinta-feira
-            "ALPHAVILLE_SP_1094": 1, # Quinta-feira
-            "SBERNARDO_SP_1175": 4, # Quinta-feira
-            "CAMPINAS_SP_1507": 1, # Quinta-feira
-            "TATUAPE_SP_1337": 1            , # Sexta-feira
-            "BRASILIA": 7 # Sexta-feira
-
-    }
 
     duraveis = {
             "SC_RJ_1256": 1, # Terça-feira
