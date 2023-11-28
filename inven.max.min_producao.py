@@ -22,17 +22,18 @@ except:
     import pandas
     import time
 
+print("Iniciando listagem mín-máx")
 def realizar_login(page):
     page.goto("https://login-evcj-saasfaprod1.fa.ocs.oraclecloud.com")
     time.sleep(3)
 
     username_input = page.locator('xpath=/html/body/div[2]/div[3]/div/main/form/input[1]')
-    username_input.fill("mariana.maciel@beepsaude.com.br")
+    username_input.fill("jefferson.barbosa@beepsaude.com.br")
 
     time.sleep(2)
 
     password_input = page.locator('xpath=/html/body/div[2]/div[3]/div/main/form/input[2]')
-    password_input.fill("Za7yu8ma@")
+    password_input.fill("1173beep.")
     page.keyboard.press("Enter")
     time.sleep(2)
 
@@ -45,7 +46,7 @@ def acessar_contagens_ciclos(page):
 def pagina_ferramenta(page):
     # Localize o elemento da página usando o seletor XPath fornecido
    #ferramenta_element = page.locator('xpath=/html/body/div[1]/form/div/div/div/div[2]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[1]/div[2]/div/div[12]')
-    ferramenta_element = page.locator('xpath=/html/body/div[1]/form/div/div/div/div[1]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[1]/div[2]/div/div[12]')
+    ferramenta_element = page.locator('xpath=/html/body/div[1]/form/div/div/div/div[1]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[1]/div[2]/div/div[4]')
     # Clique no elemento
     ferramenta_element.click()
 
@@ -54,7 +55,7 @@ def pagina_ferramenta(page):
 
 def processos_programados(page):
    #programados_element =  page.locator('xpath=/html/body/div[1]/form/div/div/div/div[2]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[2]/div[23]/div/div[2]/div[2]/div[5]/div')
-    programados_element = page.locator ('xpath=/html/body/div[1]/form/div/div/div/div[1]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[2]/div[23]/div/div[2]/div[2]/div[5]/div')
+    programados_element = page.locator ('xpath=/html/body/div[1]/form/div/div/div/div[1]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[2]/div[7]/div/div[2]/div[2]/div[4]')
     programados_element.click()
 
     time.sleep(5)
@@ -196,7 +197,7 @@ def processos_programados_segundo(page):
     # # Pressione 'Enter' para enviar o formulário
     page.keyboard.press('Enter')
     time.sleep(5)
-    print("Iniciando primeiro processo")
+    print("Iniciando segundo processo")
 
 
 def encontrar_segundo(page, num_proc):
@@ -380,24 +381,24 @@ def upload_drive_min_max(nome, path, tipo):
 
 def controlador():
         lab = [
-            'RECIFE_PE_1760',
+            #'RECIFE_PE_1760',
             #'BARRA_RJ_0608',
             #'SC_RJ_1256',
             #'TATUAPE_SP_1337',
             #'VL_OLIMPIA_SP_0446',
-            #'ALPHAVILLE_SP_1094',
+            'ALPHAVILLE_SP_1094',
             #'SBERNARDO_SP_1175',
             #'CAMPINAS_SP_1507',
             #'BRASILIA_DF_0950'
         ]
 
         sv = [
-            'RECIFE_PE_1760',
+            #'RECIFE_PE_1760',
             #'BARRA_RJ_0608',
             #'SC_RJ_1256',
             #'TATUAPE_SP_1337',
             #'VL_OLIMPIA_SP_0446',
-            #'ALPHAVILLE_SP_1094',
+            'ALPHAVILLE_SP_1094',
             #'SBERNARDO_SP_1175',
             #'CAMPINAS_SP_1507',
             #'BRASILIA_DF_0950'
@@ -407,7 +408,7 @@ def controlador():
 
         for hub in lab:
             with sync_playwright() as p:
-                browser = p.chromium.launch(headless=False)
+                browser = p.chromium.launch(headless=True)
                 page = browser.new_page()
 
                 realizar_login(page)
