@@ -18,6 +18,8 @@ except:
     import time
     import tkinter as tk
 
+from .modificacao_inventario import exec
+
 lista_vac = [0,0,0,0,0,0,0,0]
 lista_labvac = [0,0,0,0,0,0,0,0]
 lista_lab = [0,0,0,0,0,0,0,0]
@@ -977,14 +979,7 @@ def controlador():
     print("Fim da execução")
 
 controlador()
-
-
-
-
-
-
-
-
+exec()
 
 
 #subinventario

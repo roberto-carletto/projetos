@@ -21,7 +21,7 @@ def create_auth():
     auth = ('rafael.fernandes@beepsaude.com.br', 'Beep7792')
     return auth
 
-def upload_drive(path, nome):
+def upload_drive(path, nome, cycle_count_name):
 
     name = nome
     path = path
@@ -40,70 +40,72 @@ engine_bi = create_engine()
 df_total = pd.DataFrame()
 df_inv = pd.read_excel('./Listagens de Inventário.xlsx')
 
-for index, row in df_inv.iterrows():
+def exec():
 
-    offset = 0
-    limit = 100
-    terminou = False
+    for index, row in df_inv.iterrows():
 
-    df = pd.DataFrame()
+        offset = 0
+        limit = 100
+        terminou = False
 
-    cycle_count_name = row['Nome da Contagem'] #'ALMOX - LAB - TATUAPÉ'
-    encoded_cycle_count_name = urllib.parse.quote(cycle_count_name)
+        df = pd.DataFrame()
 
-    organization_name = row['Organização de Estoque'] #'TATUAPE_SP_1337'
-    encoded_organization_name = urllib.parse.quote(organization_name)
+        cycle_count_name = row['Nome da Contagem'] #'ALMOX - LAB - TATUAPÉ'
+        encoded_cycle_count_name = urllib.parse.quote(cycle_count_name)
 
-    time_print(f'{organization_name.replace("/", "-")} - {cycle_count_name.replace("/", "-")}')
+        organization_name = row['Organização de Estoque'] #'TATUAPE_SP_1337'
+        encoded_organization_name = urllib.parse.quote(organization_name)
 
-    while not terminou:
+        time_print(f'{organization_name.replace("/", "-")} - {cycle_count_name.replace("/", "-")}')
 
-        path_url = f'''/fscmRestApi/resources/11.13.18.05/cycleCountSequenceDetails?offset={offset}&limit={limit}&q=OrganizationName={encoded_organization_name};CycleCountName={encoded_cycle_count_name};CountSequenceStatus={urllib.parse.quote("Pending count")}+or+{urllib.parse.quote("Recount")}'''
+        while not terminou:
 
-        url = server_url + path_url
+            path_url = f'''/fscmRestApi/resources/11.13.18.05/cycleCountSequenceDetails?offset={offset}&limit={limit}&q=OrganizationName={encoded_organization_name};CycleCountName={encoded_cycle_count_name};CountSequenceStatus={urllib.parse.quote("Pending count")}+or+{urllib.parse.quote("Recount")}'''
 
-        response = requests.get(url, headers=headers, auth=auth)
-        response_json = json.loads(response.text)
+            url = server_url + path_url
 
-        if response_json['hasMore'] == False:
-            terminou = True
-        else:
-            offset += response_json['limit']
+            response = requests.get(url, headers=headers, auth=auth)
+            response_json = json.loads(response.text)
 
-        df = pd.concat([
-            df,
-            pd.DataFrame(response_json['items'])
-        ])
+            if response_json['hasMore'] == False:
+                terminou = True
+            else:
+                offset += response_json['limit']
 
-    if len(df.index) > 0:
+            df = pd.concat([
+                df,
+                pd.DataFrame(response_json['items'])
+            ])
 
-        df = df[[
-            'CycleCountName',
-            'OrganizationName',
-            'CountSequence',
-            'ItemNumber',
-            'ItemDescription',
-            'Subinventory',
-            'LotNumber',
-            'CountQuantity',
-            'CountUOM'
-        ]].rename(columns={
-            'CycleCountName': 'Nome da Contagem',
-            'OrganizationName': 'Organização',
-            'CountSequence': 'Sequência de Contagem',
-            'ItemNumber': 'Item',
-            'ItemDescription': 'Descrição',
-            'Subinventory': 'Subinventário',
-            'LotNumber': 'Lote',
-            'CountQuantity': 'Quantidade da Contagem',
-            'CountUOM': 'Unidade de Medida',
-        }).sort_values(
-            by=['Item'],
-            ascending=[True]
-        )
+        if len(df.index) > 0:
 
-        df.to_excel(f'./Listagens de Inventário/{organization_name.replace("/", "-")} - {cycle_count_name.replace("/", "-")}.xlsx', index=False)
+            df = df[[
+                'CycleCountName',
+                'OrganizationName',
+                'CountSequence',
+                'ItemNumber',
+                'ItemDescription',
+                'Subinventory',
+                'LotNumber',
+                'CountQuantity',
+                'CountUOM'
+            ]].rename(columns={
+                'CycleCountName': 'Nome da Contagem',
+                'OrganizationName': 'Organização',
+                'CountSequence': 'Sequência de Contagem',
+                'ItemNumber': 'Item',
+                'ItemDescription': 'Descrição',
+                'Subinventory': 'Subinventário',
+                'LotNumber': 'Lote',
+                'CountQuantity': 'Quantidade da Contagem',
+                'CountUOM': 'Unidade de Medida',
+            }).sort_values(
+                by=['Item'],
+                ascending=[True]
+            )
 
-        path = f'./Listagens de Inventário/{organization_name.replace("/", "-")} - {cycle_count_name.replace("/", "-")}.xlsx'
-        nome = cycle_count_name.replace("/", "-")
-        upload_drive(path, nome)
+            df.to_excel(f'./Listagens de Inventário/{organization_name.replace("/", "-")} - {cycle_count_name.replace("/", "-")}.xlsx', index=False)
+
+            path = f'./Listagens de Inventário/{organization_name.replace("/", "-")} - {cycle_count_name.replace("/", "-")}.xlsx'
+            nome = cycle_count_name.replace("/", "-")
+            upload_drive(path, nome, cycle_count_name)
