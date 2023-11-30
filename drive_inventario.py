@@ -1,7 +1,20 @@
 from __future__ import print_function
 
-import os.path
-import datetime
+
+import os
+try:
+    from google.auth.transport.requests import Request
+    from google.oauth2.credentials import Credentials
+    from google_auth_oauthlib.flow import InstalledAppFlow
+    from googleapiclient.discovery import build
+    from googleapiclient.errors import HttpError
+    from googleapiclient.http import MediaFileUpload
+    from google.oauth2 import service_account
+except ImportError:
+    print("Algumas biblioteca não estão instaladas. Instalando as dependências...")
+    os.system("pip install --upgrade google-api-python-client google-auth-httplib2 google-auth-oauthlib")
+    print("Dependências instaladas com sucesso.")
+
 from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import InstalledAppFlow
@@ -15,7 +28,7 @@ from google.oauth2 import service_account
 class google_drive():
     def __init__(self):
         self.scope = ['https://www.googleapis.com/auth/drive']
-        self.service_account_json_key = r"C:\Users\Beep Saude\projetos\credentials.json"
+        self.service_account_json_key = "credentials.json"
         self.credentials = service_account.Credentials.from_service_account_file(
                                     filename=self.service_account_json_key,
                                     scopes=self.scope)

@@ -15,7 +15,7 @@ from google.oauth2 import service_account
 class google_drive():
     def __init__(self):
         self.scope = ['https://www.googleapis.com/auth/drive']
-        self.service_account_json_key = r"C:\Users\Beep Saude\projetos\credentials.json"
+        self.service_account_json_key = "credentials.json"
         self.credentials = service_account.Credentials.from_service_account_file(
                                     filename=self.service_account_json_key,
                                     scopes=self.scope)
@@ -51,3 +51,4 @@ class google_drive():
         uploaded_file = self.service.files().create(body=file_metadata, media_body=media).execute()
         return print(f'File uploaded com sucesso no ID: {uploaded_file.get("id")}')
 
+google_drive()

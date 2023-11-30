@@ -6,18 +6,22 @@ try:
     import time
     import tkinter as tk
 except:
+    print("Algumas biblioteca não estão instaladas. Instalando as dependências...")
     path = os.getcwd()
     os.chdir(path)
-    cmd = 'pip install -r requirements.txt'
-    os.system(cmd)
+    os.system('pip install pyperclip')
+    os.system('pip install playwright')
     os.system('playwright install')
-    import pyperclip
-    from playwright.sync_api import sync_playwright
-    from datetime import datetime
-    import pandas
-    import time
-    import tkinter as tk
+    print("Dependências instaladas com sucesso.")
 
+import pyperclip
+from playwright.sync_api import sync_playwright
+from datetime import datetime
+import time
+import tkinter as tk
+
+
+from modificacao_inventario import exec
 
 lista_vac = [0,0,0,0,0,0,0,0]
 lista_labvac = [0,0,0,0,0,0,0,0]
@@ -218,7 +222,7 @@ def acessar_contagens_de_ciclos(page):
     page.keyboard.press("Enter")
     time.sleep(3)
 
-    page.locator('xpath=/html/body/div[1]/form/div/div/div/div[2]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[2]/div[1]/div/div[2]/div[2]/div[3]/div').click()
+    page.locator('xpath=/html/body/div[1]/form/div/div/div/div[1]/div/div/div/div[3]/div/div[1]/div/div/div/div/div/div[1]/div/div/div[1]/div/div[1]/span/div/div/div[1]/div/div[1]/div[2]/div/div[1]/div/div[1]/div/div/div/div[1]/div/div/div[1]/div/div[2]/div[1]/div/div[2]/div[2]/div[3]/div').click()
     time.sleep(5)
 
 def mostrar_tarefas(page):
@@ -235,7 +239,7 @@ def acessar_gerenciar_contagens_ciclos(page):
 
 def acessar_organizacao(page):
     # page.locator('xpath=/html/body/div[1]/form/div[2]/div[2]/div/table/tbody/tr/td/div/table/tbody/tr/td[2]/div/div[1]/div/div/span/div/div[1]/div/div/table/tbody/tr/td/table/tbody/tr[2]/td[2]/div/div[2]/div/ul/li[2]/a').click()
-    page.locator('xpath=/html/body/div[1]/form/div[2]/div[2]/div[1]/div[1]/table/tbody/tr/td/div/div/table/tbody/tr[2]/td[2]/table/tbody/tr/td[2]/span/input').click()
+    page.locator('xpath=/html/body/div[1]/form/div[2]/div[2]/div/table/tbody/tr/td/div/table/tbody/tr/td[2]/div/div[1]/div/div/span/div/div[1]/div/div/table/tbody/tr/td/table/tbody/tr[2]/td[2]/div/div[2]/div/ul/li[2]/a').click()
     time.sleep(4)
 
 
@@ -978,13 +982,4 @@ def controlador():
     print("Fim da execução")
 
 controlador()
-
-
-#subinventario
-
-#  Lab descartaveis   'xpath=/html/body/div[1]/form/div[1]/div/div/div[2]/div/div/div/div[3]/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div/div[1]/div[2]/div/div/div[1]/div/div[1]/table/tbody/tr/td[1]/div/div/div/div/div/div/div/div/div/div/div/div/div[2]/div/div/div/div/div/div/div/div[3]/div[2]/div/span/div[1]/div[2]/div/div[2]/table/tbody/tr[5]/td[2]/div',
-#  Almox. Lab         'xpath=/html/body/div[1]/form/div[1]/div/div/div[2]/div/div/div/div[3]/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div/div[1]/div[2]/div/div/div[1]/div/div[1]/table/tbody/tr/td[1]/div/div/div/div/div/div/div/div/div/div/div/div/div[2]/div/div/div/div/div/div/div/div[3]/div[2]/div/span/div[1]/div[2]/div/div[2]/table/tbody/tr[2]/td[2]/div',
-# Almox lab/vac       'xpath=/html/body/div[1]/form/div[1]/div/div/div[2]/div/div/div/div[3]/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div/div[1]/div[2]/div/div/div[1]/div/div[1]/table/tbody/tr/td[1]/div/div/div/div/div/div/div/div/div/div/div/div/div[2]/div/div/div/div/div/div/div/div[3]/div[2]/div/span/div[1]/div[2]/div/div[2]/table/tbody/tr[3]/td[2]/div',      
-# Almox vac           'xpath=/html/body/div[1]/form/div[1]/div/div/div[2]/div/div/div/div[3]/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div/div[1]/div[2]/div/div/div[1]/div/div[1]/table/tbody/tr/td[1]/div/div/div/div/div/div/div/div/div/div/div/div/div[2]/div/div/div/div/div/div/div/div[3]/div[2]/div/span/div[1]/div[2]/div/div[2]/table/tbody/tr[4]/td[2]/div', 
-# # Almox DURAVEIS    'xpath=/html/body/div[1]/form/div[1]/div/div/div[2]/div/div/div/div[3]/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div/div[1]/div[2]/div/div/div[1]/div/div[1]/table/tbody/tr/td[1]/div/div/div/div/div/div/div/div/div/div/div/div/div[2]/div/div/div/div/div/div/div/div[3]/div[2]/div/span/div[1]/div[2]/div/div[2]/table/tbody/tr[6]/td[2]/div',
-# Insumos             'xpath=/html/body/div[1]/form/div[1]/div/div/div[2]/div/div/div/div[3]/div/div[2]/div/div/div/div/div/div/div/div[2]/div/div[1]/div/div/div/div[1]/div[2]/div/div/div[1]/div/div[1]/table/tbody/tr/td[1]/div/div/div/div/div/div/div/div/div/div/div/div/div[2]/div/div/div/div/div/div/div/div[3]/div[2]/div/span/div[1]/div[2]/div/div[2]/table/tbody/tr[3]/td[2]/div',
+exec()

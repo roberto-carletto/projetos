@@ -1,3 +1,22 @@
+import os
+try:
+    import requests
+    import json
+    import pandas as pd
+    import urllib.parse
+    from datetime import datetime
+    import pytz
+except:
+    print("Algumas biblioteca não estão instaladas. Instalando as dependências...")
+    path = os.getcwd()
+    os.chdir(path)
+    os.system('pip install requests')
+    os.system('pip install pandas')
+    os.system('pip install pytz')
+    os.system('pip install urllib')
+    os.system('pip install openpyxl')
+    print("Dependências instaladas com sucesso.")
+
 import requests
 import json
 import pandas as pd
@@ -38,7 +57,8 @@ server_url = 'https://fa-evcj-saasfaprod1.fa.ocs.oraclecloud.com'
 auth = create_auth()
 engine_bi = create_engine()
 df_total = pd.DataFrame()
-df_inv = pd.read_excel('./Listagens de Inventário.xlsx')
+df_inv = pd.read_excel('./Listagens de Inventário.xlsx', engine='openpyxl')
+
 
 def exec():
 
